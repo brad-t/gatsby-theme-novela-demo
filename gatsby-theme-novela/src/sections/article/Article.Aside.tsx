@@ -9,7 +9,6 @@ import { clamp } from "@utils";
 
 interface AsideProps {
   children: ReactNode[] | ReactNode;
-  right?: boolean;
   height: number;
   offset: number;
 }
@@ -29,36 +28,46 @@ interface AsideProps {
  *                  |  content  |
  *
  */
-function Aside({ offset, height, children, right }: AsideProps) {
-  const asideRef = useRef<HTMLDivElement>(null);
+function Aside({ offset, height, children }: AsideProps) {
+  const progressRef = useRef<HTMLDivElement>(null);
 
   const [progress, setProgress] = useState<number>(0);
   const [imageOffset, setImageOffset] = useState<number>(0);
   const [shouldFixAside, setShouldFixAside] = useState<boolean>(false);
 
-  const show = progress > -500 && progress < 100.2;
+  const show = imageOffset && progress < 94;
+  const childrenWithProps = React.Children.map(children, child =>
+    React.cloneElement(child, { show }),
+  );
 
   useEffect(() => {
     const imageRect = document
       .getElementById("ArticleImage__Hero")
       .getBoundingClientRect();
-    const imageOffsetFromTopOfWindow = imageRect.top + window.pageYOffset;
+
+    const imageOffsetFromTopOfWindow = imageRect.top + window.scrollY;
 
     setImageOffset(imageOffsetFromTopOfWindow);
 
     const handleScroll = (event: Event) => {
-      const el = asideRef.current;
+      const el = progressRef.current;
       const top = el.getBoundingClientRect().top;
       const height = el.offsetHeight;
       const windowHeight =
         window.innerHeight || document.documentElement.clientHeight;
 
-      const shouldFix = top + height / 2 <= windowHeight / 2;
-      setShouldFixAside(shouldFix);
       const percentComplete =
-        ((window.scrollY - offset) / (height - offset)) * 100;
+        ((window.scrollY - offset) / (height - offset)) * -1;
 
-      // setProgress(clamp(+percentComplete.toFixed(2), -500, 105));
+      setProgress(clamp(+percentComplete.toFixed(2), 0, 105));
+
+      if (top + window.scrollY < imageOffsetFromTopOfWindow) {
+        return setShouldFixAside(false);
+      }
+
+      if (top + height / 2 <= windowHeight / 2) {
+        return setShouldFixAside(true);
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -70,28 +79,24 @@ function Aside({ offset, height, children, right }: AsideProps) {
     };
   }, [offset, height]);
 
-  const childrenWithProps = React.Children.map(children, child =>
-    React.cloneElement(child, { show }),
-  );
-
   return (
-    <Frame right={right}>
+    <AsideContainer>
       <Align
         show={show}
         imageOffset={imageOffset}
         shouldFixAside={shouldFixAside}
       >
-        <div ref={asideRef}>
+        <div ref={progressRef}>
           <HandleOverlap>{childrenWithProps}</HandleOverlap>
         </div>
       </Align>
-    </Frame>
+    </AsideContainer>
   );
 }
 
 export default Aside;
 
-const Frame = styled.aside`
+const AsideContainer = styled.aside`
   display: flex;
   margin: 0 auto;
   max-width: 1140px;
@@ -101,7 +106,11 @@ const Frame = styled.aside`
   `}
 `;
 
-const Align = React.memo(styled.div`
+const Align = React.memo(styled.div<{
+  show: boolean;
+  shouldFixAside: boolean;
+  imageOffset: number;
+}>`
   position: ${p => (p.shouldFixAside ? "fixed" : "absolute")};
   display: flex;
   transform: translateY(0px);

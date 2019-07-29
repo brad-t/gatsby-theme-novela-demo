@@ -28,7 +28,6 @@ const Microdata = ({
     author,
     hero,
     publicationDate,
-    updatedAt,
     backgroundImage,
     timeToRead,
     path,
@@ -42,16 +41,14 @@ const Microdata = ({
   sectionName: string;
   sectionUrl: string;
 }) => {
-  let isoDateStrPublished;
-  let isoDateStrUpdated;
+  // let isoDateStrPublished;
 
-  try {
-    isoDateStrPublished = new Date(publicationDate!).toISOString();
-    isoDateStrUpdated = new Date(updatedAt!).toISOString();
-  } catch (error) {
-    // Now all browsers can parse our date string. That's fine. The crawler can
-    console.warn(error);
-  }
+  // try {
+  //   isoDateStrPublished = new Date(publicationDate!).toISOString();
+  // } catch (error) {
+  //   // Now all browsers can parse our date string. That's fine. The crawler can
+  //   console.warn(error);
+  // }
 
   return (
     <>

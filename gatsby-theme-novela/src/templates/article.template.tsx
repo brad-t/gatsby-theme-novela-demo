@@ -21,8 +21,6 @@ import ArticleMicrodata from "../sections/article/Article.Microdata";
 import ArticleShare from "../sections/article/Article.Share";
 import ArticleHighlight from "../sections/article/Article.Highlight";
 
-import { IDetailPage } from "@typings";
-
 function Article({ pageContext, location, mode, toggleMode }) {
   const contentSectionRef = useRef<HTMLElement>(null);
 
@@ -36,6 +34,10 @@ function Article({ pageContext, location, mode, toggleMode }) {
   useEffect(() => {
     const calculateBodySize = throttle(() => {
       const contentSection = contentSectionRef.current;
+      const imageRect = document
+        .getElementById("ArticleImage__Hero")
+        .getBoundingClientRect();
+      const imageOffsetFromTopOfWindow = imageRect.top + window.scrollY;
 
       if (!contentSection) return;
 
@@ -59,7 +61,7 @@ function Article({ pageContext, location, mode, toggleMode }) {
 
       // Set the height and offset of the content area
       setContentHeight(contentSection.getBoundingClientRect().height);
-      setContentOffset(contentSection.offsetTop);
+      setContentOffset(imageOffsetFromTopOfWindow);
     }, 20);
 
     calculateBodySize();
