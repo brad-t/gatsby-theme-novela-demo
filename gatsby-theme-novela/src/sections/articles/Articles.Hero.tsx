@@ -21,7 +21,7 @@ const authorQuery = graphql`
           avatar {
             image: childImageSharp {
               fluid(maxWidth: 100, quality: 100) {
-                ...GatsbyImageSharpFluid_withWebp_noBase64
+                ...GatsbyImageSharpFluid_withWebp
               }
             }
           }

@@ -17,7 +17,8 @@ const templates = {
 const pageLength = 6; // How many nodes should be displayed on each list pages
 
 // https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-transformer-sharp/src/fragments.js
-const GatsbyImageSharpFluid_withWebp_noBase64 = `
+const GatsbyImageSharpFluid_withWebp = `
+  base64
   aspectRatio
   src
   srcSet
@@ -44,12 +45,12 @@ const articlesQuery = `{
         hero {
           full: childImageSharp {
             fluid(maxWidth: 944, maxHeight: 425, quality: 100) {
-              ${GatsbyImageSharpFluid_withWebp_noBase64}
+              ${GatsbyImageSharpFluid_withWebp}
             }
           }
           preview: childImageSharp {
             fluid(maxWidth: 800, quality: 100) {
-              ${GatsbyImageSharpFluid_withWebp_noBase64}
+              ${GatsbyImageSharpFluid_withWebp}
             }
           }
         }
@@ -65,7 +66,7 @@ const articlesQuery = `{
         avatar {
           image: childImageSharp {
             fluid(maxWidth: 50, quality: 100) {
-              ${GatsbyImageSharpFluid_withWebp_noBase64}
+              ${GatsbyImageSharpFluid_withWebp}
             }
           }
         }
