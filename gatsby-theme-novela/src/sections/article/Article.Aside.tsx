@@ -55,7 +55,6 @@ function Aside({ offset, height, children, right }: AsideProps) {
 
       const shouldFix = top + height / 2 <= windowHeight / 2;
       setShouldFixAside(shouldFix);
-      // console.log(shouldFix);
       const percentComplete =
         ((window.scrollY - offset) / (height - offset)) * 100;
 

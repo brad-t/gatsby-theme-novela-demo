@@ -1,7 +1,12 @@
 {
   "private": true,
   "workspaces": [
-    "gatsby-theme-blog",
+    "gatsby-theme-novela",
     "site"
-  ]
+  ],
+  "scripts": {
+    "build:theme": "yarn --cwd ./gatsby-theme-novela build",
+    "build:site": "yarn --cwd ./site build",
+    "build": "yarn build:theme && yarn build:site"
+  }
 }
