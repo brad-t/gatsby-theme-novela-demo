@@ -24,7 +24,7 @@ function GridLayoutProvider({ children, articles }: GridLayoutProviderProps) {
   }
 
   useEffect(() => {
-    setGridLayout(localStorage.getItem("gridLayout"));
+    setGridLayout(localStorage.getItem("gridLayout") || "tiles");
     setHasSetGridLayout(true);
   }, []);
 

@@ -22,7 +22,6 @@ import ArticlesFooter from "../sections/articles/Articles.Footer";
 function ArticlesPage({ data, location, pageContext }) {
   // const { seo } = data.allContentfulPage.edges[0].node
   const articles = pageContext.group;
-
   return (
     <ArticlesGridLayoutProvider articles={articles}>
       <Layout>

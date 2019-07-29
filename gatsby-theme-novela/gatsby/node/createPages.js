@@ -39,6 +39,7 @@ const articlesQuery = `{
         title
         author
         date(formatString: "MMMM Do, YYYY")
+        dateForSEO: date
         timeToRead
         excerpt
         body
@@ -51,6 +52,11 @@ const articlesQuery = `{
           preview: childImageSharp {
             fluid(maxWidth: 800, quality: 100) {
               ${GatsbyImageSharpFluid_withWebp}
+            }
+          }
+          seo: childImageSharp {
+            fixed(width: 1200, quality: 100) {
+              src
             }
           }
         }

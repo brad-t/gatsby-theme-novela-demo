@@ -17,7 +17,7 @@ import Aside from "../sections/article/Article.Aside";
 import ArticleHero from "../sections/article/Article.Hero";
 import ArticleControls from "../sections/article/Article.Controls";
 import ArticlesNext from "../sections/article/Article.Next";
-import ArticleMicrodata from "../sections/article/Article.Microdata";
+import ArticleSEO from "../sections/article/Article.SEO";
 import ArticleShare from "../sections/article/Article.Share";
 import ArticleHighlight from "../sections/article/Article.Highlight";
 
@@ -72,7 +72,7 @@ function Article({ pageContext, location, mode, toggleMode }) {
 
   return (
     <Layout>
-      <ArticleMicrodata article={article} location={location} />
+      <ArticleSEO article={article} location={location} />
       <ArticleHero article={article} author={author} />
       <Aside {...scrollInfo}>
         <Progress {...scrollInfo} />
@@ -131,20 +131,6 @@ const Gradient = styled.div`
   position: relative;
   background: ${p => p.theme.mode.gradient};
   transition: background 0.4s ease-in-out;
-`;
-
-const Meta = styled.div`
-  width: 100%;
-  max-width: 680px;
-  margin: 0 auto;
-  font-size: 14px;
-  color: ${p => p.theme.mode.text};
-  margin-bottom: 80px;
-
-  ${mediaqueries.tablet`
-    padding: 0 20px;
-    margin-bottom: 50px;
-  `};
 `;
 
 const NextArticle = styled(Section)`
