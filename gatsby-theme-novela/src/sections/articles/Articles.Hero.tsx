@@ -50,6 +50,7 @@ function ArticlesHero() {
   const siteMetadata = results.site.edges[0].node.siteMetadata;
   const tilesIsActive = hasSetGridLayout && gridLayout === "tiles";
 
+  console.log({ gridLayout, hasSetGridLayout });
   return (
     <Section relative>
       <HeadingContainer>

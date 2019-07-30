@@ -1,46 +1,12 @@
 module.exports = ({ routerProps, prevRouterProps, getSavedScrollPosition }) => {
   const currentPosition = getSavedScrollPosition(routerProps.location);
   const topOfPage = [0, 0];
-  const paginatedPages = ["/"];
   /**
    * Check that the previous page was a paginated page, because we want to go
    * to the top of the page if the user clicks on research or announcments. If
    * the previous page is a paginated one we want to stay at the location instead
    * of navigating ot the top.
    */
-  const previousLocation =
-    (prevRouterProps && prevRouterProps.location.pathname) || "";
-  const nextLocation = (routerProps && routerProps.location.pathname) || "";
-
-  /**
-   * We need to check that path the current and next page that is being navigated
-   * to has pagination. If they both have pagination, then we want to keep the
-   * scroll position so the user doesn't get thrown to the the top of the page.
-   */
-  const checkIfLocationHasPagination = (location, pathname) => {
-    const pathParts = location.split("/");
-
-    // Does it have page in the URL? Is it one of the pagination pages?
-    return (
-      pathParts[2] === "page" ||
-      pathParts[3] === "page" ||
-      location === pathname ||
-      location.replace(/\/$/, "") === pathname
-    );
-  };
-
-  const applyPaginationScrollPosition = paginatedPages.some(pathname => {
-    const previousPageIsPaginated = checkIfLocationHasPagination(
-      previousLocation,
-      pathname,
-    );
-    const nextPageIsPaginated = checkIfLocationHasPagination(
-      nextLocation,
-      pathname,
-    );
-
-    return previousPageIsPaginated && nextPageIsPaginated;
-  });
 
   // Default to top of page
   let previousPosition = topOfPage;
@@ -55,7 +21,7 @@ module.exports = ({ routerProps, prevRouterProps, getSavedScrollPosition }) => {
    * we want to make sure the page doesn't go to the top on each action so we check
    * some logic to ensure they are still at the same scroll position
    */
-  if (applyPaginationScrollPosition) {
+  if (previousPosition) {
     window.scrollTo(...previousPosition);
 
     /**

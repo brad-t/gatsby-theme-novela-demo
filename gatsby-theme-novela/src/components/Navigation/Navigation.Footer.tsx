@@ -28,7 +28,7 @@ function Footer() {
   const name = results.site.edges[0].node.siteMetadata.name;
 
   return (
-    <div styles={{ position: "relative" }}>
+    <>
       <FooterGradient />
       <Section narrow>
         <HoritzontalRule />
@@ -41,7 +41,7 @@ function Footer() {
           </div>
         </FooterContainer>
       </Section>
-    </div>
+    </>
   );
 }
 
@@ -62,6 +62,7 @@ const FooterContainer = styled.div`
 `;
 
 const HoritzontalRule = styled.div`
+  position: relative;
   margin: 140px auto 50px;
   border-bottom: 1px solid ${p => p.theme.colors.horizontalRule};
 
