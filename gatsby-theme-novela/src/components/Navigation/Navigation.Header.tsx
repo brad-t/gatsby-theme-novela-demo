@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "@emotion/styled";
 import { Link } from "gatsby";
-import { useThemeUI, useColorMode } from "theme-ui";
+import { useColorMode } from "theme-ui";
 
 import Section from "@components/Section";
 import Logo from "@components/Logo";
@@ -9,11 +9,14 @@ import Logo from "@components/Logo";
 import mediaqueries from "@styles/media";
 
 function NavigationHeader(params) {
+  const [colorMode] = useColorMode();
+  const fill = colorMode === "dark" ? "#fff" : "#000";
+
   return (
     <Section>
       <NavContainer>
         <Link to="/">
-          <Logo />
+          <Logo fill={fill} />
         </Link>
         <NavControls>
           <SharePageButton />
@@ -136,7 +139,7 @@ const ToolTip = styled.div<{ isDark: boolean; hasCopied: boolean }>`
   position: absolute;
   padding: 4px 13px;
   background: ${p => (p.isDark ? "#000" : "rgba(0,0,0,0.1)")};
-  color: #000;
+  color: ${p => (p.isDark ? "##fff" : "rgba(0,0,0,0.1)")};
   border-radius: 5px;
   font-size: 14px;
   top: -35px;

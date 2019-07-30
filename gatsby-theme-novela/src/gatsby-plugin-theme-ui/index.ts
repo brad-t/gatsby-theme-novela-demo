@@ -6,6 +6,7 @@ import styles from "./styles";
 import prism from "./prism";
 
 export default merge({
+  useCustomProperties: true,
   initialColorMode: `light`,
   fonts: {
     serif: "'Merriweather', serif",

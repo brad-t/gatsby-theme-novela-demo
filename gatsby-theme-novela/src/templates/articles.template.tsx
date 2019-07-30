@@ -47,5 +47,5 @@ function ArticlesPage({ data, location, pageContext }) {
 export default ArticlesPage;
 
 const ArticlesGradient = styled.div`
-  background: linear-gradient(180deg, rgba(217, 219, 224, 0) 82%, #d9dbe0 100%);
+  background: ${p => p.theme.colors.gradient};
 `;

@@ -1,11 +1,7 @@
-import React, { Component } from "react";
+import React from "react";
 import styled from "@emotion/styled";
-import { navigate } from "gatsby";
 
 import Navigation from "@components/Navigation/Navigation.Header";
-import Footer from "@components/Navigation/Navigation.Footer";
-
-import { ExIcon } from "../../icons/ui";
 
 import mediaqueries from "@styles/media";
 
@@ -20,4 +16,6 @@ function LayoutContainer(props) {
 
 export default LayoutContainer;
 
-const SiteContainer = styled.div``;
+const SiteContainer = styled.div`
+  background: ${p => p.theme.colors.background};
+`;

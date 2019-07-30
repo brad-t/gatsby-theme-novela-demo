@@ -97,7 +97,6 @@ export default Article;
 const MobileControls = styled.div`
   position: relative;
   padding-top: 65px;
-  background: white;
   transition: background 0.2s linear;
   text-align: center;
 
@@ -110,7 +109,6 @@ const ArticleBody = styled.article`
   position: relative;
   padding: 160px 0 35px;
   padding-left: 68px;
-  background: white;
   transition: background 0.2s linear;
 
   ${mediaqueries.tablet`
@@ -120,7 +118,7 @@ const ArticleBody = styled.article`
 
 const Gradient = styled.div`
   position: relative;
-  background: linear-gradient(180deg, #fff 66%, #d9dbe0 100%);
+  background: ${p => p.theme.colors.gradient};
   transition: background 0.4s ease-in-out;
 `;
 

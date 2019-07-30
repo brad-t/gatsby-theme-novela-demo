@@ -1,11 +1,12 @@
 import React from "react";
-import { ThemeProvider } from "theme-ui";
+import { ThemeProvider, useColorMode } from "theme-ui";
 import { Global } from "@emotion/core";
 
 import Container from "@components/Layout/Layout.Container";
 
 import { globalStyles } from "@styles";
 import theme from "../../gatsby-plugin-theme-ui";
+import colors from "../../gatsby-plugin-theme-ui/colors";
 
 interface LayoutProps {
   background?: string;
@@ -26,8 +27,15 @@ interface LayoutProps {
  * which hides a lot of the mess we need to create our Desktop and Mobile experiences.
  */
 function Layout({ children, ...rest }: LayoutProps) {
+  const [colorMode] = useColorMode();
+  let finalTheme = theme;
+
+  if (colorMode === "dark") {
+    finalTheme = Object.assign({}, theme, { colors: colors.modes[colorMode] });
+  }
+
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={finalTheme}>
       <>
         <Global styles={globalStyles} />
         <Container {...rest}>{children}</Container>

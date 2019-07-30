@@ -47,6 +47,12 @@ export default {
   },
   modes: {
     dark: {
+      black: "#262626",
+      bg: "#111216",
+      gold: "#E9DAAC",
+      grey: "#73737D",
+      purple: "#6166DC",
+
       background: "#111216",
       accent: "#E9DAAC",
       gradient:
