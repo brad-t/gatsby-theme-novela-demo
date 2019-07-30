@@ -1,6 +1,6 @@
 import { css } from "@emotion/core";
 
-import theme from "@styles/theme";
+import theme from "../gatsby-plugin-theme-ui";
 
 const toEm = (size: number) => size / 16 + "em";
 

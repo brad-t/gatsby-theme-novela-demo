@@ -4,7 +4,8 @@ import { Global } from "@emotion/core";
 
 import Container from "@components/Layout/Layout.Container";
 
-import { globalStyles, theme } from "@styles";
+import { globalStyles } from "@styles";
+import theme from "../../gatsby-plugin-theme-ui";
 
 interface LayoutProps {
   background?: string;

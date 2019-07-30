@@ -1,49 +1,61 @@
-import React, { Fragment } from "react";
+import React from "react";
+import { graphql, useStaticQuery } from "gatsby";
 import styled from "@emotion/styled";
 
 import * as SocialIcons from "../../icons/social";
 import mediaqueries from "@styles/media";
 
-const SocialLinks = ({ fill = "#73737D" }: { fill: string }) => (
-  <Fragment>
-    <SocialIconContainer
-      target="_blank"
-      rel="noopener"
-      data-a11y="false"
-      aria-label="Link to Facebook"
-      // href={settings.urls.facebook}
-    >
-      <SocialIcons.FacebookIcon fill={fill} />
-    </SocialIconContainer>
-    <SocialIconContainer
-      target="_blank"
-      rel="noopener"
-      data-a11y="false"
-      aria-label="Link to Twitter"
-      // href={settings.urls.twitter}
-    >
-      <SocialIcons.TwitterIcon fill={fill} />
-    </SocialIconContainer>
-    <SocialIconContainer
-      target="_blank"
-      rel="noopener"
-      data-a11y="false"
-      aria-label="Link to Instagram"
-      // href={settings.urls.instagram}
-    >
-      <SocialIcons.InstagramIcon fill={fill} />
-    </SocialIconContainer>
-    <SocialIconContainer
-      target="_blank"
-      rel="noopener"
-      data-a11y="false"
-      aria-label="Link to LinkedIn"
-      // href={settings.urls.linkedin}
-    >
-      <SocialIcons.LinkedinIcon fill={fill} />
-    </SocialIconContainer>
-  </Fragment>
-);
+const icons = {
+  dribbble: SocialIcons.DribbbleIcon,
+  linkedin: SocialIcons.LinkedinIcon,
+  twitter: SocialIcons.TwitterIcon,
+  facebook: SocialIcons.FacebookIcon,
+  instagram: SocialIcons.InstagramIcon,
+  github: SocialIcons.GithubIcon,
+};
+
+const socialQuery = graphql`
+  {
+    allSite {
+      edges {
+        node {
+          siteMetadata {
+            social {
+              name
+              url
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
+function SocialLinks({ fill = "#73737D" }: { fill: string }) {
+  const result = useStaticQuery(socialQuery);
+  const socialOptions = result.allSite.edges[0].node.siteMetadata.social;
+
+  return (
+    <>
+      {socialOptions.map(option => {
+        const Icon = icons[option.name];
+
+        return (
+          <SocialIconContainer
+            key={option.name}
+            target="_blank"
+            rel="noopener"
+            data-a11y="false"
+            aria-label={`Link to ${option.name}`}
+            href={option.url}
+          >
+            <Icon fill={fill} />
+          </SocialIconContainer>
+        );
+      })}
+    </>
+  );
+}
 
 export default SocialLinks;
 

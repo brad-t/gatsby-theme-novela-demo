@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import styled from "@emotion/styled";
+import React, { Component } from 'react'
+import styled from 'styled-components'
 
-import mediaqueries from "@styles/media";
+import mediaqueries from '@styles/media'
 
 /**
  * <ArticleControls />
@@ -14,40 +14,40 @@ export default ({ mode, toggleMode, shortUrl }) => (
     <ShareButton mode={mode} shortUrl={shortUrl} />
     <DarkModeSelect toggleMode={toggleMode} mode={mode} />
   </>
-);
+)
 
 const DarkModeSelect = ({ toggleMode, mode }) => (
   <IconWrapper mode={mode} onClick={toggleMode} tabIndex={1}>
-    <MoonOrSun isDarkMode={mode === "dark"} />
-    <MoonMask isDarkMode={mode === "dark"} />
+    <MoonOrSun isDarkMode={mode === 'dark'} />
+    <MoonMask isDarkMode={mode === 'dark'} />
   </IconWrapper>
-);
+)
 
 class ShareButton extends Component {
-  state = { hasCopied: false };
+  state = { hasCopied: false }
 
   copyToClipboardOnClick = () => {
-    if (this.state.hasCopied) return;
+    if (this.state.hasCopied) return
 
-    const tempInput = document.createElement("input");
-    document.body.appendChild(tempInput);
-    tempInput.setAttribute("value", `ntve.co/${this.props.shortUrl}`);
-    tempInput.select();
-    document.execCommand("copy");
-    document.body.removeChild(tempInput);
+    const tempInput = document.createElement('input')
+    document.body.appendChild(tempInput)
+    tempInput.setAttribute('value', `ntve.co/${this.props.shortUrl}`)
+    tempInput.select()
+    document.execCommand('copy')
+    document.body.removeChild(tempInput)
 
     this.setState({
       hasCopied: true,
-    });
+    })
 
     setTimeout(() => {
-      this.setState({ hasCopied: false });
-    }, 1000);
-  };
+      this.setState({ hasCopied: false })
+    }, 1000)
+  }
 
   render() {
-    const { mode } = this.props;
-    const Icon = mode === "dark" ? ShareDarkModeOffIcon : ShareDarkModeOnIcon;
+    const { mode } = this.props
+    const Icon = mode === 'dark' ? ShareDarkModeOffIcon : ShareDarkModeOnIcon
 
     return (
       <IconWrapper
@@ -60,24 +60,24 @@ class ShareButton extends Component {
           Copied
         </ToolTip>
       </IconWrapper>
-    );
+    )
   }
 }
 
 const ToolTip = styled.div`
   position: absolute;
   padding: 4px 13px;
-  background: ${p => (p.mode === "dark" ? "#000" : "rgba(0,0,0,0.1)")};
-  color: #000;
+  background: ${p => (p.mode === 'dark' ? '#000' : 'rgba(0,0,0,0.1)')};
+  color: ${p => p.theme.mode.text};
   border-radius: 5px;
   font-size: 14px;
   top: -35px;
   opacity: ${p => (p.hasCopied ? 1 : 0)};
-  transform: ${p => (p.hasCopied ? "translateY(-3px)" : "none")};
+  transform: ${p => (p.hasCopied ? 'translateY(-3px)' : 'none')};
   transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 
   &::after {
-    content: "";
+    content: '';
     position: absolute;
     left: 0;
     right: 0;
@@ -88,9 +88,9 @@ const ToolTip = styled.div`
     border-left: 6px solid transparent;
     border-right: 6px solid transparent;
     border-top: 6px solid
-      ${p => (p.mode === "dark" ? "#000" : "rgba(0,0,0,0.1)")};
+      ${p => (p.mode === 'dark' ? '#000' : 'rgba(0,0,0,0.1)')};
   }
-`;
+`
 
 const IconWrapper = styled.button`
   opacity: 0.5;
@@ -116,7 +116,7 @@ const IconWrapper = styled.button`
       opacity: 0.5;
     }
   `}
-`;
+`
 
 const ShareDarkModeOffIcon = () => (
   <svg
@@ -133,7 +133,7 @@ const ShareDarkModeOffIcon = () => (
       fill="white"
     />
   </svg>
-);
+)
 
 const ShareDarkModeOnIcon = () => (
   <svg
@@ -150,7 +150,7 @@ const ShareDarkModeOnIcon = () => (
       fill="black"
     />
   </svg>
-);
+)
 
 // This is based off a codepen! Much appreciated to: https://codepen.io/aaroniker/pen/KGpXZo
 const MoonOrSun = styled.div`
@@ -158,27 +158,27 @@ const MoonOrSun = styled.div`
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  border: ${p => (p.isDarkMode ? "4px" : "2px")} solid #000;
+  border: ${p => (p.isDarkMode ? '4px' : '2px')} solid ${p => p.theme.mode.text};
   transform: scale(${p => (p.isDarkMode ? 0.55 : 1)});
   transition: all 0.45s ease;
-  overflow: ${p => (p.isDarkMode ? "visible" : "hidden")};
+  overflow: ${p => (p.isDarkMode ? 'visible' : 'hidden')};
 
   &::before {
-    content: "";
+    content: '';
     position: absolute;
     right: -9px;
     top: -9px;
     height: 24px;
     width: 24px;
-    border: 2px solid #000;
+    border: 2px solid ${p => p.theme.mode.text};
     border-radius: 50%;
-    transform: translate(${p => (p.isDarkMode ? "14px, -14px" : "0, 0")});
+    transform: translate(${p => (p.isDarkMode ? '14px, -14px' : '0, 0')});
     opacity: ${p => (p.isDarkMode ? 0 : 1)};
     transition: transform 0.45s ease;
   }
 
   &::after {
-    content: "";
+    content: '';
     width: 8px;
     height: 8px;
     border-radius: 50%;
@@ -186,8 +186,12 @@ const MoonOrSun = styled.div`
     position: absolute;
     top: 50%;
     left: 50%;
-    box-shadow: 0 -23px 0 #000, 0 23px 0 #000, 23px 0 0 #000, -23px 0 0 #000,
-      15px 15px 0 #000, -15px 15px 0 #000, 15px -15px 0 #000, -15px -15px 0 #000;
+    box-shadow: 0 -23px 0 ${p => p.theme.mode.text},
+      0 23px 0 ${p => p.theme.mode.text}, 23px 0 0 ${p => p.theme.mode.text},
+      -23px 0 0 ${p => p.theme.mode.text}, 15px 15px 0 ${p => p.theme.mode.text},
+      -15px 15px 0 ${p => p.theme.mode.text},
+      15px -15px 0 ${p => p.theme.mode.text},
+      -15px -15px 0 ${p => p.theme.mode.text};
     transform: scale(${p => (p.isDarkMode ? 1 : 0)});
     transition: all 0.35s ease;
 
@@ -195,7 +199,7 @@ const MoonOrSun = styled.div`
       transform: scale(${p => (p.isDarkMode ? 0.92 : 0)});
     `}
   }
-`;
+`
 
 const MoonMask = styled.div`
   position: absolute;
@@ -205,8 +209,8 @@ const MoonMask = styled.div`
   width: 24px;
   border-radius: 50%;
   border: 0;
-  background: white;
-  transform: translate(${p => (p.isDarkMode ? "14px, -14px" : "0, 0")});
+  background: ${p => p.theme.mode.background};
+  transform: translate(${p => (p.isDarkMode ? '14px, -14px' : '0, 0')});
   opacity: ${p => (p.isDarkMode ? 0 : 1)};
   transition: background 0.2s linear, transform 0.45s ease;
-`;
+`

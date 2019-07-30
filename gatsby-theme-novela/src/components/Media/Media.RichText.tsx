@@ -63,7 +63,7 @@ const Content = styled.article`
   h5,
   h6 {
     ${articleWidth};
-    font-family: ${p => p.theme.fontfamily.serif};
+    font-family: ${p => p.theme.fonts.serif};
     color: #000;
     font-weight: 800;
   }
@@ -121,7 +121,7 @@ const Content = styled.article`
 
     figcaption {
       ${articleWidth};
-      font-family: ${p => p.theme.fontfamily.sansSerif};
+      font-family: ${p => p.theme.fonts.sansSerif};
       color: #000;
       opacity: 0.5;
       font-size: 16px;
@@ -139,7 +139,7 @@ const Content = styled.article`
     ${transitionColor};
     margin: 50px auto;
     color: #000;
-    font-family: ${p => p.theme.fontfamily.serif};
+    font-family: ${p => p.theme.fonts.serif};
     font-style: italic;
 
     ${mediaqueries.tablet`

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import { theme } from "@styles";
 import throttle from "lodash/throttle";
+
+import theme from "../gatsby-plugin-theme-ui";
 
 /**
  * Clamp a number between min and max

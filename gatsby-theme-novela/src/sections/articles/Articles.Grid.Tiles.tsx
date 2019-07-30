@@ -164,7 +164,7 @@ const Item = styled.div`
 
 const Title = styled(Heading.h2)`
   font-size: 21px;
-  font-family: ${p => p.theme.fontfamily.serif};
+  font-family: ${p => p.theme.fonts.serif};
   margin-bottom: ${p => (p.hasOverflow ? "45px" : "10px")};
   transition: color 0.3s ease-in-out;
   ${limitToTwoLines};
