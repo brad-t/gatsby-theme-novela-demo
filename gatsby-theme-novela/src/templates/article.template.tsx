@@ -7,7 +7,6 @@ import { RichText } from "@components/Media";
 import Progress from "@components/Progress";
 import ProgressMobile from "@components/Progress/Progress.Mobile";
 import Section from "@components/Section";
-import NavigationFooter from "@components/Navigation/Navigation.Footer";
 
 import mediaqueries from "@styles/media";
 import { debounce } from "@utils";
@@ -18,7 +17,6 @@ import ArticleControls from "../sections/article/Article.Controls";
 import ArticlesNext from "../sections/article/Article.Next";
 import ArticleSEO from "../sections/article/Article.SEO";
 import ArticleShare from "../sections/article/Article.Share";
-import ArticleHighlight from "../sections/article/Article.Highlight";
 
 function Article({ pageContext, location }) {
   const contentSectionRef = useRef<HTMLElement>(null);
@@ -76,17 +74,13 @@ function Article({ pageContext, location }) {
       <ArticleBody ref={contentSectionRef}>
         <RichText content={article.body}>
           <ArticleShare article={article} />
-          <ArticleHighlight article={article} />
         </RichText>
       </ArticleBody>
-      <Gradient>
-        <NextArticle narrow>
-          <FooterNext>Next article from Narative</FooterNext>
-          <ArticlesNext articles={next} />
-          <FooterSpacer />
-        </NextArticle>
-        <NavigationFooter to="/" text="Back to Articles" />
-      </Gradient>
+      <NextArticle narrow>
+        <FooterNext>Next article from Narative</FooterNext>
+        <ArticlesNext articles={next} />
+        <FooterSpacer />
+      </NextArticle>
       <ProgressMobile title={article.title} {...scrollInfo} />
     </Layout>
   );
@@ -112,14 +106,8 @@ const ArticleBody = styled.article`
   transition: background 0.2s linear;
 
   ${mediaqueries.tablet`
-    padding: 70px 0 10px;
+    padding: 70px 0 80px;
   `}
-`;
-
-const Gradient = styled.div`
-  position: relative;
-  background: ${p => p.theme.colors.gradient};
-  transition: background 0.4s ease-in-out;
 `;
 
 const NextArticle = styled(Section)`
@@ -134,7 +122,7 @@ const FooterNext = styled.h3`
   color: #000;
 
   ${mediaqueries.tablet`
-    margin-bottom: 50px;
+    margin-bottom: 60px;
   `}
 
   &::after {

@@ -226,9 +226,7 @@ const ArticleLink = styled(Link)<{ narrow: boolean }>`
     background: rgba(255, 255, 255, 0.01);
   }
 
-  ${mediaqueries.tablet`
-    ${p => p.narrow && `display: none;`}
-  `}
+  ${p => p.narrow && mediaqueries.tablet`display: none;`}
 
   ${mediaqueries.phablet`
     &:hover ${Image} {

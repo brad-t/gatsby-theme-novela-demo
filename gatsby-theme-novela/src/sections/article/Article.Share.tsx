@@ -9,7 +9,7 @@ import {
   getSelectionText,
 } from "@utils";
 
-import { IArticleNode } from "@typings";
+import { IArticleNode, IAuthorNode } from "@typings";
 
 interface MenuFloatState {
   x: number;
@@ -17,9 +17,9 @@ interface MenuFloatState {
   show: boolean;
 }
 
-interface MenuFloatProps extends IArticleNode {
-  author: number;
-  mode?: string;
+interface MenuFloatProps {
+  article: IArticleNode;
+  author: IAuthorNode;
 }
 
 /**
@@ -29,7 +29,7 @@ interface MenuFloatProps extends IArticleNode {
 const MENU_WIDTH: number = 225;
 const MENU_HEIGHT: number = 46;
 
-function ArticelShare({ article, mode }: MenuFloatProps) {
+function ArticelShare({ article }: MenuFloatProps) {
   const { author = {}, shortUrl } = article;
 
   const [colorMode] = useColorMode();
@@ -75,7 +75,7 @@ function ArticelShare({ article, mode }: MenuFloatProps) {
          */
         const offset: { x: number; y: number } = {
           x: height > 29 ? paragraphOffset : x,
-          y: y - articleBox.y,
+          y: y - articleBox.y - 160,
         };
 
         setPosition({

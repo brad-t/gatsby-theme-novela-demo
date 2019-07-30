@@ -2,37 +2,29 @@ import styled from "@emotion/styled";
 
 import mediaqueries from "@styles/media";
 
-const Section = styled.section<{
-  relative?: string;
-  hideOnDesktop?: boolean;
-  hideOverflow?: boolean;
-  narrow?: boolean;
-}>`
-  position: ${p => (p.relative ? "relative" : "static")};
+const Section = styled.section<{ narrow?: boolean }>`
   width: 100%;
   max-width: 1220px;
   margin: 0 auto;
   padding: 0 4rem;
-  background: ${p =>
-    p.background === "dark" ? p.theme.colors.bg : "transparent"};
-  display: ${p => (p.hideOnDesktop ? "none" : "block")};
 
   ${mediaqueries.desktop`
     max-width: 100%;
-    display: ${p => (p.hideOnDesktop ? "none" : "block")};
   `};
 
-  ${mediaqueries.tablet`
-    display: block;
-    max-width: 487px;
-    padding: 0;
-    marign: ${p => (p.narrow ? "0 2rem" : "0 4rem")};
-  `};
+  ${p =>
+    p.narrow
+      ? mediaqueries.tablet`
+          padding: 0 2rem;
+          max-width: 527px;
+        `
+      : mediaqueries.tablet`
+          padding: 0 4rem;
+          max-width: 567px;
+        `}
 
   ${mediaqueries.phablet`
     max-width: 100%;
-    padding: ${p => (p.narrow ? "0 2rem" : "0 4rem")};
-    ${p => p.hideOverflow && `overflow: hidden`};
   `};
 `;
 

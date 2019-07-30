@@ -213,7 +213,7 @@ const Spacer = styled.span`
 `;
 
 const MobileReference = styled.span`
-  font-weight: 600;
+  font-weight: 400;
   ${paginationItemMixin}
   color: ${p => p.theme.colors.grey.mid};
 
@@ -224,12 +224,14 @@ const MobileReference = styled.span`
 `;
 
 const Frame = styled.nav`
+  position: relative;
   display: inline-flex;
   justify-content: space-between;
   align-items: center;
 
   ${mediaqueries.tablet`
     .Paginator__pageLink, ${Spacer} { display: none; }
+    left: -15px;
   `}
 
   ${mediaqueries.desktop_up`

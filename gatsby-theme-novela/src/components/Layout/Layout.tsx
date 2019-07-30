@@ -3,6 +3,7 @@ import { ThemeProvider, useColorMode } from "theme-ui";
 import { Global } from "@emotion/core";
 
 import Container from "@components/Layout/Layout.Container";
+import Footer from "@components/Navigation/Navigation.Footer";
 
 import { globalStyles } from "@styles";
 import theme from "../../gatsby-plugin-theme-ui";
@@ -38,7 +39,10 @@ function Layout({ children, ...rest }: LayoutProps) {
     <ThemeProvider theme={finalTheme}>
       <>
         <Global styles={globalStyles} />
-        <Container {...rest}>{children}</Container>
+        <Container {...rest}>
+          {children}
+          <Footer />
+        </Container>
       </>
     </ThemeProvider>
   );

@@ -180,8 +180,10 @@ const IconWrapper = styled.button`
 
   ${mediaqueries.tablet`
     display: inline-flex;
-    margin: 0 20px 0 0;
-   
+    transform: scale(0.708);
+    margin-left: 10px;
+
+
     &:hover {
       opacity: 0.5;
     }
@@ -249,8 +251,8 @@ const MoonMask = styled.div<{ isDark: boolean }>`
   width: 24px;
   border-radius: 50%;
   border: 0;
-  background: white;
+  background: ${p => p.theme.colors.background};
   transform: translate(${p => (p.isDark ? "14px, -14px" : "0, 0")});
   opacity: ${p => (p.isDark ? 0 : 1)};
-  transition: background 0.2s linear, transform 0.45s ease;
+  transition: background 0.25s var(--ease-in-out-quad), transform 0.45s ease;
 `;

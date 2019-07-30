@@ -9,7 +9,6 @@ import ArticlesHero from "../sections/articles/Articles.Hero";
 import ArticlesGridLayoutProvider from "../sections/articles/Articles.Grid.Context";
 import ArticlesPagination from "../sections/articles/Articles.Pagination";
 import ArticlesGrid from "../sections/articles/Articles.Grid";
-import ArticlesFooter from "../sections/articles/Articles.Footer";
 
 /**
  * Narative.co/articles
@@ -36,7 +35,7 @@ function ArticlesPage({ data, location, pageContext }) {
           <ArticlesGrid articles={articles} />
           <ArticlesPagination pageContext={pageContext} />
         </Section>
-        <ArticlesFooter />
+        <ArticlesGradient />
       </Layout>
     </ArticlesGridLayoutProvider>
   );
@@ -45,6 +44,13 @@ function ArticlesPage({ data, location, pageContext }) {
 export default ArticlesPage;
 
 const ArticlesGradient = styled.div`
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 590px;
+  z-index: 0;
+  pointer-events: none;
   background: ${p => p.theme.colors.gradient};
   transition: background 0.3s var(--ease-in-out-quad);
 `;

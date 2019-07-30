@@ -64,6 +64,17 @@ const SocialIconContainer = styled.a`
   margin-left: 3.2rem;
   text-decoration: none;
 
+  &:hover {
+    svg {
+      &:hover * {
+        fill: ${p => p.theme.colors.primary};
+      }
+      * {
+        transition: fill 0.25s var(--ease-in-out-quad);
+      }
+    }
+  }
+
   &:first-child {
     margin-left: 0;
   }

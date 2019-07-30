@@ -3,20 +3,19 @@ import styled from "@emotion/styled";
 
 import Navigation from "@components/Navigation/Navigation.Header";
 
-import mediaqueries from "@styles/media";
-
 function LayoutContainer(props) {
   return (
-    <SiteContainer>
+    <Container>
       <Navigation />
       {props.children}
-    </SiteContainer>
+    </Container>
   );
 }
 
 export default LayoutContainer;
 
-const SiteContainer = styled.div`
+const Container = styled.div`
+  position: relative;
   background: ${p => p.theme.colors.background};
   transition: background 0.25s var(--ease-in-out-quad);
 `;
