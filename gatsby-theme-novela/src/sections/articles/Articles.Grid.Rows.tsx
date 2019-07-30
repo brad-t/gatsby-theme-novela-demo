@@ -46,7 +46,6 @@ function ArticlesGridRows({ articles }: { articles: IArticleNode[] }) {
 
 export default ArticlesGridRows;
 
-const narrow = "457px";
 const limitToTwoLines = css`
   text-overflow: ellipsis;
   overflow-wrap: normal;
@@ -58,19 +57,6 @@ const limitToTwoLines = css`
 
   ${mediaqueries.phablet`
     -webkit-line-clamp: 3;
-  `}
-`;
-
-const Grid = styled.div`
-  margin-bottom: 80px;
-
-  ${mediaqueries.desktop`
-    grid-template-columns: 1fr 1fr;
-  `}
-
-  ${mediaqueries.tablet`
-    grid-template-columns: 1fr;
-    margin-bottom: 0;
   `}
 `;
 
@@ -107,7 +93,7 @@ const GridRow = styled.div`
   grid-template-rows: 1;
   align-items: center;
   position: relative;
-  margin-bottom: 50px;
+
 
   ${mediaqueries.desktop_medium`
     grid-column-gap: 40px;
@@ -121,11 +107,9 @@ const GridRow = styled.div`
 
   ${mediaqueries.tablet`
     grid-template-columns: 1fr;
-    margin-bottom: 60px;
   `}
 
   ${mediaqueries.phablet`
-    margin-bottom: 40px;
     box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.2);
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;
@@ -184,6 +168,7 @@ const ArticleLink = styled(Link)`
   top: 0;
   left: 0;
   z-index: 1;
+  margin-bottom: 50px;
   transition: transform 0.33s var(--ease-out-quart);
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 
@@ -202,15 +187,21 @@ const ArticleLink = styled(Link)`
     content: "";
     position: absolute;
     left: -1.5%;
-    top: -2%;
+    top: -10%;
     width: 103%;
-    height: 104%;
+    height: 120%;
     border: 3px solid ${p => p.theme.colors.accent};
     background: rgba(255, 255, 255, 0.01);
     border-radius: 5px;
   }
 
+  ${mediaqueries.tablet`
+    margin-bottom: 60px;
+  `}
+
   ${mediaqueries.phablet`
+    margin-bottom: 40px;
+
     &:hover ${Image} {
       box-shadow: none;
     }

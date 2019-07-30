@@ -225,6 +225,7 @@ const MobileReference = styled.span`
 
 const Frame = styled.nav`
   position: relative;
+  z-index: 1;
   display: inline-flex;
   justify-content: space-between;
   align-items: center;
