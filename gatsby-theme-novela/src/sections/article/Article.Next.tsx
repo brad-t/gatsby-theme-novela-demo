@@ -1,5 +1,6 @@
 import React from "react";
-import styled, { css } from "styled-components";
+import styled from "@emotion/styled";
+import { css } from "@emotion/core";
 import { Link } from "gatsby";
 
 import Heading from "@components/Heading";
@@ -141,7 +142,7 @@ const Title = styled(Heading.h3)`
   font-size: 22px;
   line-height: 1.2;
   margin-bottom: ${p => (p.hasOverflow ? "45px" : "10px")};
-  color: ${p => p.theme.mode.text};
+  color: #000;
   transition: color 0.3s ease-in-out;
   ${limitToTwoLines};
 
@@ -182,7 +183,7 @@ const Excerpt = styled.p`
 const TimeToRead = styled.div`
   font-weight: 600;
   font-size: 16px;
-  color: ${p => p.theme.mode.text};
+  color: #000;
   opacity: 0.25;
 
   ${mediaqueries.phablet`

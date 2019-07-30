@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+from "@emotion/styled"
 
 const Pill = ({ text }: { text: string }) => (
   <Frame>

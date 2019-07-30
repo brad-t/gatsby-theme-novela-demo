@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled from "@emotion/styled";
 
 import Footer from "@components/Navigation/Navigation.Footer";
 import Section from "@components/Section";

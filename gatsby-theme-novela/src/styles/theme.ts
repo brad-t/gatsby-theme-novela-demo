@@ -4,7 +4,7 @@
  * styled-components. This app theme is passed to the highest
  * level <ThemeProvider /> within src/root/Root.js
  */
-import { keyframes } from "styled-components";
+import { keyframes } from "@emotion/core";
 
 const black = "#262626";
 const bg = "#111216";

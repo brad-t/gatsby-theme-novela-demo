@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { graphql, useStaticQuery } from "gatsby";
-import styled from "styled-components";
+import styled from "@emotion/styled";
 
 import Section from "@components/Section";
 import Heading from "@components/Heading";

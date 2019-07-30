@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import styled from "styled-components";
+import styled from "@emotion/styled";
 import throttle from "lodash/throttle";
 
 import { clamp } from "@utils";
@@ -53,7 +53,7 @@ const Trackline = styled.div`
   height: calc(88vh - 40px);
   max-height: 425px;
   width: 1px;
-  background-color: ${p => p.theme.mode.progress.bg};
+  background-color: grey;
   overflow: hidden;
 `;
 
@@ -62,6 +62,6 @@ const ProgressLine = styled.div`
   height: 100%;
   top: -100%;
   width: 1px;
-  background-color: ${p => p.theme.mode.text};
+  background-color: black;
   left: 0;
 `;

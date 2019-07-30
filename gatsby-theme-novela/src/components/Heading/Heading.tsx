@@ -1,18 +1,19 @@
-import styled, { css } from "styled-components";
+import styled from "@emotion/styled";
+import { css } from "@emotion/core";
 
 import mediaqueries from "@styles/media";
 
-const commonStyles = (marginBottom = 0, fontWeight = 700) => css`
-  font-weight: ${fontWeight};
-  color: #000
-  text-transform: ${p => (p.upper ? "uppercase" : "none")};
-  margin-bottom: ${({ margin = true }) => (margin ? marginBottom : 0)}rem;
-`;
+// const commonStyles = (marginBottom = 0, fontWeight = 700) => css`
+//   font-weight: ${fontWeight};
+//   color: #000
+//   text-transform: ${p => (p.upper ? "uppercase" : "none")};
+//   margin-bottom: ${({ margin = true }) => (margin ? marginBottom : 0)}rem;
+// `;
 
-const makeHeading = key =>
-  styled[key].attrs({})`
-    ${p => styles[p.styles] || styles[key]};
-  `;
+// const makeHeading = key =>
+//   styled[key].attrs({})`
+//     ${p => styles[p.styles] || styles[key]};
+//   `;
 
 /**
  * Examples:
@@ -69,96 +70,101 @@ const constants = {
   },
 };
 
-const styles = {
-  blockquote: css`
-    text-align: center;
-    font-style: italic;
-    font-family: "ff-meta-serif-web-pro", serif;
-    font-size: ${constants.blockquote.fontsize};
-    line-height: ${constants.blockquote.lineheight};
+const h1 = styled.h1`
+  font-size: ${constants.h1.fontsize};
+  line-height: ${constants.h1.lineheight};
 
-    ${commonStyles(0, 400)} ${mediaqueries.phablet` font-size: ${
-      constants.blockquote.fontsizeMobile
-    }; `};
-  `,
-  h1: css`
-    font-size: ${constants.h1.fontsize};
-    line-height: ${constants.h1.lineheight};
+  ${mediaqueries.tablet`
+    font-size: ${constants.h1.fontsizeTablet};
+    line-height: ${constants.h1.lineheightMobile};
+  `};
 
-    ${commonStyles(1, 500)} ${mediaqueries.tablet`
-      font-size: ${constants.h1.fontsizeTablet};
-      line-height: ${constants.h1.lineheightMobile};
-    `};
+  ${mediaqueries.phablet`
+    font-size: ${constants.h1.fontsizeMobile};
+    line-height: ${constants.h1.lineheightMobile};
+  `};
+`;
 
-    ${commonStyles(1, 500)} ${mediaqueries.phablet`
-      font-size: ${constants.h1.fontsizeMobile};
-      line-height: ${constants.h1.lineheightMobile};
-    `};
-  `,
-  h2: css`
-    font-size: ${constants.h2.fontsize};
-    line-height: ${constants.h2.lineheight};
-    font-family: ${constants.h2.fontFamily};
+const h2 = styled.h2`
+  font-size: ${constants.h2.fontsize};
+  line-height: ${constants.h2.lineheight};
 
-    ${commonStyles(2)} ${mediaqueries.phablet` font-size: ${
-      constants.h2.fontsizeMobile
-    }; `};
-  `,
-  h3: css`
-    font-size: ${constants.h3.fontsize};
-    line-height: ${constants.h3.lineheight};
-    font-family: ${constants.h2.fontFamily};
+  ${mediaqueries.tablet`
+    font-size: ${constants.h2.fontsizeTablet};
+    line-height: ${constants.h2.lineheightMobile};
+  `};
 
-    ${commonStyles(0.5)} ${mediaqueries.phablet` font-size: ${
-      constants.h3.fontsizeMobile
-    }; `};
-  `,
-  h4: css`
-    font-size: ${constants.h4.fontsize};
+  ${mediaqueries.phablet`
+    font-size: ${constants.h2.fontsizeMobile};
+    line-height: ${constants.h2.lineheightMobile};
+  `};
+`;
 
-    ${commonStyles()} ${mediaqueries.phablet` font-size: ${
-      constants.h4.fontsizeMobile
-    }; `};
-  `,
-  h5: css`
-    font-size: ${constants.h5.fontsize};
+const h3 = styled.h3`
+  font-size: ${constants.h3.fontsize};
+  line-height: ${constants.h3.lineheight};
 
-    ${commonStyles()} ${mediaqueries.phablet` font-size: ${
-      constants.h5.fontsizeMobile
-    }; `};
-  `,
-  h6: css`
-    font-size: ${constants.h6.fontsize};
+  ${mediaqueries.tablet`
+    font-size: ${constants.h3.fontsizeTablet};
+    line-height: ${constants.h3.lineheightMobile};
+  `};
 
-    ${commonStyles()} ${mediaqueries.phablet` font-size: ${
-      constants.h6.fontsizeMobile
-    }; `};
-  `,
-};
+  ${mediaqueries.phablet`
+    font-size: ${constants.h3.fontsizeMobile};
+    line-height: ${constants.h3.lineheightMobile};
+  `};
+`;
 
-export { styles as headingMixins, constants as headingConstants };
+const h4 = styled.h4`
+  font-size: ${constants.h4.fontsize};
+  line-height: ${constants.h4.lineheight};
 
-export const h1 = makeHeading("h1");
-export const h2 = makeHeading("h2");
-export const h3 = makeHeading("h3");
+  ${mediaqueries.tablet`
+    font-size: ${constants.h4.fontsizeTablet};
+    line-height: ${constants.h4.lineheightMobile};
+  `};
+
+  ${mediaqueries.phablet`
+    font-size: ${constants.h4.fontsizeMobile};
+    line-height: ${constants.h4.lineheightMobile};
+  `};
+`;
+
+const h5 = styled.h5`
+  font-size: ${constants.h5.fontsize};
+  line-height: ${constants.h5.lineheight};
+
+  ${mediaqueries.tablet`
+    font-size: ${constants.h5.fontsizeTablet};
+    line-height: ${constants.h5.lineheightMobile};
+  `};
+
+  ${mediaqueries.phablet`
+    font-size: ${constants.h5.fontsizeMobile};
+    line-height: ${constants.h5.lineheightMobile};
+  `};
+`;
+
+const h6 = styled.h6`
+  font-size: ${constants.h6.fontsize};
+  line-height: ${constants.h6.lineheight};
+
+  ${mediaqueries.tablet`
+    font-size: ${constants.h6.fontsizeTablet};
+    line-height: ${constants.h6.lineheightMobile};
+  `};
+
+  ${mediaqueries.phablet`
+    font-size: ${constants.h6.fontsizeMobile};
+    line-height: ${constants.h6.lineheightMobile};
+  `};
+`;
 
 export default {
   h1,
   h2,
   h3,
-  h4: makeHeading("h4"),
-  h5: makeHeading("h5"),
-  h6: makeHeading("h6"),
-  blockquote: makeHeading("blockquote"),
-  cite: styled.cite.attrs({})`
-    ${p => styles[p.styles] || styles.h2};
-    font-style: normal;
-    margin-bottom: 0;
-    margin-top: 2.5rem;
-    display: inline-block;
-
-    ${mediaqueries.phablet`
-      margin-top: 1.5rem;
-    `};
-  `,
+  h4,
+  h5,
+  h6,
 };

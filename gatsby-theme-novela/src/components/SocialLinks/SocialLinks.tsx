@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import styled from "styled-components";
+import styled from "@emotion/styled";
 
 import * as SocialIcons from "../../icons/social";
 import mediaqueries from "@styles/media";

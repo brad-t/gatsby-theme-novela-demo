@@ -88,7 +88,7 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-styled-components`,
+      resolve: `gatsby-plugin-emotion`,
       options: {
         displayName: process.env.NODE_ENV === `development`,
       },

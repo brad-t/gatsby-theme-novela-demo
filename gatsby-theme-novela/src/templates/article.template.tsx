@@ -1,10 +1,9 @@
 import React, { useRef, useState, useEffect } from "react";
-import styled from "styled-components";
+import styled from "@emotion/styled";
 import throttle from "lodash/throttle";
 
 import Layout from "@components/Layout";
 import { RichText } from "@components/Media";
-import withDarkMode from "@components/DarkMode";
 import Progress from "@components/Progress";
 import ProgressMobile from "@components/Progress/Progress.Mobile";
 import Section from "@components/Section";
@@ -21,7 +20,7 @@ import ArticleSEO from "../sections/article/Article.SEO";
 import ArticleShare from "../sections/article/Article.Share";
 import ArticleHighlight from "../sections/article/Article.Highlight";
 
-function Article({ pageContext, location, mode, toggleMode }) {
+function Article({ pageContext, location }) {
   const contentSectionRef = useRef<HTMLElement>(null);
 
   const [hasCalculated, setHasCalculated] = useState<boolean>(false);
@@ -78,35 +77,33 @@ function Article({ pageContext, location, mode, toggleMode }) {
         <Progress {...scrollInfo} />
       </Aside>
       <MobileControls>
-        <ArticleControls
-          shortUrl={article.slug}
-          toggleMode={toggleMode}
-          mode={mode}
-        />
+        <ArticleControls shortUrl={article.slug} />
       </MobileControls>
-      <Content contentRef={contentSectionRef} content={article.body}>
-        <ArticleShare article={article} mode={mode} />
-        <ArticleHighlight article={article} mode={mode} />
-      </Content>
+      <ArticleBody>
+        <RichText contentRef={contentSectionRef} content={article.body}>
+          <ArticleShare article={article} />
+          <ArticleHighlight article={article} />
+        </RichText>
+      </ArticleBody>
       <Gradient>
         <NextArticle narrow>
           <FooterNext>Next article from Narative</FooterNext>
           <ArticlesNext articles={next} />
           <FooterSpacer />
         </NextArticle>
-        <NavigationFooter mode={mode} to="/" text="Back to Articles" />
+        <NavigationFooter to="/" text="Back to Articles" />
       </Gradient>
-      <ProgressMobile mode={mode} title={article.title} {...scrollInfo} />
+      <ProgressMobile title={article.title} {...scrollInfo} />
     </Layout>
   );
 }
 
-export default withDarkMode(Article);
+export default Article;
 
 const MobileControls = styled.div`
   position: relative;
   padding-top: 65px;
-  background: ${p => p.theme.mode.background};
+  background: white;
   transition: background 0.2s linear;
   text-align: center;
 
@@ -115,11 +112,11 @@ const MobileControls = styled.div`
   `}
 `;
 
-const Content = styled(RichText).attrs<{ textHighlightColor: string }>({})`
+const ArticleBody = styled.article`
   position: relative;
   padding: 160px 0 35px;
   padding-left: 68px;
-  background: ${p => p.theme.mode.background};
+  background: white;
   transition: background 0.2s linear;
 
   ${mediaqueries.tablet`
@@ -129,7 +126,7 @@ const Content = styled(RichText).attrs<{ textHighlightColor: string }>({})`
 
 const Gradient = styled.div`
   position: relative;
-  background: ${p => p.theme.mode.gradient};
+  background: linear-gradient(180deg, #fff 66%, #d9dbe0 100%);
   transition: background 0.4s ease-in-out;
 `;
 
@@ -142,7 +139,7 @@ const FooterNext = styled.h3`
   opacity: 0.25;
   margin-bottom: 100px;
   font-weight: 400;
-  color: ${p => p.theme.mode.text};
+  color: #000;
 
   ${mediaqueries.tablet`
     margin-bottom: 50px;
@@ -151,7 +148,7 @@ const FooterNext = styled.h3`
   &::after {
     content: '';
     position: absolute;
-    background: ${p => p.theme.mode.text};
+    background: #000;
     width: ${(910 / 1140) * 100}%;
     height: 1px;
     right: 0;

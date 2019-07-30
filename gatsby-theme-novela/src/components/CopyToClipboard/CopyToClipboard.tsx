@@ -1,13 +1,13 @@
-import React, { Component } from 'react'
-import styled from 'styled-components'
+import React, { Component } from "react";
+import styled from "@emotion/core";
 
-import mediaqueries from '@styles/media'
+import mediaqueries from "@styles/media";
 
 interface CopyToClipboardProps {
-  copyOnClick: string
-  successText?: string
-  iconFill?: string
-  children: React.ReactNodeArray | React.ReactNode
+  copyOnClick: string;
+  successText?: string;
+  iconFill?: string;
+  children: React.ReactNodeArray | React.ReactNode;
 }
 
 class CopyToClipboard extends Component<
@@ -16,24 +16,24 @@ class CopyToClipboard extends Component<
 > {
   state = {
     copied: false,
-  }
+  };
 
   copyToClipboardOnClick = (text: string) => {
-    const tempInput = document.createElement('input')
-    document.body.appendChild(tempInput)
-    tempInput.setAttribute('value', text)
-    tempInput.select()
-    document.execCommand('copy')
-    document.body.removeChild(tempInput)
+    const tempInput = document.createElement("input");
+    document.body.appendChild(tempInput);
+    tempInput.setAttribute("value", text);
+    tempInput.select();
+    document.execCommand("copy");
+    document.body.removeChild(tempInput);
 
     this.setState({
       copied: true,
-    })
-  }
+    });
+  };
 
   render() {
-    const { copied } = this.state
-    const { copyOnClick, iconFill, children, successText } = this.props
+    const { copied } = this.state;
+    const { copyOnClick, iconFill, children, successText } = this.props;
 
     return (
       <CopyIconContainer
@@ -43,7 +43,7 @@ class CopyToClipboard extends Component<
       >
         {copied ? (
           <CopyIconText>
-            <strong>{successText || copyOnClick}</strong> copied to clipboard{' '}
+            <strong>{successText || copyOnClick}</strong> copied to clipboard{" "}
             <CopiedIcon />
           </CopyIconText>
         ) : (
@@ -52,22 +52,22 @@ class CopyToClipboard extends Component<
           </>
         )}
       </CopyIconContainer>
-    )
+    );
   }
 }
 
-export default CopyToClipboard
+export default CopyToClipboard;
 
 const CopyIconContainer = styled.div`
   position: relative;
-  cursor: ${p => (p.copied ? 'initial' : 'pointer')};
+  cursor: ${p => (p.copied ? "initial" : "pointer")};
 
   svg {
     margin-left: 3px;
   }
 
-  &[data-a11y='true']:focus::after {
-    content: '';
+  &[data-a11y="true"]:focus::after {
+    content: "";
     position: absolute;
     left: -50%;
     top: -50%;
@@ -76,7 +76,7 @@ const CopyIconContainer = styled.div`
     border: 2px solid ${p => p.theme.colors.purple};
     border-radius: 5px;
   }
-`
+`;
 
 const CopyIconText = styled.p`
   display: flex;
@@ -102,9 +102,9 @@ const CopyIconText = styled.p`
   ${mediaqueries.tablet`
     font-size: 1.4rem;
   `};
-`
+`;
 
-const CopyIcon = ({ fill = 'white' }) => (
+const CopyIcon = ({ fill = "white" }) => (
   <svg
     width="13"
     height="15"
@@ -112,16 +112,16 @@ const CopyIcon = ({ fill = 'white' }) => (
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
     aria-hidden="true"
-    style={{ pointerEvents: 'none' }}
+    style={{ pointerEvents: "none" }}
   >
     <path
       d="M9.54545 0H1.36364C0.613636 0 0 0.613636 0 1.36364V10.9091H1.36364V1.36364H9.54545V0ZM11.5909 2.72727H4.09091C3.34091 2.72727 2.72727 3.34091 2.72727 4.09091V13.6364C2.72727 14.3864 3.34091 15 4.09091 15H11.5909C12.3409 15 12.9545 14.3864 12.9545 13.6364V4.09091C12.9545 3.34091 12.3409 2.72727 11.5909 2.72727ZM11.5909 13.6364H4.09091V4.09091H11.5909V13.6364Z"
       fill={fill}
     />
   </svg>
-)
+);
 
-const CopiedIcon = ({ fill = '#3F7871' }) => (
+const CopiedIcon = ({ fill = "#3F7871" }) => (
   <svg
     width="15"
     height="15"
@@ -134,4 +134,4 @@ const CopiedIcon = ({ fill = '#3F7871' }) => (
       fill={fill}
     />
   </svg>
-)
+);

@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
-import styled, { keyframes } from "styled-components";
+import styled from "@emotion/styled";
+import { keyframes } from "@emotion/core";
+
 import {
   getHighlightedTextPositioning,
   getSelectionDimensions,

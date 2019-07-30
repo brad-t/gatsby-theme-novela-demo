@@ -1,9 +1,10 @@
 import React from "react";
-import { ThemeProvider } from "styled-components";
+import { ThemeProvider } from "theme-ui";
+import { Global } from "@emotion/core";
 
 import Container from "@components/Layout/Layout.Container";
 
-import { GlobalStyles, theme } from "@styles";
+import { globalStyles, theme } from "@styles";
 
 interface LayoutProps {
   background?: string;
@@ -25,14 +26,12 @@ interface LayoutProps {
  */
 function Layout({ children, ...rest }: LayoutProps) {
   return (
-    // <StoreContext.Provider value={store}>
     <ThemeProvider theme={theme}>
       <>
-        <GlobalStyles />
+        <Global styles={globalStyles} />
         <Container {...rest}>{children}</Container>
       </>
     </ThemeProvider>
-    // </StoreContext.Provider>
   );
 }
 

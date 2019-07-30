@@ -1,32 +1,24 @@
-import { createGlobalStyle } from "styled-components";
+import { css } from "@emotion/core";
 import { theme } from "@styles/theme";
 
-export const GlobalStyles = createGlobalStyle`
-    /**
+export const globalStyles = css`
+  /**
    * Thanks to Benjamin De Cock
    * https://gist.github.com/bendc/ac03faac0bf2aee25b49e5fd260a727d
    */
   :root {
-    --ease-in-quad: cubic-bezier(.55, .085, .68, .53);
-    --ease-in-quart: cubic-bezier(.895, .03, .685, .22);
-    --ease-out-quad: cubic-bezier(.25, .46, .45, .94);
-    --ease-out-quart: cubic-bezier(.165, .84, .44, 1);
-    --ease-in-out-quad: cubic-bezier(.455, .03, .515, .955);
-    --ease-in-out-quart: cubic-bezier(.77, 0, .175, 1);
+    --ease-in-quad: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+    --ease-in-quart: cubic-bezier(0.895, 0.03, 0.685, 0.22);
+    --ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --ease-out-quart: cubic-bezier(0.165, 0.84, 0.44, 1);
+    --ease-in-out-quad: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    --ease-in-out-quart: cubic-bezier(0.77, 0, 0.175, 1);
   }
 
   @font-face {
-    font-family: '-apple-system',
-    'BlinkMacSystemFont',
-	  'San Francisco',
-	  'Helvetica Neue',
-    'Helvetica',
-    'Ubuntu',
-    'Roboto',
-    'Noto',
-    'Segoe UI',
-    'Arial',
-    sans-serif;
+    font-family: "-apple-system", "BlinkMacSystemFont", "San Francisco",
+      "Helvetica Neue", "Helvetica", "Ubuntu", "Roboto", "Noto", "Segoe UI",
+      "Arial", sans-serif;
     font-weight: 400;
     font-style: normal;
   }
@@ -52,18 +44,9 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   body {
-    font-family: 
-    '-apple-system',
-    'BlinkMacSystemFont',
-	  'San Francisco',
-	  'Helvetica Neue',
-    'Helvetica',
-    'Ubuntu',
-    'Roboto',
-    'Noto',
-    'Segoe UI',
-    'Arial',
-    sans-serif;
+    font-family: "-apple-system", "BlinkMacSystemFont", "San Francisco",
+      "Helvetica Neue", "Helvetica", "Ubuntu", "Roboto", "Noto", "Segoe UI",
+      "Arial", sans-serif;
     font-size: 1.6rem;
     margin: 0;
     color: ${theme.colors.black};
@@ -90,7 +73,7 @@ export const GlobalStyles = createGlobalStyle`
     color: ${theme.colors.black};
     font-size: 1.8rem;
   }
-  
+
   [hidden] {
     display: none;
   }
@@ -108,7 +91,6 @@ export const GlobalStyles = createGlobalStyle`
     vertical-align: middle;
   }
 
-
   select {
     appearance: none;
     -webkit-appearance: none;
@@ -124,21 +106,15 @@ export const GlobalStyles = createGlobalStyle`
     option {
       color: #262626;
     }
-}
+  }
 
-
-  input, textarea, select, button {
-    font-family: '-apple-system',
-    'BlinkMacSystemFont',
-	  'San Francisco',
-	  'Helvetica Neue',
-    'Helvetica',
-    'Ubuntu',
-    'Roboto',
-    'Noto',
-    'Segoe UI',
-    'Arial',
-    sans-serif;
+  input,
+  textarea,
+  select,
+  button {
+    font-family: "-apple-system", "BlinkMacSystemFont", "San Francisco",
+      "Helvetica Neue", "Helvetica", "Ubuntu", "Roboto", "Noto", "Segoe UI",
+      "Arial", sans-serif;
 
     &:-webkit-autofill {
       box-shadow: 0 0 0 1000px white inset !important;
@@ -180,11 +156,11 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   audio:not([controls]) {
-    display: none; 
+    display: none;
   }
 
   details {
-    display: block; 
+    display: block;
   }
 
   input {
@@ -196,7 +172,7 @@ export const GlobalStyles = createGlobalStyle`
     &::-webkit-input-placeholder,
     &:-moz-placeholder,
     &::-moz-placeholder,
-    &:-ms-input-placeholder, 
+    &:-ms-input-placeholder,
     &::-webkit-input-placeholder {
       color: rgba(0, 0, 0, 0.25);
     }

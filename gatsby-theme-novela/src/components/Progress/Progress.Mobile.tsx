@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import styled from "styled-components";
+import styled from "@emotion/styled";
 import { Link } from "gatsby";
 
 import Section from "@components/Section";
@@ -106,7 +106,7 @@ const Frame = styled.div`
   top: 0;
   left: 0;
   right: 0;
-  background-color: ${p => p.theme.mode.progress.mobile.bg};
+  background-color: #fafafa;
   z-index: 1;
   font-size: 1.2rem;
   line-height: 1;
@@ -140,7 +140,7 @@ const Title = styled.span`
   padding: 2rem 0;
   font-size: 16px;
   display: block;
-  color: ${p => p.theme.mode.text};
+  color: #000;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -162,12 +162,12 @@ const Trackline = styled.progress`
   }
 
   &[value]::-webkit-progress-bar {
-    background-color: ${p => p.theme.mode.progress.mobile.incomplete};
+    background-color: #eaeaea;
     height: 0.1rem;
   }
 
   &[value]::-webkit-progress-value {
-    background-color: ${p => p.theme.mode.progress.mobile.complete};
+    background-color: #08080b;
     height: 1px;
     position: relative;
     top: -0.1rem;
