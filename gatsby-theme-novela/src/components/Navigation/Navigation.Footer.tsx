@@ -59,6 +59,10 @@ const FooterContainer = styled.div`
     flex-direction: column;
     padding-bottom: 100px;
   `}
+
+  ${mediaqueries.phablet`
+    padding-bottom: 50px;
+  `}
 `;
 
 const HoritzontalRule = styled.div`
@@ -69,11 +73,19 @@ const HoritzontalRule = styled.div`
   ${mediaqueries.tablet`
     margin: 60px auto;
   `}
+
+  ${mediaqueries.phablet`
+    display: none;
+  `}
 `;
 
 const FooterText = styled.div`
   ${mediaqueries.tablet`
     margin-bottom: 80px;
+  `}
+
+  ${mediaqueries.phablet`
+    margin: 120px auto 100px;
   `}
 `;
 

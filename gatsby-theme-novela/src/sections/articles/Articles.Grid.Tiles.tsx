@@ -154,6 +154,10 @@ const Item = styled.div`
     margin-bottom: 60px;
   `}
 
+  @media (max-width: 540px) {
+    background: ${p => p.theme.colors.card};
+  }
+
   ${mediaqueries.phablet`
     margin-bottom: 40px;
     box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.2);
@@ -255,11 +259,8 @@ const ArticleLink = styled(Link)`
 
   ${mediaqueries.phablet`
     &:hover ${Image} {
-      box-shadow: none;
-    }
-
-    &:hover h2 {
-      color: #000;
+      transform: none;
+      box-shadow: initial;
     }
 
     &:active {

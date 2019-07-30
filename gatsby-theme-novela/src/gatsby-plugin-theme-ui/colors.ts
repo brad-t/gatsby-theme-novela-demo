@@ -35,7 +35,7 @@ export default {
   articleText: "#08080B",
   track: "rgba(8, 8, 11, 0.3)",
   progress: "#000",
-
+  card: "#fff",
   horizontalRule: "rgba(8, 8, 11, 0.3)",
 
   prism: {
@@ -71,7 +71,7 @@ export default {
       articleText: "#fff",
       track: "rgba(255,255,255, 0.3)",
       progress: "#fff",
-
+      card: "#1D2128",
       horizontalRule: "rgba(255,255,255, 0.15)",
     },
   },

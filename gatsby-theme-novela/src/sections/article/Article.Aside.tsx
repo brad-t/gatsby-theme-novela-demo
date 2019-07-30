@@ -34,7 +34,7 @@ function Aside({ contentHeight, children }: AsideProps) {
   const [imageOffset, setImageOffset] = useState<number>(0);
   const [shouldFixAside, setShouldFixAside] = useState<boolean>(false);
 
-  const show = imageOffset && progress < 101;
+  const show = imageOffset && progress < 100;
   const childrenWithProps = React.Children.map(children, child =>
     React.cloneElement(child, { show }),
   );
@@ -45,7 +45,6 @@ function Aside({ contentHeight, children }: AsideProps) {
       .getBoundingClientRect();
 
     const imageOffsetFromTopOfWindow = imageRect.top + window.scrollY;
-
     setImageOffset(imageOffsetFromTopOfWindow);
 
     const handleScroll = (event: Event) => {

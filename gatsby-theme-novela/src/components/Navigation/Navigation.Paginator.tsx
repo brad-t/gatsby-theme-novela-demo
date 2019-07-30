@@ -215,11 +215,11 @@ const Spacer = styled.span`
 const MobileReference = styled.span`
   font-weight: 400;
   ${paginationItemMixin}
-  color: ${p => p.theme.colors.grey.mid};
+  color: ${p => p.theme.colors.primary};
 
   em {
     font-style: normal;
-    color: ${p => p.theme.colors.black};
+    color: ${p => p.theme.colors.primary};
   }
 `;
 

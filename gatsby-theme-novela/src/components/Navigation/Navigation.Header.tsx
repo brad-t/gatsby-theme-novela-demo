@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "@emotion/styled";
 import { Link } from "gatsby";
 import { useColorMode } from "theme-ui";
@@ -9,13 +9,24 @@ import Logo from "@components/Logo";
 import mediaqueries from "@styles/media";
 
 function NavigationHeader() {
+  const [showBackArrow, setShowBackArrow] = useState<boolean>(false);
+
   const [colorMode] = useColorMode();
   const fill = colorMode === "dark" ? "#fff" : "#000";
+
+  useEffect(() => {
+    setShowBackArrow(localStorage.getItem("previousPath") === "/");
+  }, []);
 
   return (
     <Section>
       <NavContainer>
         <LogoLink to="/" data-a11y="false">
+          {showBackArrow && (
+            <BackArrowIconContainer>
+              <BackArrowIcon />
+            </BackArrowIconContainer>
+          )}
           <Logo fill={fill} />
         </LogoLink>
         <NavControls>
@@ -84,6 +95,80 @@ function SharePageButton() {
   );
 }
 
+function CloseLink({ fill }: { fill: string }) {
+  return (
+    <CloseLinkContainer to="/">
+      <CloseIcon fill={fill} />
+    </CloseLinkContainer>
+  );
+}
+
+const CloseLinkContainer = styled(Link)`
+  ${mediaqueries.tablet_up`
+    display: none;
+  `}
+`;
+
+const BackArrowIconContainer = styled.div`
+  position: absolute;
+  left: -44px;
+  top: 0;
+  bottom: 0;
+  transition: 0.2s transform var(--ease-out-quad);
+  opacity: 0;
+  animation: fadein 0.3s linear forwards;
+
+  @keyframes fadein {
+    to {
+      opacity: 1;
+    }
+  }
+
+  ${mediaqueries.phablet`
+    display: none;
+  `}
+`;
+
+const BackArrowIcon = () => (
+  <svg
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M15.41 16.09L10.83 11.5L15.41 6.91L14 5.5L8 11.5L14 17.5L15.41 16.09Z"
+      fill="black"
+    />
+  </svg>
+);
+
+const CloseIcon = ({ fill }) => (
+  <svg
+    width="24"
+    height="25"
+    viewBox="0 0 24 25"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      fill-rule="evenodd"
+      clip-rule="evenodd"
+      d="M0 0.188477H24V24.2789H0V0.188477Z"
+      stroke="black"
+      stroke-opacity="0.01"
+      stroke-width="0"
+    />
+    <path
+      fill-rule="evenodd"
+      clip-rule="evenodd"
+      d="M19 6.58848L17.6 5.18848L12 10.7885L6.4 5.18848L5 6.58848L10.6 12.1885L5 17.7885L6.4 19.1885L12 13.5885L17.6 19.1885L19 17.7885L13.4 12.1885L19 6.58848Z"
+      fill={fill}
+    />
+  </svg>
+);
+
 const ShareDarkModeOffIcon = () => (
   <svg
     width="24"
@@ -147,6 +232,12 @@ const LogoLink = styled(Link)`
     border: 2px solid ${p => p.theme.colors.accent};
     background: rgba(255, 255, 255, 0.01);
     border-radius: 5px;
+  }
+
+  &:hover {
+    ${BackArrowIconContainer} {
+      transform: translateX(-3px);
+    }
   }
 `;
 

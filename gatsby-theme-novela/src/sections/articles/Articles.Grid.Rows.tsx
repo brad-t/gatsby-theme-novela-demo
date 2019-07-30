@@ -94,7 +94,6 @@ const GridRow = styled.div`
   align-items: center;
   position: relative;
 
-
   ${mediaqueries.desktop_medium`
     grid-column-gap: 40px;
     grid-template-columns: 1fr 420px;
@@ -108,6 +107,10 @@ const GridRow = styled.div`
   ${mediaqueries.tablet`
     grid-template-columns: 1fr;
   `}
+
+  @media (max-width: 540px) {
+    background: ${p => p.theme.colors.card};
+  }
 
   ${mediaqueries.phablet`
     box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.2);
@@ -201,13 +204,10 @@ const ArticleLink = styled(Link)`
 
   ${mediaqueries.phablet`
     margin-bottom: 40px;
-
+    
     &:hover ${Image} {
-      box-shadow: none;
-    }
-
-    &:hover h2 {
-      color: #000;
+      transform: none;
+      box-shadow: initial;
     }
 
     &:active {

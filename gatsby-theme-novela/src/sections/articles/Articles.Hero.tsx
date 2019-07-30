@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import styled from "@emotion/styled";
 
@@ -41,9 +41,14 @@ const authorQuery = graphql`
 `;
 
 function ArticlesHero() {
-  const { gridLayout = "tiles", hasSetGridLayout, setGridLayout } = useContext(
-    GridLayoutContext,
-  );
+  const {
+    gridLayout = "tiles",
+    hasSetGridLayout,
+    setGridLayout,
+    getGridLayout,
+  } = useContext(GridLayoutContext);
+
+  useEffect(() => getGridLayout(), []);
 
   const results = useStaticQuery(authorQuery);
   const author = results.author.edges[0].node;

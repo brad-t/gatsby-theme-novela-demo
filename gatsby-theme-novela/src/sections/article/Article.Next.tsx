@@ -123,6 +123,7 @@ const Image = styled.div`
     height: 200px;
     margin-bottom: 0;
     box-shadow: none;
+    overflow: hidden;
     border-top-right-radius: 5px;
     border-top-left-radius: 5px;
   `}
@@ -131,13 +132,12 @@ const Image = styled.div`
 const Item = styled.div`
   position: relative;
 
-  ${mediaqueries.phablet`
-    margin-bottom: 40px;
+  @media (max-width: 540px) {
     box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.2);
-    background: ${p => p.theme.mode.preview.bg};
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;
-  `}
+    background: ${p => p.theme.colors.card};
+  }
 `;
 
 const Title = styled(Heading.h3)`
@@ -232,11 +232,8 @@ const ArticleLink = styled(Link)<{ narrow: string }>`
 
   ${mediaqueries.phablet`
     &:hover ${Image} {
-      box-shadow: none;
-    }
-
-    &:hover h2 {
-      color: #000;
+      transform: none;
+      box-shadow: initial;
     }
 
     &:active {

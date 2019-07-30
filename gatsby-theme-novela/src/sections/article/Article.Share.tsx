@@ -227,7 +227,7 @@ const MenuFloat = styled.div<{ isDark: string }>`
   height: ${MENU_HEIGHT}px;
   padding: 7px 11px 7px 19px;
   color: ${p => p.theme.colors.grey};
-  background: ${p => (p.isDark ? "#fafafa" : p.theme.colors.bg)};
+  background: ${p => (p.isDark ? "#fafafa" : p.theme.colors.background)};
   border-radius: 5px;
   font-size: 18px;
   font-weight: 600;
@@ -245,7 +245,8 @@ const MenuFloat = styled.div<{ isDark: string }>`
     height: 0;
     border-left: 8px solid transparent;
     border-right: 8px solid transparent;
-    border-top: 8px solid ${p => (p.isDark ? "#fafafa" : p.theme.colors.bg)};
+    border-top: 8px solid
+      ${p => (p.isDark ? "#fafafa" : p.theme.colors.background)};
     transition: border-color 200ms;
   }
 

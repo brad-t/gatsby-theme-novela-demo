@@ -10,6 +10,7 @@ export const GridLayoutContext = createContext({
   gridLayout: "tiles",
   hasSetGridLayout: false,
   setGridLayout: (tile: string) => {},
+  getGridLayout: () => {},
 });
 
 function GridLayoutProvider({ children, articles }: GridLayoutProviderProps) {
@@ -23,10 +24,12 @@ function GridLayoutProvider({ children, articles }: GridLayoutProviderProps) {
     setGridLayout(tile);
   }
 
-  useEffect(() => {
-    setHasSetGridLayout(true);
+  function getGridLayoutAndSave() {
     setGridLayout(localStorage.getItem("gridLayout") || "tiles");
-  }, []);
+    setHasSetGridLayout(true);
+  }
+
+  useEffect(() => getGridLayoutAndSave(), []);
 
   return (
     <GridLayoutContext.Provider
@@ -34,6 +37,7 @@ function GridLayoutProvider({ children, articles }: GridLayoutProviderProps) {
         gridLayout,
         hasSetGridLayout,
         setGridLayout: setGridLayoutAndSave,
+        getGridLayout: getGridLayoutAndSave,
       }}
     >
       {children}
