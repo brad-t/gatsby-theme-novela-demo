@@ -7,6 +7,8 @@ function handleAccessibilityFocus() {
     document.querySelectorAll("[data-a11y]"),
   );
 
+  console.log(elementsWithA11yFocus);
+
   document.addEventListener("keyup", event => {
     elementsWithA11yFocus.forEach(element => {
       if (element === event.target || element.contains(event.target)) {
@@ -62,7 +64,9 @@ function handleFadeInAndOutOnScroll() {
 }
 
 module.exports = () => {
-  handleAccessibilityFocus();
+  setTimeout(() => {
+    handleAccessibilityFocus();
+  }, 1000);
   handleFadeInAndOutOnScroll();
 
   /**

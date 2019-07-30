@@ -49,6 +49,7 @@ function ArticlesHero() {
   const author = results.author.edges[0].node;
   const siteMetadata = results.site.edges[0].node.siteMetadata;
   const tilesIsActive = hasSetGridLayout && gridLayout === "tiles";
+
   return (
     <Section relative>
       <HeadingContainer>
@@ -67,12 +68,14 @@ function ArticlesHero() {
           <GridButton
             onClick={() => setGridLayout("tiles")}
             active={tilesIsActive}
+            data-a11y="false"
           >
             <TilesIcon />
           </GridButton>
           <GridButton
             onClick={() => setGridLayout("rows")}
             active={!tilesIsActive}
+            data-a11y="false"
           >
             <RowsIcon />
           </GridButton>
@@ -92,11 +95,11 @@ const SubheadingContainer = styled.div`
 
   ${mediaqueries.tablet`
     margin-bottom: 60px;
-  `}
+  `};
 
   ${mediaqueries.phablet`
     display: none;
-  `}
+  `};
 `;
 
 const BioContainer = styled.div`
@@ -155,6 +158,7 @@ const HeadingContainer = styled.div`
 `;
 
 const GridButton = styled.button<{ active: boolean }>`
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -170,6 +174,18 @@ const GridButton = styled.button<{ active: boolean }>`
 
   &:hover {
     background: rgba(0, 0, 0, 0.07);
+  }
+
+  &[data-a11y="true"]:focus::after {
+    content: "";
+    position: absolute;
+    left: -10%;
+    top: -10%;
+    width: 120%;
+    height: 120%;
+    border: 2px solid ${p => p.theme.colors.accent};
+    background: rgba(255, 255, 255, 0.01);
+    border-radius: 50%;
   }
 
   svg {

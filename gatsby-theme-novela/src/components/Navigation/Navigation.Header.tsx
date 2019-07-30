@@ -8,16 +8,16 @@ import Logo from "@components/Logo";
 
 import mediaqueries from "@styles/media";
 
-function NavigationHeader(params) {
+function NavigationHeader() {
   const [colorMode] = useColorMode();
   const fill = colorMode === "dark" ? "#fff" : "#000";
 
   return (
     <Section>
       <NavContainer>
-        <Link to="/">
+        <LogoLink to="/" data-a11y="false">
           <Logo fill={fill} />
-        </Link>
+        </LogoLink>
         <NavControls>
           <SharePageButton />
           <DarkModeToggle />
@@ -39,7 +39,7 @@ function DarkModeToggle() {
   }
 
   return (
-    <IconWrapper isDark={isDark} onClick={toggleColorMode} tabIndex={1}>
+    <IconWrapper isDark={isDark} onClick={toggleColorMode} data-a11y="false">
       <MoonOrSun isDark={isDark} />
       <MoonMask isDark={isDark} />
     </IconWrapper>
@@ -71,7 +71,11 @@ function SharePageButton() {
   const Icon = isDark ? ShareDarkModeOffIcon : ShareDarkModeOnIcon;
 
   return (
-    <IconWrapper isDark={isDark} onClick={copyToClipboardOnClick} tabIndex={-1}>
+    <IconWrapper
+      isDark={isDark}
+      onClick={copyToClipboardOnClick}
+      data-a11y="false"
+    >
       <Icon />
       <ToolTip isDark={isDark} hasCopied={hasCopied}>
         Copied
@@ -130,6 +134,22 @@ const NavContainer = styled.div`
   }
 `;
 
+const LogoLink = styled(Link)`
+  position: relative;
+
+  &[data-a11y="true"]:focus::after {
+    content: "";
+    position: absolute;
+    left: -10%;
+    top: -30%;
+    width: 120%;
+    height: 160%;
+    border: 2px solid ${p => p.theme.colors.accent};
+    background: rgba(255, 255, 255, 0.01);
+    border-radius: 5px;
+  }
+`;
+
 const NavControls = styled.div`
   display: flex;
   align-items: center;
@@ -176,6 +196,18 @@ const IconWrapper = styled.button`
 
   &:hover {
     opacity: 1;
+  }
+
+  &[data-a11y="true"]:focus::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: -30%;
+    width: 100%;
+    height: 160%;
+    border: 2px solid ${p => p.theme.colors.accent};
+    background: rgba(255, 255, 255, 0.01);
+    border-radius: 5px;
   }
 
   ${mediaqueries.tablet`
