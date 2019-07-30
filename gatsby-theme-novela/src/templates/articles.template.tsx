@@ -4,7 +4,7 @@ import styled from "@emotion/styled";
 import Section from "@components/Section";
 import SEO from "@components/SEO";
 import Layout from "@components/Layout";
-import Pagination from "@components/Navigation/Navigation.Paginator";
+import Paginator from "@components/Navigation/Navigation.Paginator";
 
 import ArticlesHero from "../sections/articles/Articles.Hero";
 import ArticlesGridLayoutProvider from "../sections/articles/Articles.Grid.Context";
@@ -21,6 +21,7 @@ import ArticlesGrid from "../sections/articles/Articles.Grid";
 function ArticlesPage({ data, location, pageContext }) {
   // const { seo } = data.allContentfulPage.edges[0].node
   const articles = pageContext.group;
+
   return (
     <ArticlesGridLayoutProvider articles={articles}>
       <Layout>
@@ -33,7 +34,7 @@ function ArticlesPage({ data, location, pageContext }) {
         <ArticlesHero />
         <Section narrow>
           <ArticlesGrid articles={articles} />
-          <Pagination pageContext={pageContext} />
+          <Paginator {...pageContext} />
         </Section>
         <ArticlesGradient />
       </Layout>

@@ -117,7 +117,7 @@ class Paginator extends Component<IPaginator, {}> {
     return "/" + (n === 1 ? this.pageRoot : this.pageRoot + "/page/" + n);
   };
 
-  render = () => {
+  render() {
     const count = this.count;
     const current = this.current;
 
@@ -144,14 +144,14 @@ class Paginator extends Component<IPaginator, {}> {
         </Frame>
       </>
     );
-  };
+  }
 }
 
 export default Paginator;
 
 const paginationItemMixin = css`
   line-height: 1;
-  color: ${p => p.theme.colors.black};
+  color: ${p => p.theme.colors.primary};
   padding: 0;
   width: 6.8rem;
   height: 6.8rem;

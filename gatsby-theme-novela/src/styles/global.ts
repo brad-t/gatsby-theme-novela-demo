@@ -49,7 +49,6 @@ export const globalStyles = css`
       "Arial", sans-serif;
     font-size: 1.6rem;
     margin: 0;
-    color: ${theme.colors.black};
     background: #fff;
     font-weight: 400;
     height: 100%;
@@ -61,17 +60,8 @@ export const globalStyles = css`
     cursor: pointer;
   }
 
-  a {
-    color: ${theme.colors.black};
-  }
-
   a:focus {
     outline: none;
-  }
-
-  p {
-    color: ${theme.colors.black};
-    font-size: 1.8rem;
   }
 
   [hidden] {

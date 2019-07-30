@@ -1,11 +1,11 @@
 export default {
   ".attr-name": {
-    fontStyle: `italic`,
+    color: `prism.attr-name`,
   },
   ".comment": {
     color: `prism.comment`,
   },
-  ".attr-name, .string, .url": {
+  ".string, .url": {
     color: `prism.string`,
   },
   ".variable": {
@@ -14,8 +14,23 @@ export default {
   ".number": {
     color: `prism.number`,
   },
-  ".builtin, .char, .constant, .function": {
+  ".builtin": {
+    color: `prism.builtin`,
+  },
+  ".char": {
+    color: `prism.char`,
+  },
+  ".constant": {
     color: `prism.constant`,
+  },
+  ".function": {
+    color: `prism.function`,
+  },
+  ".parameter": {
+    color: `prism.parameter`,
+  },
+  ".maybe-class-name": {
+    color: `prism.maybe-class-name`,
   },
   ".punctuation, .selector, .doctype": {
     color: `prism.punctuation`,
@@ -23,7 +38,13 @@ export default {
   ".class-name": {
     color: `prism.className`,
   },
-  ".tag, .operator, .keyword": {
+  ".keyword": {
+    color: `prism.keyword`,
+  },
+  ".operator": {
+    color: `prism.operator`,
+  },
+  ".tag": {
     color: `prism.tag`,
   },
   ".boolean": {

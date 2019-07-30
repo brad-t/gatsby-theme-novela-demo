@@ -116,6 +116,7 @@ const BackArrowIconContainer = styled.div`
   bottom: 0;
   transition: 0.2s transform var(--ease-out-quad);
   opacity: 0;
+  padding-right: 30px;
   animation: fadein 0.3s linear forwards;
 
   @keyframes fadein {

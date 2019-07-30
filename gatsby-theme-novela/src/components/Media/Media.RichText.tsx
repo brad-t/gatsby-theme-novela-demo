@@ -179,6 +179,14 @@ const Content = styled.article<{ isDark: boolean }>`
     margin: 50px auto;
     border-radius: 5px;
 
+    .operator + .maybe-class-name {
+      color: #ffcf74 !important;
+    }
+
+    .plain ~ .operator {
+      color: #5fa8aa !important;
+    }
+
     ${mediaqueries.tablet`
       max-width: 526px;
       padding: 20px 20px;
