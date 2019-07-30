@@ -5,17 +5,15 @@ import throttle from "lodash/throttle";
 import { clamp } from "@utils";
 
 export interface IProgress {
-  height: number;
-  offset: number;
+  contentHeight: number;
 }
 
-function Progress({ offset, height }: IProgress) {
+function Progress({ contentHeight }: IProgress) {
   const [progress, setProgress] = useState<number>(0);
 
   useEffect(() => {
     const handleScroll = throttle(() => {
-      const percentComplete =
-        ((window.scrollY - offset) / (height - offset)) * 100;
+      const percentComplete = (window.scrollY / contentHeight) * 100;
 
       setProgress(clamp(+percentComplete.toFixed(2), -2, 104));
     }, 20);
@@ -27,7 +25,7 @@ function Progress({ offset, height }: IProgress) {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", handleScroll);
     };
-  }, [offset, height]);
+  }, [contentHeight]);
 
   return (
     <Frame tabIndex={-1}>

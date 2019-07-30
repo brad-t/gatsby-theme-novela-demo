@@ -3,17 +3,10 @@ import { css } from "@emotion/core";
 
 import mediaqueries from "@styles/media";
 
-// const commonStyles = (marginBottom = 0, fontWeight = 700) => css`
-//   font-weight: ${fontWeight};
-//   color: #000
-//   text-transform: ${p => (p.upper ? "uppercase" : "none")};
-//   margin-bottom: ${({ margin = true }) => (margin ? marginBottom : 0)}rem;
-// `;
-
-// const makeHeading = key =>
-//   styled[key].attrs({})`
-//     ${p => styles[p.styles] || styles[key]};
-//   `;
+const commonStyles = css`
+  font-family: "SF Pro Display";
+  font-weight: 600;
+`;
 
 /**
  * Examples:
@@ -73,6 +66,7 @@ const constants = {
 const h1 = styled.h1`
   font-size: ${constants.h1.fontsize};
   line-height: ${constants.h1.lineheight};
+  ${commonStyles};
 
   ${mediaqueries.tablet`
     font-size: ${constants.h1.fontsizeTablet};
@@ -88,6 +82,7 @@ const h1 = styled.h1`
 const h2 = styled.h2`
   font-size: ${constants.h2.fontsize};
   line-height: ${constants.h2.lineheight};
+  ${commonStyles};
 
   ${mediaqueries.tablet`
     font-size: ${constants.h2.fontsizeTablet};
@@ -103,6 +98,7 @@ const h2 = styled.h2`
 const h3 = styled.h3`
   font-size: ${constants.h3.fontsize};
   line-height: ${constants.h3.lineheight};
+  ${commonStyles};
 
   ${mediaqueries.tablet`
     font-size: ${constants.h3.fontsizeTablet};
@@ -118,6 +114,7 @@ const h3 = styled.h3`
 const h4 = styled.h4`
   font-size: ${constants.h4.fontsize};
   line-height: ${constants.h4.lineheight};
+  ${commonStyles};
 
   ${mediaqueries.tablet`
     font-size: ${constants.h4.fontsizeTablet};
@@ -133,6 +130,7 @@ const h4 = styled.h4`
 const h5 = styled.h5`
   font-size: ${constants.h5.fontsize};
   line-height: ${constants.h5.lineheight};
+  ${commonStyles};
 
   ${mediaqueries.tablet`
     font-size: ${constants.h5.fontsizeTablet};
@@ -148,6 +146,7 @@ const h5 = styled.h5`
 const h6 = styled.h6`
   font-size: ${constants.h6.fontsize};
   line-height: ${constants.h6.lineheight};
+  ${commonStyles};
 
   ${mediaqueries.tablet`
     font-size: ${constants.h6.fontsizeTablet};

@@ -9,8 +9,7 @@ import { clamp } from "@utils";
 
 interface AsideProps {
   children: ReactNode[] | ReactNode;
-  height: number;
-  offset: number;
+  contentHeight: number;
 }
 
 /**
@@ -28,14 +27,14 @@ interface AsideProps {
  *                  |  content  |
  *
  */
-function Aside({ offset, height, children }: AsideProps) {
+function Aside({ contentHeight, children }: AsideProps) {
   const progressRef = useRef<HTMLDivElement>(null);
 
   const [progress, setProgress] = useState<number>(0);
   const [imageOffset, setImageOffset] = useState<number>(0);
   const [shouldFixAside, setShouldFixAside] = useState<boolean>(false);
 
-  const show = imageOffset && progress < 94;
+  const show = imageOffset && progress < 102;
   const childrenWithProps = React.Children.map(children, child =>
     React.cloneElement(child, { show }),
   );
@@ -56,8 +55,7 @@ function Aside({ offset, height, children }: AsideProps) {
       const windowHeight =
         window.innerHeight || document.documentElement.clientHeight;
 
-      const percentComplete =
-        ((window.scrollY - offset) / (height - offset)) * -1;
+      const percentComplete = (window.scrollY / contentHeight) * 100;
 
       setProgress(clamp(+percentComplete.toFixed(2), 0, 105));
 
@@ -77,7 +75,7 @@ function Aside({ offset, height, children }: AsideProps) {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", handleScroll);
     };
-  }, [offset, height]);
+  }, [contentHeight]);
 
   return (
     <AsideContainer>

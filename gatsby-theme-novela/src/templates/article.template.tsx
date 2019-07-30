@@ -12,7 +12,7 @@ import NavigationFooter from "@components/Navigation/Navigation.Footer";
 import mediaqueries from "@styles/media";
 import { debounce } from "@utils";
 
-import Aside from "../sections/article/Article.Aside";
+import ArticleAside from "../sections/article/Article.Aside";
 import ArticleHero from "../sections/article/Article.Hero";
 import ArticleControls from "../sections/article/Article.Controls";
 import ArticlesNext from "../sections/article/Article.Next";
@@ -25,18 +25,13 @@ function Article({ pageContext, location }) {
 
   const [hasCalculated, setHasCalculated] = useState<boolean>(false);
   const [contentHeight, setContentHeight] = useState<number>(0);
-  const [contentOffset, setContentOffset] = useState<number>(0);
 
   const { article, author, next } = pageContext;
-  const scrollInfo = { height: contentHeight, offset: contentOffset };
+  const scrollInfo = { contentHeight };
 
   useEffect(() => {
     const calculateBodySize = throttle(() => {
       const contentSection = contentSectionRef.current;
-      const imageRect = document
-        .getElementById("ArticleImage__Hero")
-        .getBoundingClientRect();
-      const imageOffsetFromTopOfWindow = imageRect.top + window.scrollY;
 
       if (!contentSection) return;
 
@@ -60,7 +55,6 @@ function Article({ pageContext, location }) {
 
       // Set the height and offset of the content area
       setContentHeight(contentSection.getBoundingClientRect().height);
-      setContentOffset(imageOffsetFromTopOfWindow);
     }, 20);
 
     calculateBodySize();
@@ -73,14 +67,14 @@ function Article({ pageContext, location }) {
     <Layout>
       <ArticleSEO article={article} location={location} />
       <ArticleHero article={article} author={author} />
-      <Aside {...scrollInfo}>
-        <Progress {...scrollInfo} />
-      </Aside>
+      <ArticleAside contentHeight={contentHeight}>
+        <Progress contentHeight={contentHeight} />
+      </ArticleAside>
       <MobileControls>
         <ArticleControls shortUrl={article.slug} />
       </MobileControls>
-      <ArticleBody>
-        <RichText contentRef={contentSectionRef} content={article.body}>
+      <ArticleBody ref={contentSectionRef}>
+        <RichText content={article.body}>
           <ArticleShare article={article} />
           <ArticleHighlight article={article} />
         </RichText>

@@ -7,14 +7,9 @@ import mediaqueries from "@styles/media";
 
 import { IRichText } from "@typings";
 
-function RichText({
-  content,
-  contentRef,
-  children,
-  ...props
-}: React.SFC<IRichText>) {
+function RichText({ content, children, ...props }: React.SFC<IRichText>) {
   return (
-    <Content ref={contentRef} {...props}>
+    <Content {...props}>
       <MDXRenderer>{content}</MDXRenderer>
       {children}
     </Content>
