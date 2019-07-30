@@ -19,7 +19,10 @@ module.exports = {
     title: `Narative`,
     name: `Narative`,
     siteUrl: `https://narative.co`,
-    description: `Perspectives on technology, design and business from the team at Narative.`,
+    hero: {
+      heading: `Perspectives on technology, design and business from the team at Narative.`,
+      maxWidth: 652,
+    },
     social: [
       {
         name: `twitter`,
@@ -76,9 +79,7 @@ module.exports = {
         gatsbyRemarkPlugins: [
           {
             resolve: `gatsby-remark-images`,
-            options: {
-              maxWidth: 1380,
-            },
+            options: { maxWidth: 680 },
           },
           { resolve: `gatsby-remark-copy-linked-files` },
           { resolve: `gatsby-remark-numbered-footnotes` },

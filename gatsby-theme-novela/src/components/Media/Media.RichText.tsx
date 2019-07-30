@@ -287,6 +287,10 @@ const Content = styled.article<{ isDark: boolean }>`
     }
   }
 
+  .gatsby-resp-image-background-image {
+    display: none !important;
+  }
+
   img {
     display: inline-block;
     position: relative;

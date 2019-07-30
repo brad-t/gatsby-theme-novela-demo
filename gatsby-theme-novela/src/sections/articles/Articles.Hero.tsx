@@ -32,7 +32,10 @@ const authorQuery = graphql`
       edges {
         node {
           siteMetadata {
-            description
+            hero {
+              heading
+              maxWidth
+            }
           }
         }
       }
@@ -52,13 +55,13 @@ function ArticlesHero() {
 
   const results = useStaticQuery(authorQuery);
   const author = results.author.edges[0].node;
-  const siteMetadata = results.site.edges[0].node.siteMetadata;
+  const hero = results.site.edges[0].node.siteMetadata.hero;
   const tilesIsActive = hasSetGridLayout && gridLayout === "tiles";
 
   return (
     <Section relative>
-      <HeadingContainer>
-        <Heading.h1>{siteMetadata.description}</Heading.h1>
+      <HeadingContainer style={{ maxWidth: `${hero.maxWidth}px` }}>
+        <Heading.h1>{hero.heading}</Heading.h1>
       </HeadingContainer>
       <SubheadingContainer>
         <BioContainer>
@@ -158,7 +161,6 @@ const GridControlsContainer = styled.div`
 `;
 
 const HeadingContainer = styled.div`
-  max-width: 652px;
   margin: 100px 0;
 `;
 

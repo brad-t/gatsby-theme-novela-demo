@@ -35,7 +35,7 @@ const constants = {
     fontsize: "3.2rem",
     fontsizeMobile: "2.3rem",
     fontFamily: "'Merriweather', serif",
-    lineheight: 1.2,
+    lineheight: 1.333,
   },
   h3: {
     fontsize: "2.4rem",
