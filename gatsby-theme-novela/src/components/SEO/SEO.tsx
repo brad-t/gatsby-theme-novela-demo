@@ -134,7 +134,8 @@ const SEO = ({
       link={[
         {
           rel: "canonical",
-          href: `https://www.narative.co/${pathname.replace(/^\/+/g, "")}`,
+          href: `https://www.narative.co/${pathname &&
+            pathname.replace(/^\/+/g, "")}`,
         },
       ]}
       meta={getMetaTags({
