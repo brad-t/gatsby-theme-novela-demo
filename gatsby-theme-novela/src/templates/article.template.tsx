@@ -1,11 +1,11 @@
 import React, { useRef, useState, useEffect } from "react";
 import styled from "@emotion/styled";
 import throttle from "lodash/throttle";
+import { graphql, useStaticQuery } from "gatsby";
 
 import Layout from "@components/Layout";
 import { RichText } from "@components/Media";
 import Progress from "@components/Progress";
-import ProgressMobile from "@components/Progress/Progress.Mobile";
 import Section from "@components/Section";
 
 import mediaqueries from "@styles/media";
@@ -18,14 +18,30 @@ import ArticlesNext from "../sections/article/Article.Next";
 import ArticleSEO from "../sections/article/Article.SEO";
 import ArticleShare from "../sections/article/Article.Share";
 
+const siteQuery = graphql`
+  {
+    allSite {
+      edges {
+        node {
+          siteMetadata {
+            name
+          }
+        }
+      }
+    }
+  }
+`;
+
 function Article({ pageContext, location }) {
   const contentSectionRef = useRef<HTMLElement>(null);
 
   const [hasCalculated, setHasCalculated] = useState<boolean>(false);
   const [contentHeight, setContentHeight] = useState<number>(0);
 
+  const results = useStaticQuery(siteQuery);
+  const name = results.allSite.edges[0].node.siteMetadata.name;
+
   const { article, author, next } = pageContext;
-  const scrollInfo = { contentHeight };
 
   useEffect(() => {
     const calculateBodySize = throttle(() => {
@@ -77,11 +93,10 @@ function Article({ pageContext, location }) {
         </RichText>
       </ArticleBody>
       <NextArticle narrow>
-        <FooterNext>Next article from Narative</FooterNext>
+        <FooterNext>More articles from {name}</FooterNext>
         <ArticlesNext articles={next} />
         <FooterSpacer />
       </NextArticle>
-      <ProgressMobile title={article.title} {...scrollInfo} />
     </Layout>
   );
 }
@@ -90,7 +105,7 @@ export default Article;
 
 const MobileControls = styled.div`
   position: relative;
-  padding-top: 65px;
+  padding-top: 60px;
   transition: background 0.2s linear;
   text-align: center;
 
@@ -107,6 +122,10 @@ const ArticleBody = styled.article`
 
   ${mediaqueries.tablet`
     padding: 70px 0 80px;
+  `}
+
+  ${mediaqueries.phablet`
+    padding: 60px 0;
   `}
 `;
 

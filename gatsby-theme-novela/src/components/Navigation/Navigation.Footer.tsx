@@ -11,7 +11,7 @@ import mediaqueries from "@styles/media";
 
 const siteQuery = graphql`
   {
-    site: allSite {
+    allSite {
       edges {
         node {
           siteMetadata {
@@ -25,7 +25,7 @@ const siteQuery = graphql`
 
 function Footer() {
   const results = useStaticQuery(siteQuery);
-  const name = results.site.edges[0].node.siteMetadata.name;
+  const name = results.allSite.edges[0].node.siteMetadata.name;
 
   return (
     <>

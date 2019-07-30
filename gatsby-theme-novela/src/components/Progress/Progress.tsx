@@ -61,7 +61,6 @@ const ProgressLine = styled.div`
   height: 100%;
   top: -100%;
   width: 1px;
-  ${p => console.log(p)}
   background-color: ${p => p.theme.colors.progress};
   left: 0;
 `;

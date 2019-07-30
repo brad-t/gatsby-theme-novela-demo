@@ -49,7 +49,11 @@ const GridItem = ({
   const hasOverflow = narrow && article.title.length > 35;
 
   return (
-    <ArticleLink to={article.slug} data-a11y="false" narrow={narrow}>
+    <ArticleLink
+      to={article.slug}
+      data-a11y="false"
+      narrow={narrow ? "true" : "false"}
+    >
       <Item>
         <Image>
           <Media src={article.hero.preview.fluid} />
@@ -57,9 +61,7 @@ const GridItem = ({
         <Title dark hasOverflow={hasOverflow}>
           {article.title}
         </Title>
-        <Excerpt narrow={narrow} hasOverflow={hasOverflow}>
-          {article.excerpt}
-        </Excerpt>
+        <Excerpt hasOverflow={hasOverflow}>{article.excerpt}</Excerpt>
         <TimeToRead>{article.timeToRead}min read</TimeToRead>
       </Item>
     </ArticleLink>
@@ -193,7 +195,7 @@ const TimeToRead = styled.div`
   `}
 `;
 
-const ArticleLink = styled(Link)<{ narrow: boolean }>`
+const ArticleLink = styled(Link)<{ narrow: string }>`
   position: relative;
   display: block;
   width: 100%;
@@ -226,7 +228,7 @@ const ArticleLink = styled(Link)<{ narrow: boolean }>`
     background: rgba(255, 255, 255, 0.01);
   }
 
-  ${p => p.narrow && mediaqueries.tablet`display: none;`}
+  ${p => p.narrow === "true" && mediaqueries.tablet`display: none;`}
 
   ${mediaqueries.phablet`
     &:hover ${Image} {

@@ -75,7 +75,7 @@ const SocialIconContainer = styled.a`
     }
   }
 
-  &:first-child {
+  &:first-of-type {
     margin-left: 0;
   }
 

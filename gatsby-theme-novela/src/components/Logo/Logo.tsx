@@ -50,8 +50,8 @@ const Logo = ({ fill = "#fff" }: { fill?: string }) => {
         />
         <path d="M18 19.855H0V22.6313H18V19.855Z" fill={fill} />
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M7.00012 1.20947H8.9996H11.0001L17.9899 18.0159H14.3609H14.1673H14.1286L8.9996 5.19639L3.87057 18.0159H3.83186H3.63831H0.00927734L7.00012 1.20947Z"
           fill={fill}
         />
@@ -66,8 +66,8 @@ const Logo = ({ fill = "#fff" }: { fill?: string }) => {
       >
         <path d="M18 19.1182H0V21.9049H18V19.1182Z" fill={fill} />
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M7.00012 0.209473H8.9996H11.0001L17.9899 17.0159H14.3609H14.1673H14.1286L8.9996 4.19639L3.87057 17.0159H3.83186H3.63831H0.00927734L7.00012 0.209473Z"
           fill={fill}
         />

@@ -159,7 +159,7 @@ const ToolTip = styled.div<{ isDark: boolean; hasCopied: boolean }>`
   position: absolute;
   padding: 4px 13px;
   background: ${p => (p.isDark ? "#000" : "rgba(0,0,0,0.1)")};
-  color: ${p => (p.isDark ? "##fff" : "rgba(0,0,0,0.1)")};
+  color: ${p => (p.isDark ? "#fff" : "#000")};
   border-radius: 5px;
   font-size: 14px;
   top: -35px;
@@ -182,7 +182,7 @@ const ToolTip = styled.div<{ isDark: boolean; hasCopied: boolean }>`
   }
 `;
 
-const IconWrapper = styled.button`
+const IconWrapper = styled.button<{ isDark: boolean }>`
   opacity: 0.5;
   position: relative;
   border-radius: 5px;

@@ -78,7 +78,7 @@ const Content = styled.article<{ isDark: boolean }>`
     font-size: 2.2rem;
     line-height: 1.45;
     margin-bottom: 2rem;
-    padding-top: 40px;
+    padding-top: 20px;
 
     ${mediaqueries.desktop_up`
       font-size: 3.2rem;
@@ -157,6 +157,16 @@ const Content = styled.article<{ isDark: boolean }>`
       font-size: 36px;
       line-height: 1.32;
       font-weight: bold;
+
+      ${mediaqueries.tablet`
+        font-size: 26px;
+        padding: 0 180px;
+      `};
+
+      ${mediaqueries.phablet`
+        font-size: 36px;
+        padding: 0 20px 0 40px;
+      `};
     }
   }
 
@@ -190,12 +200,24 @@ const Content = styled.article<{ isDark: boolean }>`
     padding-left: 30px;
     margin-bottom: 30px;
 
+    ${mediaqueries.tablet`
+      padding-left: 0px;
+    `};
+
+    ${mediaqueries.phablet`
+      padding-left: 20px;
+    `};
+
     li {
       position: relative;
       margin-bottom: 15px;
 
       ${mediaqueries.tablet`
-        padding-left: 20px;
+        padding-left: 30px;
+      `};
+
+      ${mediaqueries.phablet`
+        padding-left: 30px;
       `};
 
       p {

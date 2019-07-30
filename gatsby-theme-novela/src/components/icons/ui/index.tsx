@@ -1,6 +1,6 @@
-import React from 'react'
+import React from "react";
 
-export const ArrowRightIcon = ({ fill = 'black' }) => (
+export const ArrowRightIcon = ({ fill = "black" }) => (
   <svg width="35" height="7" viewBox="0 0 35 7" version="1.1">
     <g fill="none">
       <g>
@@ -19,9 +19,9 @@ export const ArrowRightIcon = ({ fill = 'black' }) => (
       </g>
     </g>
   </svg>
-)
+);
 
-export const CheckIcon = ({ fill = 'white' }) => (
+export const CheckIcon = ({ fill = "white" }) => (
   <svg width="18" height="14" viewBox="0 0 18 14" version="1.1">
     <g fill="none">
       <g id="check">
@@ -36,9 +36,9 @@ export const CheckIcon = ({ fill = 'white' }) => (
       </g>
     </g>
   </svg>
-)
+);
 
-export const ExIcon = ({ fill = 'black' }) => (
+export const ExIcon = ({ fill = "black" }) => (
   <svg width="24" height="24" viewBox="0 0 24 24" version="1.1">
     <g fill="none">
       <path
@@ -58,9 +58,9 @@ export const ExIcon = ({ fill = 'black' }) => (
       />
     </g>
   </svg>
-)
+);
 
-export const ChevronDownIcon = ({ fill = '#73737D' }) => (
+export const ChevronDownIcon = ({ fill = "#73737D" }) => (
   <svg width="24" height="25" viewBox="0 0 24 25" version="1.1">
     <g fill="none">
       <g id="chevron-down-icon">
@@ -81,9 +81,9 @@ export const ChevronDownIcon = ({ fill = '#73737D' }) => (
       </g>
     </g>
   </svg>
-)
+);
 
-export const PencilIcon = ({ fill = '#73737D' }) => (
+export const PencilIcon = ({ fill = "#73737D" }) => (
   <svg width="17" height="17" viewBox="0 0 17 17">
     <g fill="none">
       <path
@@ -93,9 +93,9 @@ export const PencilIcon = ({ fill = '#73737D' }) => (
       />
     </g>
   </svg>
-)
+);
 
-export const SubmittedCheckIcon = ({ fill = '#73737D' }) => (
+export const SubmittedCheckIcon = ({ fill = "#73737D" }) => (
   <svg
     width="90"
     height="90"
@@ -118,9 +118,9 @@ export const SubmittedCheckIcon = ({ fill = '#73737D' }) => (
       strokeWidth="1.5"
     />
   </svg>
-)
+);
 
-export const CloseIcon = ({ fill = '#73737D' }) => (
+export const CloseIcon = ({ fill = "#73737D" }) => (
   <svg
     width="24"
     height="24"
@@ -133,9 +133,9 @@ export const CloseIcon = ({ fill = '#73737D' }) => (
       fill={fill}
     />
   </svg>
-)
+);
 
-export const CreateIcon = ({ fill = '#479FFA' }) => (
+export const CreateIcon = ({ fill = "#479FFA" }) => (
   <svg
     width="12"
     height="12"
@@ -168,9 +168,9 @@ export const CreateIcon = ({ fill = '#479FFA' }) => (
       fill={fill}
     />
   </svg>
-)
+);
 
-export const GoToIcon = ({ fill = '#73737D' }) => (
+export const GoToIcon = ({ fill = "#73737D" }) => (
   <svg
     width="10"
     height="7"
@@ -183,9 +183,9 @@ export const GoToIcon = ({ fill = '#73737D' }) => (
       fill={fill}
     />
   </svg>
-)
+);
 
-export const MailIcon = ({ fill = '#73737D' }) => (
+export const MailIcon = ({ fill = "#73737D" }) => (
   <svg
     width="19"
     height="18"
@@ -200,9 +200,9 @@ export const MailIcon = ({ fill = '#73737D' }) => (
       fill={fill}
     />
   </svg>
-)
+);
 
-export const BookIcon = ({ fill = '#73737D' }) => (
+export const BookIcon = ({ fill = "#73737D" }) => (
   <svg
     width="19"
     height="18"
@@ -217,9 +217,9 @@ export const BookIcon = ({ fill = '#73737D' }) => (
       fill={fill}
     />
   </svg>
-)
+);
 
-export const LightbulbIcon = ({ fill = '#73737D' }) => (
+export const LightbulbIcon = ({ fill = "#73737D" }) => (
   <svg
     width="19"
     height="18"
@@ -234,9 +234,9 @@ export const LightbulbIcon = ({ fill = '#73737D' }) => (
       fill={fill}
     />
   </svg>
-)
+);
 
-export const LaptopIcon = ({ fill = '#73737D' }) => (
+export const LaptopIcon = ({ fill = "#73737D" }) => (
   <svg
     width="19"
     height="18"
@@ -251,9 +251,9 @@ export const LaptopIcon = ({ fill = '#73737D' }) => (
       fill={fill}
     />
   </svg>
-)
+);
 
-export const ViewIcon = ({ fill = '#73737D' }) => (
+export const ViewIcon = ({ fill = "#73737D" }) => (
   <svg
     width="19"
     height="18"
@@ -268,9 +268,9 @@ export const ViewIcon = ({ fill = '#73737D' }) => (
       fill={fill}
     />
   </svg>
-)
+);
 
-export const SlashIcon = ({ fill = '#73737D' }) => (
+export const SlashIcon = ({ fill = "#73737D" }) => (
   <svg
     width="19"
     height="18"
@@ -284,9 +284,9 @@ export const SlashIcon = ({ fill = '#73737D' }) => (
       strokeLinejoin="round"
     />
   </svg>
-)
+);
 
-export const FeyIcon = ({ fill = '#73737D' }) => (
+export const FeyIcon = ({ fill = "#73737D" }) => (
   <svg
     width="19"
     height="18"
@@ -307,7 +307,7 @@ export const FeyIcon = ({ fill = '#73737D' }) => (
       fill={fill}
     />
   </svg>
-)
+);
 
 export const ShiftIcon = () => (
   <svg
@@ -324,9 +324,9 @@ export const ShiftIcon = () => (
       strokeLinejoin="round"
     />
   </svg>
-)
+);
 
-export const TwitterIcon = ({ fill = '#73737D' }) => (
+export const TwitterIcon = ({ fill = "#73737D" }) => (
   <svg
     width="19"
     height="18"
@@ -340,9 +340,9 @@ export const TwitterIcon = ({ fill = '#73737D' }) => (
       strokeLinejoin="round"
     />
   </svg>
-)
+);
 
-export const LinkedInIcon = ({ fill = '#73737D' }) => (
+export const LinkedInIcon = ({ fill = "#73737D" }) => (
   <svg
     width="19"
     height="18"
@@ -357,9 +357,9 @@ export const LinkedInIcon = ({ fill = '#73737D' }) => (
       fill={fill}
     />
   </svg>
-)
+);
 
-export const InstagramIcon = ({ fill = '#73737D' }) => (
+export const InstagramIcon = ({ fill = "#73737D" }) => (
   <svg
     width="19"
     height="18"
@@ -386,9 +386,9 @@ export const InstagramIcon = ({ fill = '#73737D' }) => (
       fill={fill}
     />
   </svg>
-)
+);
 
-export const OpenSourceIcon = ({ fill = '#73737D' }) => (
+export const OpenSourceIcon = ({ fill = "#73737D" }) => (
   <svg
     width="19"
     height="18"
@@ -398,14 +398,14 @@ export const OpenSourceIcon = ({ fill = '#73737D' }) => (
   >
     <mask id="path-1-inside-1" fill="white">
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M6.78768 13.8199C5.35153 12.9161 4.4 11.3186 4.4 9.5C4.4 6.68335 6.68335 4.4 9.5 4.4C12.3167 4.4 14.6 6.68335 14.6 9.5C14.6 11.3186 13.6485 12.9161 12.2123 13.8199L11.3585 11.7025C11.3598 11.6974 11.3618 11.6908 11.3647 11.6824C11.3852 11.624 11.4359 11.538 11.5192 11.4519C12.0077 10.9473 12.3097 10.2572 12.3097 9.49844C12.3097 7.94702 11.052 6.68935 9.50061 6.68935C7.94919 6.68935 6.69152 7.94702 6.69152 9.49844C6.69152 10.2569 6.99327 10.9467 7.48132 11.4513C7.56453 11.5373 7.61517 11.6233 7.63562 11.6816C7.63855 11.6899 7.64051 11.6966 7.64183 11.7016L6.78768 13.8199ZM11.356 11.7156C11.3559 11.7156 11.356 11.7151 11.3561 11.714ZM6.53566 14.7178C6.91971 14.9364 7.38959 14.7338 7.55486 14.3239L8.48741 12.0112C8.65261 11.6015 8.43533 11.1431 8.12823 10.8255C7.79597 10.482 7.59152 10.0141 7.59152 9.49844C7.59152 8.44408 8.44625 7.58935 9.50061 7.58935C10.555 7.58935 11.4097 8.44408 11.4097 9.49844C11.4097 10.0143 11.2051 10.4824 10.8725 10.826C10.5652 11.1436 10.3477 11.6022 10.5129 12.0121L11.4451 14.3239C11.6104 14.7338 12.0803 14.9364 12.4643 14.7178C14.2774 13.6855 15.5 11.7355 15.5 9.5C15.5 6.18629 12.8137 3.5 9.5 3.5C6.18629 3.5 3.5 6.18629 3.5 9.5C3.5 11.7355 4.72261 13.6855 6.53566 14.7178Z"
       />
     </mask>
     <path
-      fill-rule="evenodd"
-      clip-rule="evenodd"
+      fillRule="evenodd"
+      clipRule="evenodd"
       d="M6.78768 13.8199C5.35153 12.9161 4.4 11.3186 4.4 9.5C4.4 6.68335 6.68335 4.4 9.5 4.4C12.3167 4.4 14.6 6.68335 14.6 9.5C14.6 11.3186 13.6485 12.9161 12.2123 13.8199L11.3585 11.7025C11.3598 11.6974 11.3618 11.6908 11.3647 11.6824C11.3852 11.624 11.4359 11.538 11.5192 11.4519C12.0077 10.9473 12.3097 10.2572 12.3097 9.49844C12.3097 7.94702 11.052 6.68935 9.50061 6.68935C7.94919 6.68935 6.69152 7.94702 6.69152 9.49844C6.69152 10.2569 6.99327 10.9467 7.48132 11.4513C7.56453 11.5373 7.61517 11.6233 7.63562 11.6816C7.63855 11.6899 7.64051 11.6966 7.64183 11.7016L6.78768 13.8199ZM11.356 11.7156C11.3559 11.7156 11.356 11.7151 11.3561 11.714ZM6.53566 14.7178C6.91971 14.9364 7.38959 14.7338 7.55486 14.3239L8.48741 12.0112C8.65261 11.6015 8.43533 11.1431 8.12823 10.8255C7.79597 10.482 7.59152 10.0141 7.59152 9.49844C7.59152 8.44408 8.44625 7.58935 9.50061 7.58935C10.555 7.58935 11.4097 8.44408 11.4097 9.49844C11.4097 10.0143 11.2051 10.4824 10.8725 10.826C10.5652 11.1436 10.3477 11.6022 10.5129 12.0121L11.4451 14.3239C11.6104 14.7338 12.0803 14.9364 12.4643 14.7178C14.2774 13.6855 15.5 11.7355 15.5 9.5C15.5 6.18629 12.8137 3.5 9.5 3.5C6.18629 3.5 3.5 6.18629 3.5 9.5C3.5 11.7355 4.72261 13.6855 6.53566 14.7178Z"
       fill={fill}
     />
@@ -415,7 +415,7 @@ export const OpenSourceIcon = ({ fill = '#73737D' }) => (
       mask="url(#path-1-inside-1)"
     />
   </svg>
-)
+);
 
 export const ExternalIcon = () => (
   <svg
@@ -430,4 +430,4 @@ export const ExternalIcon = () => (
       fill="#73737D"
     />
   </svg>
-)
+);

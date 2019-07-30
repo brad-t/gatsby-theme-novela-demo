@@ -166,7 +166,7 @@ const paginationItemMixin = css`
     height: auto;
     padding: 2rem;
 
-    &:first-child {
+    &:first-of-type {
       padding-left: 0;
     }
 
