@@ -74,10 +74,9 @@ const Header = styled.header`
 
 const HeroHeading = styled(Heading.h1)`
   font-size: 48px;
-  color: #000;
   font-family: ${p => p.theme.fonts.serif};
   margin-bottom: 25px;
-  font-weight: 700;
+  font-weight: bold;
   line-height: 1.32;
 
   ${mediaqueries.tablet`
@@ -93,7 +92,7 @@ const HeroHeading = styled(Heading.h1)`
 const HeroSubtitle = styled.div`
   display: flex;
   font-size: 18px;
-  color: #73737d;
+  color: ${p => p.theme.colors.grey};
 
   ${mediaqueries.phablet`
     font-size: 14px;

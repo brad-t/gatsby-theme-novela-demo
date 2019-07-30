@@ -168,7 +168,7 @@ const MetaData = styled.div`
   font-weight: 600;
   font-size: 16px;
   color: ${p => p.theme.colors.grey};
-  opacity: 0.5;
+  opacity: 0.33;
 
   ${mediaqueries.phablet`
     max-width: 100%;
@@ -195,7 +195,7 @@ const ArticleLink = styled(Link)`
 
   &:hover h2,
   &:focus h2 {
-    color: ${p => p.theme.colors.purple};
+    color: ${p => p.theme.colors.accent};
   }
 
   &[data-a11y="true"]:focus::after {
@@ -205,7 +205,7 @@ const ArticleLink = styled(Link)`
     top: -2%;
     width: 103%;
     height: 104%;
-    border: 3px solid ${p => p.theme.colors.purple};
+    border: 3px solid ${p => p.theme.colors.accent};
     background: rgba(255, 255, 255, 0.01);
     border-radius: 5px;
   }

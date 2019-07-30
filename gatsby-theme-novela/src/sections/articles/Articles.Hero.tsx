@@ -41,14 +41,14 @@ const authorQuery = graphql`
 `;
 
 function ArticlesHero() {
-  const { gridLayout, hasSetGridLayout, setGridLayout } = useContext(
+  const { gridLayout = "tiles", hasSetGridLayout, setGridLayout } = useContext(
     GridLayoutContext,
   );
 
   const results = useStaticQuery(authorQuery);
   const author = results.author.edges[0].node;
   const siteMetadata = results.site.edges[0].node.siteMetadata;
-
+  const tilesIsActive = hasSetGridLayout && gridLayout === "tiles";
   return (
     <Section relative>
       <HeadingContainer>
@@ -64,11 +64,17 @@ function ArticlesHero() {
           <BioText>{author.bio}</BioText>
         </BioContainer>
         <GridControlsContainer>
-          <GridButton onClick={() => setGridLayout("tiles")}>
-            <TilesIcon active={hasSetGridLayout && gridLayout === "tiles"} />
+          <GridButton
+            onClick={() => setGridLayout("tiles")}
+            active={tilesIsActive}
+          >
+            <TilesIcon />
           </GridButton>
-          <GridButton onClick={() => setGridLayout("rows")}>
-            <RowsIcon active={hasSetGridLayout && gridLayout === "rows"} />
+          <GridButton
+            onClick={() => setGridLayout("rows")}
+            active={!tilesIsActive}
+          >
+            <RowsIcon />
           </GridButton>
         </GridControlsContainer>
       </SubheadingContainer>
@@ -131,7 +137,7 @@ const BioAvatarInner = styled.div`
 const BioText = styled.p`
   max-width: 430px;
   font-size: 14px;
-  color: #73737d;
+  color: ${p => p.theme.colors.grey};
 `;
 
 const GridControlsContainer = styled.div`
@@ -148,7 +154,7 @@ const HeadingContainer = styled.div`
   margin: 100px 0;
 `;
 
-const GridButton = styled.button`
+const GridButton = styled.button<{ active: boolean }>`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -165,9 +171,18 @@ const GridButton = styled.button`
   &:hover {
     background: rgba(0, 0, 0, 0.07);
   }
+
+  svg {
+    opacity: ${p => (p.active ? 1 : 0.25)};
+    transition: opacity 0.2s;
+
+    path {
+      fill: ${p => p.theme.colors.primary};
+    }
+  }
 `;
 
-const TilesIcon = ({ active }: { active: boolean }) => (
+const TilesIcon = () => (
   <svg
     width="26"
     height="26"
@@ -175,14 +190,11 @@ const TilesIcon = ({ active }: { active: boolean }) => (
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <path
-      d="M4.33337 13.8424H12.0371V5.4165H4.33337V13.8424ZM4.33337 20.5832H12.0371V15.5276H4.33337V20.5832ZM13.963 20.5832H21.6667V12.1572H13.963V20.5832ZM13.963 5.4165V10.4721H21.6667V5.4165H13.963Z"
-      fill={active ? "black" : "#D6D6D6"}
-    />
+    <path d="M4.33337 13.8424H12.0371V5.4165H4.33337V13.8424ZM4.33337 20.5832H12.0371V15.5276H4.33337V20.5832ZM13.963 20.5832H21.6667V12.1572H13.963V20.5832ZM13.963 5.4165V10.4721H21.6667V5.4165H13.963Z" />
   </svg>
 );
 
-const RowsIcon = ({ active }: { active: boolean }) => (
+const RowsIcon = () => (
   <svg
     width="26"
     height="26"
@@ -190,9 +202,6 @@ const RowsIcon = ({ active }: { active: boolean }) => (
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <path
-      d="M4.33331 15.1665H8.41174V10.8332H4.33331V15.1665ZM4.33331 20.5832H8.41174V16.2498H4.33331V20.5832ZM4.33331 9.74984H8.41174V5.4165H4.33331V9.74984ZM9.43135 15.1665H21.6666V10.8332H9.43135V15.1665ZM9.43135 20.5832H21.6666V16.2498H9.43135V20.5832ZM9.43135 5.4165V9.74984H21.6666V5.4165H9.43135Z"
-      fill={active ? "black" : "#D6D6D6"}
-    />
+    <path d="M4.33331 15.1665H8.41174V10.8332H4.33331V15.1665ZM4.33331 20.5832H8.41174V16.2498H4.33331V20.5832ZM4.33331 9.74984H8.41174V5.4165H4.33331V9.74984ZM9.43135 15.1665H21.6666V10.8332H9.43135V15.1665ZM9.43135 20.5832H21.6666V16.2498H9.43135V20.5832ZM9.43135 5.4165V9.74984H21.6666V5.4165H9.43135Z" />
   </svg>
 );

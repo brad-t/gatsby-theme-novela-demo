@@ -11,7 +11,7 @@ export default merge({
   fonts: {
     serif: "'Merriweather', serif",
     sansSerif:
-      "'-apple-system', 'BlinkMacSystemFont', 'San Francisco', 'Helvetica Neue', 'Helvetica', 'Ubuntu', 'Roboto', 'Noto', 'Segoe UI', 'Arial', sans-serif",
+      "'SF Pro Display', '-apple-system', 'BlinkMacSystemFont', 'San Francisco', 'Helvetica Neue', 'Helvetica', 'Ubuntu', 'Roboto', 'Noto', 'Segoe UI', 'Arial', sans-serif",
     monospace: `Consolas, Menlo, Monaco, source-code-pro, Courier New, monospace`,
   },
   breakpoints: [

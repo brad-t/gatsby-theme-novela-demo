@@ -18,4 +18,5 @@ export default LayoutContainer;
 
 const SiteContainer = styled.div`
   background: ${p => p.theme.colors.background};
+  transition: background 0.25s var(--ease-in-out-quad);
 `;

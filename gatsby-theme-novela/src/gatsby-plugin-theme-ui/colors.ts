@@ -20,7 +20,9 @@
 // }
 
 export default {
-  black: "#262626",
+  primary: "#000",
+  secondary: "#73737D",
+
   bg: "#111216",
   gold: "#E9DAAC",
   grey: "#73737D",
@@ -29,6 +31,12 @@ export default {
   background: "#fff",
   accent: "#6166DC",
   gradient: "linear-gradient(180deg, rgba(217, 219, 224, 0) 0%, #D9DBE0 100%)",
+
+  articleText: "#08080B",
+  track: "rgba(8, 8, 11, 0.3)",
+  progress: "#000",
+
+  horizontalRule: "rgba(8, 8, 11, 0.3)",
 
   prism: {
     background: `#011627`,
@@ -53,10 +61,18 @@ export default {
       grey: "#73737D",
       purple: "#6166DC",
 
-      background: "#111216",
+      primary: "#fff",
+      secondary: "#73737D",
       accent: "#E9DAAC",
+      background: "#111216",
       gradient:
-        "linear-gradient(180deg, #111216 29.86%, rgba(66, 81, 98, 0.36) 272.57%)",
+        "linear-gradient(180deg, #111216 0%, rgba(66, 81, 98, 0.36) 100%)",
+
+      articleText: "#fff",
+      track: "rgba(255,255,255, 0.3)",
+      progress: "#fff",
+
+      horizontalRule: "rgba(255,255,255, 0.15)",
     },
   },
 };

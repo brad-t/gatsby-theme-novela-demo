@@ -73,7 +73,7 @@ const CopyIconContainer = styled.div`
     top: -50%;
     width: 200%;
     height: 200%;
-    border: 2px solid ${p => p.theme.colors.purple};
+    border: 2px solid ${p => p.theme.colors.accent};
     border-radius: 5px;
   }
 `;

@@ -47,6 +47,6 @@ const FooterContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-bottom: 70px;
-  color: #73737d;
+  padding-bottom: 80px;
+  color: ${p => p.theme.colors.grey};
 `;

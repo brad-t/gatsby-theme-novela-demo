@@ -194,7 +194,7 @@ const MenuFloat = styled.div<{ mode?: string }>`
   right: 0;
   margin: 0 auto;
   padding: 7px 11px 7px 19px;
-  color: #73737d;
+  color: ${p => p.theme.colors.grey};
   background: ${p => (p.mode === "dark" ? "#fafafa" : p.theme.colors.bg)};
   border-radius: 5px;
   font-size: 18px;

@@ -79,7 +79,7 @@ const SocialIconContainer = styled.a`
     top: -10%;
     width: 200%;
     height: 120%;
-    border: 2px solid ${p => p.theme.colors.purple};
+    border: 2px solid ${p => p.theme.colors.accent};
     background: rgba(255, 255, 255, 0.01);
     border-radius: 5px;
   }

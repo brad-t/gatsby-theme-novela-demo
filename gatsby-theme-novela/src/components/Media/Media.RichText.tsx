@@ -2,14 +2,17 @@ import React from "react";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import styled from "@emotion/styled";
 import { css } from "@emotion/core";
+import { useColorMode } from "theme-ui";
 
 import mediaqueries from "@styles/media";
 
 import { IRichText } from "@typings";
 
 function RichText({ content, children, ...props }: React.SFC<IRichText>) {
+  const [colorMode] = useColorMode();
+
   return (
-    <Content {...props}>
+    <Content isDark={colorMode === "dark"} {...props}>
       <MDXRenderer>{content}</MDXRenderer>
       {children}
     </Content>
@@ -52,7 +55,7 @@ const transitionColor = css`
   transition: color 0.25s ease;
 `;
 
-const Content = styled.article`
+const Content = styled.article<{ isDark: boolean }>`
   position: relative;
   ${selectionColor};
 
@@ -64,7 +67,7 @@ const Content = styled.article`
   h6 {
     ${articleWidth};
     font-family: ${p => p.theme.fonts.serif};
-    color: #000;
+    color: ${p => p.theme.colors.primary};
     font-weight: 800;
   }
 
@@ -98,11 +101,11 @@ const Content = styled.article`
 
   a,
   a * {
-    color: #6166dc;
+    color: ${p => p.theme.colors.accent};
     ${transitionColor};
 
     &:visited {
-      color: #6166dc;
+      color: ${p => p.theme.colors.accent};
       opacity: 0.85;
     }
 
@@ -138,7 +141,7 @@ const Content = styled.article`
   blockquote {
     ${transitionColor};
     margin: 50px auto;
-    color: #000;
+    color: ${p => p.theme.colors.articleText};
     font-family: ${p => p.theme.fonts.serif};
     font-style: italic;
 
@@ -181,7 +184,7 @@ const Content = styled.article`
   ol {
     ${articleWidth} list-style: none;
     counter-reset: list;
-    color: #000;
+    color: ${p => p.theme.colors.articleText};
     ${transitionColor};
     position: relative;
     padding-left: 30px;
@@ -210,18 +213,18 @@ const Content = styled.article`
       width: 3rem;
       display: inline-block;
       position: absolute;
-      color: ${p => p.theme.colors.grey.mid};
+      color: ${p => p.theme.colors.secondary};
     }
   }
 
   ul li::before {
     content: "";
     position: absolute;
-    left: -3rem;
-    top: 1.5rem;
+    left: -30px;
+    top: 8px;
     height: 8px;
     width: 8px;
-    background: #000;
+    background: ${p => p.theme.colors.secondary};
 
     ${mediaqueries.tablet`
       left: 0;
@@ -234,7 +237,7 @@ const Content = styled.article`
     font-weight: 600;
     position: absolute;
     left: -3rem;
-    top: 0.3rem;
+    top: -0.3rem;
     font-size: 2rem;
 
     ${mediaqueries.tablet`
@@ -247,7 +250,7 @@ const Content = styled.article`
     margin-bottom: 35px;
     line-height: 1.756;
     font-size: 18px;
-    color: #000;
+    color: ${p => p.theme.colors.articleText};
 
     b {
       font-weight: 800;
@@ -339,13 +342,6 @@ const Content = styled.article`
     opacity: 0.33;
   }
 
-  .twitter-tweet {
-    text-align: center;
-    margin: 0 auto;
-    padding: 20px 0 55px 0;
-    width: 540px !important;
-  }
-
   hr {
     ${articleWidth};
     position: relative;
@@ -353,7 +349,10 @@ const Content = styled.article`
     margin: 25px auto 60px;
     border: 0;
     height: 14.36px;
-    background-image: url("data:image/svg+xml,%3Csvg width='10' height='15' viewBox='0 0 10 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0.567383' y='14.1777' width='16' height='1' transform='rotate(-60 0.567383 14.1777)' fill='%232D2E33'/%3E%3C/svg%3E");
+    background-image: url("${p =>
+      p.isDark
+        ? "data:image/svg+xml,%3Csvg width='10' height='15' viewBox='0 0 10 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0.432617' y='13.8564' width='16' height='1' transform='rotate(-60 0.432617 13.8564)' fill='%2350525B'/%3E%3C/svg%3E%0A"
+        : "data:image/svg+xml,%3Csvg width='10' height='15' viewBox='0 0 10 15' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0.567383' y='14.1777' width='16' height='1' transform='rotate(-60 0.567383 14.1777)' fill='%232D2E33'/%3E%3C/svg%3E"}");
     background-repeat: repeat-x;
     box-sizing: border-box;
 

@@ -90,20 +90,20 @@ class Paginator extends Component<IPaginator, {}> {
       truncatedRange.push(count);
     }
 
-    return truncatedRange.map((page: number | null, i) =>
+    return [...new Set(truncatedRange)].map((page: number | null, i) =>
       page === null ? (
         // If you find a null in the truncated array then add a spacer
         <Spacer key={`PaginatorPage_spacer_${i}`} aria-hidden={true} />
       ) : (
         // Otherwise render a PageButton
-        <PageButton
+        <PageNumberBUtton
           key={`PaginatorPage_${page}`}
           to={this.getFullPath(page)}
           style={{ opacity: current === page ? 1 : 0.3 }}
           className="Paginator__pageLink"
         >
           {page}
-        </PageButton>
+        </PageNumberBUtton>
       ),
     );
   }
@@ -180,7 +180,21 @@ const PageButton = styled(Link)`
   font-weight: 600;
   font-size: 18px;
   text-decoration: none;
-  text-transform: uppercase;
+  color: ${p => p.theme.colors.primary};
+  ${paginationItemMixin}
+
+  &:hover,
+  &:focus {
+    opacity: 1;
+    text-decoration: underline;
+  }
+`;
+
+const PageNumberBUtton = styled(Link)`
+  font-weight: 400;
+  font-size: 18px;
+  text-decoration: none;
+  color: ${p => p.theme.colors.primary};
   ${paginationItemMixin}
 
   &:hover,

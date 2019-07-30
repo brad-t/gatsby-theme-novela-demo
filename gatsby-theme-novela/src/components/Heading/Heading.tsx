@@ -3,9 +3,9 @@ import { css } from "@emotion/core";
 
 import mediaqueries from "@styles/media";
 
-const commonStyles = css`
-  font-family: "SF Pro Display";
+const commonStyles = p => css`
   font-weight: 600;
+  color: ${p.theme.colors.primary};
 `;
 
 /**
@@ -24,12 +24,6 @@ const commonStyles = css`
  */
 
 const constants = {
-  blockquote: {
-    fontsize: "3.2rem",
-    fontFamily: "'SF Pro Display', serif",
-    fontsizeMobile: "2.2rem",
-    lineheight: 1.1,
-  },
   h1: {
     fontsize: "52px",
     fontsizeTablet: "38px",
@@ -66,6 +60,7 @@ const constants = {
 const h1 = styled.h1`
   font-size: ${constants.h1.fontsize};
   line-height: ${constants.h1.lineheight};
+  font-family: ${p => p.theme.fonts.sansSerif};
   ${commonStyles};
 
   ${mediaqueries.tablet`
@@ -82,6 +77,7 @@ const h1 = styled.h1`
 const h2 = styled.h2`
   font-size: ${constants.h2.fontsize};
   line-height: ${constants.h2.lineheight};
+  font-family: ${p => p.theme.fonts.serif};
   ${commonStyles};
 
   ${mediaqueries.tablet`

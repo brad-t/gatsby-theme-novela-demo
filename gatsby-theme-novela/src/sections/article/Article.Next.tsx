@@ -142,7 +142,8 @@ const Title = styled(Heading.h3)`
   font-size: 22px;
   line-height: 1.2;
   margin-bottom: ${p => (p.hasOverflow ? "45px" : "10px")};
-  color: #000;
+  color: ${p => p.theme.colors.primary};
+  font-family: ${p => p.theme.fonts.serif};
   transition: color 0.3s ease-in-out;
   ${limitToTwoLines};
 
@@ -183,8 +184,8 @@ const Excerpt = styled.p`
 const TimeToRead = styled.div`
   font-weight: 600;
   font-size: 16px;
-  color: #000;
-  opacity: 0.25;
+  color: ${p => p.theme.colors.primary};
+  opacity: 0.2;
 
   ${mediaqueries.phablet`
     max-width: 100%;
@@ -211,7 +212,7 @@ const ArticleLink = styled(Link)<{ narrow: boolean }>`
 
   &:hover h2,
   &:focus h2 {
-    color: ${p => p.theme.colors.purple};
+    color: ${p => p.theme.colors.accent};
   }
 
   &[data-a11y="true"]:focus::after {
@@ -221,7 +222,7 @@ const ArticleLink = styled(Link)<{ narrow: boolean }>`
     top: -2%;
     width: 104%;
     height: 104%;
-    border: 3px solid ${p => p.theme.colors.purple};
+    border: 3px solid ${p => p.theme.colors.accent};
     background: rgba(255, 255, 255, 0.01);
   }
 

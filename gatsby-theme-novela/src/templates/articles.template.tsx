@@ -32,13 +32,11 @@ function ArticlesPage({ data, location, pageContext }) {
           pathname={location.pathname}
         /> */}
         <ArticlesHero />
-        <ArticlesGradient>
-          <Section narrow>
-            <ArticlesGrid articles={articles} />
-            <ArticlesPagination pageContext={pageContext} />
-          </Section>
-          <ArticlesFooter />
-        </ArticlesGradient>
+        <Section narrow>
+          <ArticlesGrid articles={articles} />
+          <ArticlesPagination pageContext={pageContext} />
+        </Section>
+        <ArticlesFooter />
       </Layout>
     </ArticlesGridLayoutProvider>
   );
@@ -48,4 +46,5 @@ export default ArticlesPage;
 
 const ArticlesGradient = styled.div`
   background: ${p => p.theme.colors.gradient};
+  transition: background 0.3s var(--ease-in-out-quad);
 `;

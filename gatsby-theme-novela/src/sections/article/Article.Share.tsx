@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "@emotion/styled";
 import { keyframes } from "@emotion/core";
+import { useColorMode } from "theme-ui";
 
 import {
   getHighlightedTextPositioning,
@@ -31,6 +32,7 @@ const MENU_HEIGHT: number = 46;
 function ArticelShare({ article, mode }: MenuFloatProps) {
   const { author = {}, shortUrl } = article;
 
+  const [colorMode] = useColorMode();
   const [text, setText] = useState("");
   const [focus, setFocus] = useState(false);
   const [canTweet, setCanTweet] = useState(true);
@@ -41,6 +43,7 @@ function ArticelShare({ article, mode }: MenuFloatProps) {
   });
 
   const share = generateShare(text, author.name, shortUrl);
+  const isDark = colorMode === "dark";
 
   useEffect(() => {
     const events: string[] = ["keydown", "keyup", "mouseup", "resize"];
@@ -141,7 +144,7 @@ function ArticelShare({ article, mode }: MenuFloatProps) {
         display: show && focus ? "flex" : "none",
         pointerEvents: show && focus ? "initial" : "none",
       }}
-      mode={mode}
+      isDark={isDark}
     >
       <MenuText>Share: </MenuText>
       <ReferralLink disabled={!canTweet} share={share.twitter}>
@@ -216,15 +219,15 @@ const popUpwards = keyframes`
   }
 `;
 
-const MenuFloat = styled.div<{ mode?: string }>`
+const MenuFloat = styled.div<{ isDark: string }>`
   position: absolute;
   align-items: center;
   z-index: 1;
   width: ${MENU_WIDTH}px;
   height: ${MENU_HEIGHT}px;
   padding: 7px 11px 7px 19px;
-  color: #73737d;
-  background: ${p => (p.mode === "dark" ? "#fafafa" : p.theme.colors.bg)};
+  color: ${p => p.theme.colors.grey};
+  background: ${p => (p.isDark ? "#fafafa" : p.theme.colors.bg)};
   border-radius: 5px;
   font-size: 18px;
   font-weight: 600;
@@ -242,14 +245,13 @@ const MenuFloat = styled.div<{ mode?: string }>`
     height: 0;
     border-left: 8px solid transparent;
     border-right: 8px solid transparent;
-    border-top: 8px solid
-      ${p => (p.mode === "dark" ? "#fafafa" : p.theme.colors.bg)};
+    border-top: 8px solid ${p => (p.isDark ? "#fafafa" : p.theme.colors.bg)};
     transition: border-color 200ms;
   }
 
   svg {
     path {
-      fill: ${p => (p.mode === "light" ? "#fff" : "#000")};
+      fill: ${p => (p.isDark ? "#000" : "#fff")};
     }
   }
 `;
