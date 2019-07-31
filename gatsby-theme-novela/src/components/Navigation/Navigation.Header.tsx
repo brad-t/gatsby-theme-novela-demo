@@ -125,7 +125,7 @@ const BackArrowIconContainer = styled.div`
     }
   }
 
-  ${mediaqueries.phablet`
+  ${mediaqueries.desktop_large`
     display: none;
   `}
 `;

@@ -69,7 +69,11 @@ const GridItem = ({ article, narrow }) => {
     <ArticleLink to={article.slug} data-a11y="false">
       <Item>
         <Image narrow={narrow}>
-          <Media src={article.hero.preview.fluid} />
+          <Media
+            src={
+              narrow ? article.hero.narrow.fluid : article.hero.regular.fluid
+            }
+          />
         </Image>
         <Title dark hasOverflow={hasOverflow}>
           {article.title}

@@ -56,7 +56,11 @@ const GridItem = ({
     >
       <Item>
         <Image>
-          <Media src={article.hero.preview.fluid} />
+          <Media
+            src={
+              narrow ? article.hero.narrow.fluid : article.hero.regular.fluid
+            }
+          />
         </Image>
         <Title dark hasOverflow={hasOverflow}>
           {article.title}
@@ -142,7 +146,7 @@ const Item = styled.div`
 
 const Title = styled(Heading.h3)`
   font-size: 22px;
-  line-height: 1.2;
+  line-height: 1.4;
   margin-bottom: ${p => (p.hasOverflow ? "45px" : "10px")};
   color: ${p => p.theme.colors.primary};
   font-family: ${p => p.theme.fonts.serif};

@@ -52,7 +52,7 @@ const Trackline = styled.div`
   max-height: 425px;
   width: 1px;
   background-color: ${p => p.theme.colors.track};
-  opacity: 0.3;
+  opacity: 0.6;
   overflow: hidden;
 `;
 

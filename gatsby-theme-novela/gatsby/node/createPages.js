@@ -45,12 +45,17 @@ const articlesQuery = `{
         body
         hero {
           full: childImageSharp {
-            fluid(maxWidth: 944, maxHeight: 425, quality: 100) {
+            fluid(maxWidth: 944, maxHeight: 425, quality: 90) {
               ${GatsbyImageSharpFluid_withWebp}
             }
           }
-          preview: childImageSharp {
-            fluid(maxWidth: 800, quality: 100) {
+          regular: childImageSharp {
+            fluid(maxWidth: 653, quality: 90) {
+              ${GatsbyImageSharpFluid_withWebp}
+            }
+          }
+          narrow: childImageSharp {
+            fluid(maxWidth: 457, quality: 90) {
               ${GatsbyImageSharpFluid_withWebp}
             }
           }

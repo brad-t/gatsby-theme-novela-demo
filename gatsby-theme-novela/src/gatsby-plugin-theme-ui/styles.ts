@@ -17,7 +17,7 @@ export default {
   inlineCode: {
     borderRadius: `0.3em`,
     color: `secondary`,
-    bg: `highlight`,
+    bg: `rgba(233, 218, 172, 0.3)`,
     paddingTop: `0.15em`,
     paddingBottom: `0.05em`,
     paddingX: `0.2em`,

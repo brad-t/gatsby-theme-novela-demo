@@ -27,7 +27,7 @@ function ArticlesGridRows({ articles }: { articles: IArticleNode[] }) {
           <ArticleLink to={article.slug} data-a11y="false">
             <GridRow>
               <Image>
-                <Media src={article.hero.preview.fluid} />
+                <Media src={article.hero.regular.fluid} />
               </Image>
               <div>
                 <Title dark>{article.title}</Title>
