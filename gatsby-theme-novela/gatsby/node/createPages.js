@@ -96,8 +96,10 @@ module.exports = async ({ actions: { createPage }, graphql }, options) => {
 
   log("Querying", "articles");
   const result = await graphql(articlesQuery);
-  const articles = result.data.articles.edges;
+  let articles = result.data.articles.edges;
   const authors = result.data.authors.edges;
+
+  articles = [articles[0], articles[1], articles[2]];
 
   log("Creating", "articles page");
   createPaginatedPages({
@@ -128,7 +130,10 @@ module.exports = async ({ actions: { createPage }, graphql }, options) => {
     if (next.length === 0) next = articles.slice(0, 2);
 
     // If there's 1 item in the list, grab the first article
-    if (next.length === 1) next = [...next, articles[0]];
+    if (next.length === 1 && articles.length !== 2)
+      next = [...next, articles[0]];
+
+    if (articles.length === 1) next = [];
 
     createPage({
       path: article.slug,

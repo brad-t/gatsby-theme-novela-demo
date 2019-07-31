@@ -21,7 +21,12 @@ function NavigationHeader() {
   return (
     <Section>
       <NavContainer>
-        <LogoLink to="/" data-a11y="false">
+        <LogoLink
+          to="/"
+          data-a11y="false"
+          title="Navigate back to the homepage"
+          aria-label="Navigate back to the homepage"
+        >
           {showBackArrow && (
             <BackArrowIconContainer>
               <BackArrowIcon />

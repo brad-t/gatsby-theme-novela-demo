@@ -24,10 +24,10 @@ import { IArticleNode } from "@typings";
  */
 const ArticlesNext = ({ articles }: { articles: IArticleNode[] }) => {
   if (!articles) return null;
-
+  const numberOfArticles = articles.length;
   return (
     <>
-      <Grid>
+      <Grid numberOfArticles={numberOfArticles}>
         <GridItem article={articles[0]} />
         <GridItem article={articles[1]} narrow />
       </Grid>
@@ -88,13 +88,26 @@ const limitToTwoLines = css`
     -webkit-line-clamp: 3;
   `}
 `;
-const Grid = styled.div`
+const Grid = styled.div<{ numberOfArticles: number; rever }>`
   position: relative;
   display: grid;
-  grid-template-columns: ${p =>
-    p.reverse ? `${narrow} ${wide}` : `${wide} ${narrow}`};
-  grid-template-rows: 2;
+  ${p => {
+    console.log(p.numberOfArticles);
+    if (p.numberOfArticles === 1) {
+      return `
+      grid-template-columns: 1fr;
+      grid-template-rows: 1
+    `;
+    } else {
+      return `
+      grid-template-columns: ${wide} ${narrow};
+      grid-template-rows: 2;
+      `;
+    }
+  }}
   column-gap: 30px;
+  margin: 0 auto;
+  max-width: ${p => (p.numberOfArticles === 1 ? "680px" : "100%")};
 
   ${mediaqueries.desktop`
     grid-template-columns: 1fr 1fr;

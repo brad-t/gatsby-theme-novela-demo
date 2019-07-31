@@ -92,11 +92,13 @@ function Article({ pageContext, location }) {
           <ArticleShare author={author} />
         </RichText>
       </ArticleBody>
-      <NextArticle narrow>
-        <FooterNext>More articles from {name}</FooterNext>
-        <ArticlesNext articles={next} />
-        <FooterSpacer />
-      </NextArticle>
+      {next.length > 0 && (
+        <NextArticle narrow>
+          <FooterNext>More articles from {name}</FooterNext>
+          <ArticlesNext articles={next} />
+          <FooterSpacer />
+        </NextArticle>
+      )}
     </Layout>
   );
 }

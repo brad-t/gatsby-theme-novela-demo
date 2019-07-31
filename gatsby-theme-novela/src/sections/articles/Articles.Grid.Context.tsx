@@ -20,12 +20,12 @@ function GridLayoutProvider({ children, articles }: GridLayoutProviderProps) {
   const [hasSetGridLayout, setHasSetGridLayout] = useState<boolean>(false);
 
   function setGridLayoutAndSave(tile: string) {
-    localStorage.setItem("gridLayout", tile);
+    localStorage.setItem("gridLayout", tile || initialLayout);
     setGridLayout(tile);
   }
 
   function getGridLayoutAndSave() {
-    setGridLayout(localStorage.getItem("gridLayout") || "tiles");
+    setGridLayout(localStorage.getItem("gridLayout") || initialLayout);
     setHasSetGridLayout(true);
   }
 
