@@ -49,6 +49,7 @@ function SocialLinks({ fill = "#73737D" }: { fill: string }) {
             aria-label={`Link to ${option.name}`}
             href={option.url}
           >
+            <Hidden>Link to ${option.name}</Hidden>
             <Icon fill={fill} />
           </SocialIconContainer>
         );
@@ -98,4 +99,11 @@ const SocialIconContainer = styled.a`
   ${mediaqueries.tablet`
     margin: 0 2.2rem;
   `};
+`;
+
+const Hidden = styled.div`
+  width: 0px;
+  height: 0px;
+  visibility: hidden;
+  opacity: 0;
 `;

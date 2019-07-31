@@ -77,6 +77,7 @@ function ArticlesHero() {
             onClick={() => setGridLayout("tiles")}
             active={tilesIsActive}
             data-a11y="false"
+            aria-label="Show articles in Tile grid"
           >
             <TilesIcon />
           </GridButton>
@@ -84,6 +85,7 @@ function ArticlesHero() {
             onClick={() => setGridLayout("rows")}
             active={!tilesIsActive}
             data-a11y="false"
+            aria-label="Show articles in Row grid"
           >
             <RowsIcon />
           </GridButton>

@@ -25,7 +25,11 @@ function DarkModeToggle() {
   }
 
   return (
-    <IconWrapper isDark={isDark} onClick={toggleColorMode}>
+    <IconWrapper
+      isDark={isDark}
+      onClick={toggleColorMode}
+      aria-label="Toggle dark and light mode"
+    >
       <MoonOrSun isDark={isDark} />
       <MoonMask isDark={isDark} />
     </IconWrapper>
@@ -61,6 +65,7 @@ function SharePageButton() {
       isDark={isDark}
       onClick={copyToClipboardOnClick}
       data-a11y="false"
+      aria-label="Copy URL to clipboard"
     >
       <Icon />
       <ToolTip isDark={isDark} hasCopied={hasCopied}>

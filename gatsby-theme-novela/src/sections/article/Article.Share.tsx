@@ -154,7 +154,7 @@ function ArticelShare({ article }: MenuFloatProps) {
         <LinkedInIcon />
       </ReferralLink>
       <MenuDivider />
-      <MenuButton onClick={handleCopyClick}>
+      <MenuButton onClick={handleCopyClick} aria-label="Copy selected text">
         <CopyIcon />
       </MenuButton>
     </MenuFloat>
@@ -181,6 +181,7 @@ function ReferralLink({ disabled, share, children }) {
       onClick={handleClick}
       disabled={disabled}
     >
+      <Hidden>Share the selected text</Hidden>
       {children}
     </MenuShare>
   );
@@ -258,6 +259,13 @@ const MenuFloat = styled.div<{ isDark: string }>`
 
 const MenuText = styled.span`
   margin-right: 11px;
+`;
+
+const Hidden = styled.div`
+  width: 0px;
+  height: 0px;
+  visibility: hidden;
+  opacity: 0;
 `;
 
 const MenuShare = styled.a`
