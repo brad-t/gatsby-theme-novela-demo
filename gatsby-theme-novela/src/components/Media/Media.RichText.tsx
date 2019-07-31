@@ -55,7 +55,7 @@ const transitionColor = css`
   transition: color 0.25s ease;
 `;
 
-const Content = styled.article<{ isDark: boolean }>`
+const Content = styled.div<{ isDark: boolean }>`
   position: relative;
   ${selectionColor};
 

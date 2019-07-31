@@ -28,6 +28,7 @@ function NavigationHeader() {
             </BackArrowIconContainer>
           )}
           <Logo fill={fill} />
+          <Hidden>Navigate back to the homepage</Hidden>
         </LogoLink>
         <NavControls>
           <SharePageButton />
@@ -387,4 +388,11 @@ const MoonMask = styled.div<{ isDark: boolean }>`
   transform: translate(${p => (p.isDark ? "14px, -14px" : "0, 0")});
   opacity: ${p => (p.isDark ? 0 : 1)};
   transition: background 0.25s var(--ease-in-out-quad), transform 0.45s ease;
+`;
+
+const Hidden = styled.span`
+  width: 0px;
+  height: 0px;
+  visibility: hidden;
+  opacity: 0;
 `;

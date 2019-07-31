@@ -85,11 +85,11 @@ function Article({ pageContext, location }) {
         <Progress contentHeight={contentHeight} />
       </ArticleAside>
       <MobileControls>
-        <ArticleControls shortUrl={article.slug} />
+        <ArticleControls />
       </MobileControls>
       <ArticleBody ref={contentSectionRef}>
         <RichText content={article.body}>
-          <ArticleShare article={article} />
+          <ArticleShare author={author} />
         </RichText>
       </ArticleBody>
       <NextArticle narrow>

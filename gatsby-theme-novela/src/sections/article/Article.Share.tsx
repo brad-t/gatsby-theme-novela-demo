@@ -9,7 +9,7 @@ import {
   getSelectionText,
 } from "@utils";
 
-import { IArticleNode, IAuthorNode } from "@typings";
+import { IAuthorNode } from "@typings";
 
 interface MenuFloatState {
   x: number;
@@ -18,7 +18,6 @@ interface MenuFloatState {
 }
 
 interface MenuFloatProps {
-  article: IArticleNode;
   author: IAuthorNode;
 }
 
@@ -29,9 +28,7 @@ interface MenuFloatProps {
 const MENU_WIDTH: number = 225;
 const MENU_HEIGHT: number = 46;
 
-function ArticelShare({ article }: MenuFloatProps) {
-  const { author = {}, shortUrl } = article;
-
+function ArticelShare({ author }: MenuFloatProps) {
   const [colorMode] = useColorMode();
   const [text, setText] = useState("");
   const [focus, setFocus] = useState(false);
@@ -42,7 +39,7 @@ function ArticelShare({ article }: MenuFloatProps) {
     show: false,
   });
 
-  const share = generateShare(text, author.name, shortUrl);
+  const share = generateShare(text, author.name);
   const isDark = colorMode === "dark";
 
   useEffect(() => {
@@ -61,6 +58,16 @@ function ArticelShare({ article }: MenuFloatProps) {
           .offsetLeft;
 
         if (!article) return;
+
+        // We want to not show the menu float in code blocks
+        const codeBlocks = Array.from(
+          article.getElementsByClassName(".prism-code"),
+        );
+        const isHighlightedInCodeBlock = codeBlocks.some(block =>
+          window.getSelection().containsNode(block, true),
+        );
+
+        if (isHighlightedInCodeBlock) return;
 
         const articleBox = article.getBoundingClientRect() as DOMRect;
 
@@ -129,7 +136,7 @@ function ArticelShare({ article }: MenuFloatProps) {
   useEffect(() => {
     const tweetLimit = 280;
     const otherCharactersInTweet = '""—  '; // 2 quotes, 1 emdash, 2 spaces
-    const url = `ntve.co/${shortUrl}`;
+    const url = window.location.href;
     const tweet = text + author.name + url + otherCharactersInTweet;
 
     setCanTweet(tweet.length <= tweetLimit);
@@ -187,9 +194,9 @@ function ReferralLink({ disabled, share, children }) {
   );
 }
 
-function generateShare(shareText: string, author: string, shortUrl: string) {
+function generateShare(shareText: string, author: string) {
   if (!shareText) return {};
-  const url = `ntve.co/${shortUrl}`;
+  const url = window.location.href;
 
   return {
     twitter: `https://twitter.com/intent/tweet?text="${shareText}" — ${author} ${url}`,

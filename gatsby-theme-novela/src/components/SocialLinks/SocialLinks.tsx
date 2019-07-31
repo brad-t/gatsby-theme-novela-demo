@@ -50,6 +50,7 @@ function SocialLinks({ fill = "#73737D" }: { fill: string }) {
             href={option.url}
           >
             <Icon fill={fill} />
+            <Hidden>Link to ${option.name}</Hidden>
           </SocialIconContainer>
         );
       })}
@@ -105,4 +106,6 @@ const Hidden = styled.span`
   height: 0px;
   visibility: hidden;
   opacity: 0;
+  overflow: hidden;
+  display: inline-block;
 `;
