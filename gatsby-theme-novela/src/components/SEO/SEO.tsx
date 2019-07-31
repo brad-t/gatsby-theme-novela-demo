@@ -90,14 +90,14 @@ function getMetaTags({
       rel: "canonical",
       href: fullURL(pathname),
     },
-    { itemprop: "name", content: title },
+    { itemprop: "name", content: site.title },
     { itemprop: "description", content: site.description },
     { itemprop: "image", content: fullURL(image) },
     { name: "description", content: site.description },
 
     { name: "twitter:card", content: "summary_large_image" },
     { name: "twitter:site", content: site.name },
-    { name: "twitter:title", content: title },
+    { name: "twitter:title", content: site.title },
     { name: "twitter:description", content: site.description },
     { name: "twitter:creator", content: twitter.url },
     {
@@ -105,7 +105,7 @@ function getMetaTags({
       content: fullURL(image),
     },
 
-    { property: "og:title", content: title },
+    { property: "og:title", content: site.title },
     { property: "og:type", content: contentType },
     { property: "og:url", content: url },
     { property: "og:image", content: fullURL(image) },
@@ -128,11 +128,7 @@ function SEO(props: HelmetProps) {
   const { children, title } = props;
 
   return (
-    <Helmet
-      htmlAttributes={{ lang: "en" }}
-      title={title}
-      meta={getMetaTags(props)}
-    >
+    <Helmet htmlAttributes={{ lang: "en" }} meta={getMetaTags(props)}>
       {children}
     </Helmet>
   );
