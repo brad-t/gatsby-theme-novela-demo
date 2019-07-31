@@ -15,7 +15,12 @@ function NavigationHeader() {
   const fill = colorMode === "dark" ? "#fff" : "#000";
 
   useEffect(() => {
-    setShowBackArrow(localStorage.getItem("previousPath") === "/");
+    const previousPath = localStorage.getItem("previousPath");
+    const previousPathWasHomepage =
+      previousPath === "/" || previousPath.includes("/page/");
+    const isNotPaginated = !location.pathname.includes("/page/");
+
+    setShowBackArrow(previousPathWasHomepage && isNotPaginated);
   }, []);
 
   return (
