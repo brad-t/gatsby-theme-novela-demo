@@ -200,7 +200,7 @@ function generateShare(shareText: string, author: string) {
 
   return {
     twitter: `https://twitter.com/intent/tweet?text="${shareText}" — ${author} ${url}`,
-    linkedin: `http://www.linkedin.com/shareArticle?mini=true&url=${url}&summary=${shareText}&title=${shareText}&source=Narative`,
+    linkedin: `http://www.linkedin.com/shareArticle?mini=true&url=${url}&summary=${shareText}&title=${shareText}`,
   };
 }
 

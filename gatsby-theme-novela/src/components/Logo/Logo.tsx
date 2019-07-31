@@ -3,11 +3,6 @@ import styled from "@emotion/styled";
 
 import mediaqueries from "@styles/media";
 
-/**
- * An inline SVG for Narative Logo with aria labels
- *
- * @param {String} fill dark or light
- */
 const Logo = ({ fill = "#fff" }: { fill?: string }) => {
   return (
     <LogoContainer>

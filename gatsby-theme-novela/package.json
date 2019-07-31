@@ -4,11 +4,13 @@
   "main": "index.js",
   "license": "MIT",
   "keywords": [
+    "narative",
     "gatsby",
     "gatsby-theme",
     "gatsby-theme-novela",
-    "narative",
     "blog",
+    "medium",
+    "articles",
     "react"
   ],
   "scripts": {

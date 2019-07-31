@@ -11,26 +11,18 @@ import ArticlesGridLayoutProvider from "../sections/articles/Articles.Grid.Conte
 import ArticlesGrid from "../sections/articles/Articles.Grid";
 
 /**
- * Narative.co/articles
- *
  * This template is used to present our wonderful articles that we pull
  * from Contentful. This is not located in the /pages folder because we're
  * using it in the createPages lifecycle event
  */
 
-function ArticlesPage({ data, location, pageContext }) {
-  // const { seo } = data.allContentfulPage.edges[0].node
+function ArticlesPage({ location, pageContext }) {
   const articles = pageContext.group;
 
   return (
     <ArticlesGridLayoutProvider articles={articles}>
       <Layout>
-        {/* <SEO
-          title={seo.title}
-          description={seo.description}
-          image={seo.image.file.url}
-          pathname={location.pathname}
-        /> */}
+        <SEO pathname={location.pathname} />
         <ArticlesHero />
         <Section narrow>
           <ArticlesGrid articles={articles} />
