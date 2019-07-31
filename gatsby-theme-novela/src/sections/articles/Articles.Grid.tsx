@@ -17,7 +17,10 @@ function ArticlesGrid({ articles }: { articles: IArticleNode[] }) {
    * loaded with have to hide the Grid until JS has loaded and we'r set the memory.
    */
   return (
-    <ArticlesGridContainer style={{ opacity: hasSetGridLayout ? 1 : 0 }}>
+    <ArticlesGridContainer
+      style={{ opacity: hasSetGridLayout ? 1 : 0 }}
+      id="Articles__Grid"
+    >
       {gridLayout === "tiles" ? (
         <ArticlesGridTiles articles={articles} />
       ) : (

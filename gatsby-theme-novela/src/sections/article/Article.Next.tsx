@@ -64,7 +64,9 @@ const GridItem = ({
           {article.title}
         </Title>
         <Excerpt hasOverflow={hasOverflow}>{article.excerpt}</Excerpt>
-        <TimeToRead>{article.timeToRead}min read</TimeToRead>
+        <MetaData>
+          {article.date} · {article.timeToRead}min read
+        </MetaData>{" "}
       </Item>
     </ArticleLink>
   );
@@ -90,7 +92,6 @@ const Grid = styled.div<{ numberOfArticles: number }>`
   position: relative;
   display: grid;
   ${p => {
-    console.log(p.numberOfArticles);
     if (p.numberOfArticles === 1) {
       return `
       grid-template-columns: 1fr;
@@ -198,11 +199,11 @@ const Excerpt = styled.p<{ narrow: boolean; hasOverflow: boolean }>`
   `}
 `;
 
-const TimeToRead = styled.div`
+const MetaData = styled.div`
   font-weight: 600;
   font-size: 16px;
-  color: ${p => p.theme.colors.primary};
-  opacity: 0.2;
+  color: ${p => p.theme.colors.grey};
+  opacity: 0.33;
 
   ${mediaqueries.phablet`
     max-width: 100%;

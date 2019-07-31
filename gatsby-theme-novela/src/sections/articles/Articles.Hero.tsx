@@ -59,7 +59,7 @@ function ArticlesHero() {
   const tilesIsActive = hasSetGridLayout && gridLayout === "tiles";
 
   return (
-    <Section relative>
+    <Section relative id="Articles__Hero">
       <HeadingContainer style={{ maxWidth: `${hero.maxWidth}px` }}>
         <Heading.h1>{hero.heading}</Heading.h1>
       </HeadingContainer>
@@ -168,7 +168,7 @@ const GridControlsContainer = styled.div`
   `};
 `;
 
-const HeadingContainer = styled.div<{ maxWidth: number }>`
+const HeadingContainer = styled.div`
   margin: 100px 0;
 
   ${mediaqueries.desktop`
