@@ -96,10 +96,8 @@ module.exports = async ({ actions: { createPage }, graphql }, options) => {
 
   log("Querying", "articles");
   const result = await graphql(articlesQuery);
-  let articles = result.data.articles.edges;
+  const articles = result.data.articles.edges;
   const authors = result.data.authors.edges;
-
-  articles = [articles[0], articles[1], articles[2]];
 
   log("Creating", "articles page");
   createPaginatedPages({

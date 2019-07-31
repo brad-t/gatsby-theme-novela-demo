@@ -26,12 +26,10 @@ const ArticlesNext = ({ articles }: { articles: IArticleNode[] }) => {
   if (!articles) return null;
   const numberOfArticles = articles.length;
   return (
-    <>
-      <Grid numberOfArticles={numberOfArticles}>
-        <GridItem article={articles[0]} />
-        <GridItem article={articles[1]} narrow />
-      </Grid>
-    </>
+    <Grid numberOfArticles={numberOfArticles}>
+      <GridItem article={articles[0]} />
+      <GridItem article={articles[1]} narrow />
+    </Grid>
   );
 };
 
@@ -88,7 +86,7 @@ const limitToTwoLines = css`
     -webkit-line-clamp: 3;
   `}
 `;
-const Grid = styled.div<{ numberOfArticles: number; rever }>`
+const Grid = styled.div<{ numberOfArticles: number }>`
   position: relative;
   display: grid;
   ${p => {
@@ -176,7 +174,7 @@ const Title = styled(Heading.h3)`
   `}
 `;
 
-const Excerpt = styled.p`
+const Excerpt = styled.p<{ narrow: boolean; hasOverflow: boolean }>`
   ${limitToTwoLines};
   font-size: 16px;
   margin-bottom: 10px;
