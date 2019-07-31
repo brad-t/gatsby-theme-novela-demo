@@ -8,6 +8,6 @@
     "build:theme": "yarn --cwd ./gatsby-theme-novela build",
     "build:site": "yarn --cwd ./site build",
     "serve": "yarn --cwd ./site serve",
-    "build": "yarn build:theme && yarn build:site"
+    "build": "yarn build:site"
   }
 }
