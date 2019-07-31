@@ -1,0 +1,3 @@
+# Gatsby Theme Novela
+
+WIP

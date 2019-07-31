@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Novela by Narative`,
-    name: `Novela by Narative`,
+    name: `Narative`,
     siteUrl: `https://novela.netlify.com`,
     description: `This is my description that will be used in the meta tags and important for search results`,
     hero: {
