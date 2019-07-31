@@ -9,7 +9,7 @@ const Section = styled.section<{ narrow?: boolean }>`
   padding: 0 4rem;
 
   ${mediaqueries.desktop`
-    max-width: 100%;
+    max-width: 850px;
   `};
 
   ${p =>

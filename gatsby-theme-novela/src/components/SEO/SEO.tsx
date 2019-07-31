@@ -81,7 +81,12 @@ function SEO({
     },
     {
       name: "theme-color",
-      content: "#000",
+      content: "#fff",
+    },
+    {
+      href:
+        "https://fonts.googleapis.com/css?family=Merriweather:400,700&display=swap",
+      rel: "stylesheet",
     },
     {
       rel: "canonical",

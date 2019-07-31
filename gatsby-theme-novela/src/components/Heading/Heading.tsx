@@ -63,6 +63,11 @@ const h1 = styled.h1`
   font-family: ${p => p.theme.fonts.sansSerif};
   ${commonStyles};
 
+  ${mediaqueries.desktop`
+    font-size: 38px;
+    line-height: ${constants.h1.lineheightMobile};
+  `};
+
   ${mediaqueries.tablet`
     font-size: ${constants.h1.fontsizeTablet};
     line-height: ${constants.h1.lineheightMobile};

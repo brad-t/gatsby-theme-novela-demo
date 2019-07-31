@@ -105,6 +105,10 @@ const SubheadingContainer = styled.div`
   justify-content: space-between;
   margin-bottom: 100px;
 
+  ${mediaqueries.desktop`
+    margin-bottom: 80px;
+  `};
+
   ${mediaqueries.tablet`
     margin-bottom: 60px;
   `};
@@ -164,8 +168,20 @@ const GridControlsContainer = styled.div`
   `};
 `;
 
-const HeadingContainer = styled.div`
+const HeadingContainer = styled.div<{ maxWidth: number }>`
   margin: 100px 0;
+
+  @media screen and (max-height: 700px) {
+    margin: 80px 0;
+  }
+
+  ${mediaqueries.desktop`
+    width: 80%;
+  `}
+
+  ${mediaqueries.tablet`
+    width: 100%;
+  `}
 `;
 
 const GridButton = styled.button<{ active: boolean }>`

@@ -395,4 +395,7 @@ const Hidden = styled.span`
   height: 0px;
   visibility: hidden;
   opacity: 0;
+  display: inline-block;
+  overflow: hidden;
+  position: absolute;
 `;
