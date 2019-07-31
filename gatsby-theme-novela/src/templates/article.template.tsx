@@ -79,7 +79,7 @@ function Article({ pageContext, location }) {
 
   return (
     <Layout>
-      <ArticleSEO article={article} location={location} />
+      <ArticleSEO article={article} author={author} location={location} />
       <ArticleHero article={article} author={author} />
       <ArticleAside contentHeight={contentHeight}>
         <Progress contentHeight={contentHeight} />

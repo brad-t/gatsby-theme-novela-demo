@@ -29,10 +29,7 @@ interface HelmetProps {
   image?: string;
   url?: string;
   canonical?: string;
-  contentType?: string;
-  category?: string;
-  tags?: string;
-  twitter?: string;
+  published?: string;
   timeToRead?: string;
 }
 
@@ -56,12 +53,12 @@ const seoQuery = graphql`
   }
 `;
 
-function getMetaTags({
+function SEO({
   title,
   description,
+  children,
   url,
   image,
-  contentType,
   published,
   pathname,
   timeToRead,
@@ -70,7 +67,7 @@ function getMetaTags({
   const site = results.allSite.edges[0].node.siteMetadata;
   const twitter = site.social.find(option => option.name === "twitter") || {};
 
-  const fullURL = path => `${site.siteUrl}${path}`;
+  const fullURL = (path: string) => `${site.siteUrl}${path}`;
 
   const metaTags = [
     { charset: "utf-8" },
@@ -90,45 +87,43 @@ function getMetaTags({
       rel: "canonical",
       href: fullURL(pathname),
     },
-    { itemprop: "name", content: site.title },
-    { itemprop: "description", content: site.description },
+    { itemprop: "name", content: title || site.title },
+    { itemprop: "description", content: description || site.description },
     { itemprop: "image", content: fullURL(image) },
-    { name: "description", content: site.description },
+    { name: "description", content: description || site.description },
 
     { name: "twitter:card", content: "summary_large_image" },
     { name: "twitter:site", content: site.name },
-    { name: "twitter:title", content: site.title },
-    { name: "twitter:description", content: site.description },
+    { name: "twitter:title", content: title || site.title },
+    { name: "twitter:description", content: description || site.description },
     { name: "twitter:creator", content: twitter.url },
     {
       name: "twitter:image",
       content: fullURL(image),
     },
 
-    { property: "og:title", content: site.title },
-    { property: "og:type", content: contentType },
+    { property: "og:title", content: title || site.title },
     { property: "og:url", content: url },
     { property: "og:image", content: fullURL(image) },
-    { property: "og:description", content: site.description },
+    { property: "og:description", content: description || site.description },
     { property: "og:site_name", content: site.name },
   ];
 
-  if (published)
+  if (published) {
     metaTags.push({ name: "article:published_time", content: published });
+  }
 
   if (timeToRead) {
     metaTags.push({ name: "twitter:label1", value: "Reading time" });
     metaTags.push({ name: "twitter:data1", value: timeToRead });
   }
 
-  return metaTags;
-}
-
-function SEO(props: HelmetProps) {
-  const { children, title } = props;
-
   return (
-    <Helmet htmlAttributes={{ lang: "en" }} meta={getMetaTags(props)}>
+    <Helmet
+      title={title || site.title}
+      htmlAttributes={{ lang: "en" }}
+      meta={metaTags}
+    >
       {children}
     </Helmet>
   );

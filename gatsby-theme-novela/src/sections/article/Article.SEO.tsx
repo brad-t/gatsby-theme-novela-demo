@@ -25,15 +25,7 @@ function ArticleSEO({
     "datePublished": "${article.dateForSEO}",
     "author": {
       "@type": "Person",
-      "name": "${author ? author.name : "Narative Editors"}"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "Narative",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "${article.hero.seo.fixed.src}"
-      }
+      "name": "${author.name}"
     },
     "description": "${article.excerpt.replace(/"/g, '\\"')}"
   }
