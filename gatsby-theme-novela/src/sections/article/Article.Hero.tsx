@@ -71,7 +71,7 @@ const Header = styled.header`
     padding: 0 40px;
   `}
 
-    @media screen and (max-height: 700px) {
+  @media screen and (max-height: 700px) {
     margin: 100px auto;
   }
 `;
