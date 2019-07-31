@@ -129,7 +129,6 @@ function SEO({
         href="https://fonts.googleapis.com/css?family=Merriweather:400,700&display=swap"
         rel="stylesheet"
       />
-
       {children}
     </Helmet>
   );
