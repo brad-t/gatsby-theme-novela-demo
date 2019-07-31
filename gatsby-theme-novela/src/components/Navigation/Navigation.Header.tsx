@@ -17,7 +17,7 @@ function NavigationHeader() {
   useEffect(() => {
     const previousPath = localStorage.getItem("previousPath");
     const previousPathWasHomepage =
-      previousPath === "/" || previousPath.includes("/page/");
+      previousPath === "/" || (previousPath && previousPath.includes("/page/"));
     const isNotPaginated = !location.pathname.includes("/page/");
 
     setShowBackArrow(previousPathWasHomepage && isNotPaginated);
