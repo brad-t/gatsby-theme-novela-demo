@@ -28,7 +28,7 @@ const constants = {
     fontsize: "52px",
     fontsizeTablet: "38px",
     fontsizeMobile: "32px",
-    lineheight: 1,
+    lineheight: 1.15,
     lineheightMobile: 1.2,
   },
   h2: {

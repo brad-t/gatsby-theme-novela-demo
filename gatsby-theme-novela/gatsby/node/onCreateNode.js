@@ -5,9 +5,10 @@ const { createFilePath } = require(`gatsby-source-filesystem`);
 
 // Create fields for post slugs and source
 // This will change with schema customization with work
-module.exports = ({ node, actions, getNode, createNodeId }, options) => {
+module.exports = ({ node, actions, getNode, createNodeId }, themeOptions) => {
   const { createNode, createParentChildLink } = actions;
-  const contentPath = options.contentPath || "content/posts";
+  const contentPath = themeOptions.contentPath || "content/posts";
+  const basePath = themeOptions.basePath || "/";
 
   // Make sure it's an MDX node
   if (node.internal.type !== `Mdx`) {
@@ -19,14 +20,22 @@ module.exports = ({ node, actions, getNode, createNodeId }, options) => {
   const source = fileNode.sourceInstanceName;
 
   if (node.internal.type === `Mdx` && `content/${source}` === contentPath) {
+    const slugify = str => {
+      const slug = str
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/(^-|-$)+/g, "");
+      return `/${basePath}/${slug}`.replace(/\/\/+/g, "/");
+    };
+
     const slug = createFilePath({
       node: fileNode,
       getNode,
-      basePath: contentPath,
+      basePath,
     });
 
     const fieldData = {
-      slug,
+      slug: slugify(node.frontmatter.title),
       author: node.frontmatter.author,
       title: node.frontmatter.title,
       date: node.frontmatter.date,

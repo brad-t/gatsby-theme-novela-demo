@@ -114,7 +114,11 @@ class Paginator extends Component<IPaginator, {}> {
    * but note there's special behaviour for page 1 where the URL should be / not /page/1
    */
   getFullPath = (n: number) => {
-    return n === 1 ? this.pageRoot : this.pageRoot + "page/" + n;
+    if (this.pageRoot === "/") {
+      return n === 1 ? this.pageRoot : this.pageRoot + "page/" + n;
+    } else {
+      return n === 1 ? this.pageRoot : this.pageRoot + "/page/" + n;
+    }
   };
 
   render() {

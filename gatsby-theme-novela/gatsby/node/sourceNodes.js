@@ -1,7 +1,6 @@
 "use strict";
 
 module.exports = ({ actions }) => {
-  // Article node
   actions.createTypes(`
     type Article implements Node {
       id: ID!

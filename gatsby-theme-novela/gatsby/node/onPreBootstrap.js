@@ -2,13 +2,14 @@
 
 const fs = require("fs-extra");
 
-module.exports = ({ reporter }, options) => {
-  const authorsPath = options.authorsPath || "content/authors";
-  const contentPath = options.contentPath || "content/posts";
+module.exports = ({ reporter }, themeOptions) => {
+  const postsPath = themeOptions.contentPosts || "content/posts";
 
-  if (!fs.existsSync(contentPath)) {
-    reporter.info(`creating the ${contentPath} directory`);
-    fs.mkdirSync(contentPath);
+  const authorsPath = themeOptions.contentAuthors || "content/authors";
+
+  if (!fs.existsSync(postsPath)) {
+    reporter.info(`creating the ${postsPath} directory`);
+    fs.mkdirSync(postsPath);
   }
 
   if (!fs.existsSync(authorsPath)) {

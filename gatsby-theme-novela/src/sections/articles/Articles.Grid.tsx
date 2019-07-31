@@ -8,9 +8,14 @@ import ArticlesGridRows from "./Articles.Grid.Rows";
 
 import { GridLayoutContext } from "./Articles.Grid.Context";
 
-function ArticlesGrid({ articles }: { articles: IArticleNode[] }) {
+function ArticlesGrid({
+  articles,
+  basePath,
+}: {
+  articles: IArticleNode[];
+  basePath: string;
+}) {
   const { gridLayout, hasSetGridLayout } = useContext(GridLayoutContext);
-
   /**
    * We have to wait until we read from localStorage to see which layout
    * the user has chosen. Since Gatsby is HTML that's visible before JS is

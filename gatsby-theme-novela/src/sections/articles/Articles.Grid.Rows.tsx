@@ -22,24 +22,22 @@ function ArticlesGridRows({ articles }: { articles: IArticleNode[] }) {
 
   return (
     <>
-      {articles.map(({ node: article }) => {
-        return (
-          <ArticleLink to={article.slug} data-a11y="false">
-            <GridRow>
-              <Image>
-                <Media src={article.hero.regular.fluid} />
-              </Image>
-              <div>
-                <Title dark>{article.title}</Title>
-                <Excerpt>{article.excerpt}</Excerpt>
-                <MetaData>
-                  {article.date} · {article.timeToRead}min read
-                </MetaData>
-              </div>
-            </GridRow>
-          </ArticleLink>
-        );
-      })}
+      {articles.map(({ node: article }) => (
+        <ArticleLink to={article.slug} data-a11y="false">
+          <GridRow>
+            <Image>
+              <Media src={article.hero.regular.fluid} />
+            </Image>
+            <div>
+              <Title dark>{article.title}</Title>
+              <Excerpt>{article.excerpt}</Excerpt>
+              <MetaData>
+                {article.date} · {article.timeToRead}min read
+              </MetaData>
+            </div>
+          </GridRow>
+        </ArticleLink>
+      ))}
     </>
   );
 }

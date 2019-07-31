@@ -121,6 +121,8 @@ const SubheadingContainer = styled.div`
 const BioContainer = styled.div`
   display: flex;
   align-items: center;
+  position: relative;
+  left: -10px;
 `;
 
 const BioAvatar = styled.div`

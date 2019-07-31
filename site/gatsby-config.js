@@ -34,7 +34,11 @@ module.exports = {
   plugins: [
     {
       resolve: "gatsby-theme-novela",
-      options: {},
+      options: {
+        contentPosts: "content/posts",
+        contentAuthors: "content/authors",
+        basePath: "/test",
+      },
     },
     {
       resolve: `gatsby-plugin-manifest`,

@@ -13,8 +13,8 @@ const templates = {
   article: path.resolve(templatesDir, "article.template.tsx"),
 };
 
-// Some useful variables
-const pageLength = 6; // How many nodes should be displayed on each list pages
+// How many posts per page? This is hardcoded for now.
+const pageLength = 6;
 
 // https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-transformer-sharp/src/fragments.js
 const GatsbyImageSharpFluid_withWebp = `
@@ -87,17 +87,28 @@ const articlesQuery = `{
 }
 `;
 
-module.exports = async ({ actions: { createPage }, graphql }, options) => {
-  const basePath = options.basePath || `/`;
+module.exports = async ({ actions: { createPage }, graphql }, themeOptions) => {
+  const basePath = themeOptions.basePath || `/`;
 
   function buildPaginatedPath(index, basePath) {
-    return index > 1 ? `${basePath}page/${index}` : basePath;
+    if (basePath === "/") {
+      return index > 1 ? `${basePath}page/${index}` : basePath;
+    }
+    return index > 1 ? `${basePath}/page/${index}` : basePath;
   }
 
   log("Querying", "articles");
   const result = await graphql(articlesQuery);
   const articles = result.data.articles.edges;
   const authors = result.data.authors.edges;
+
+  if (articles.length === 0) {
+    throw new Error("You must ahve at least one article");
+  }
+
+  if (authors.length === 0) {
+    throw new Error("You must have at least one author");
+  }
 
   log("Creating", "articles page");
   createPaginatedPages({
@@ -108,6 +119,7 @@ module.exports = async ({ actions: { createPage }, graphql }, options) => {
     pageTemplate: templates.articles,
     buildPath: buildPaginatedPath,
     context: {
+      basePath,
       skip: pageLength,
       limit: pageLength,
     },
@@ -118,9 +130,19 @@ module.exports = async ({ actions: { createPage }, graphql }, options) => {
     const article = node;
 
     // Match the Author to the one specified in the article
-    const author = authors.find(
-      ({ node: author }) => author.name === article.author,
-    ).node;
+    let author;
+
+    try {
+      author = authors.find(
+        ({ node: author }) => author.name === article.author,
+      ).node;
+    } catch (error) {
+      throw new Error(`
+          We could not find the Author for "${article.title}".
+          Double check the author field is specified in your post and the name
+          matches a specified author.
+        `);
+    }
 
     let next = articles.slice(index + 1, index + 3);
 
@@ -139,6 +161,7 @@ module.exports = async ({ actions: { createPage }, graphql }, options) => {
       context: {
         article,
         author,
+        basePath,
         slug: article.slug,
         id: article.id,
         title: article.title,
