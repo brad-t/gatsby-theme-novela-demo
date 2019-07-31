@@ -45,7 +45,7 @@ module.exports = {
         background_color: `#fff`,
         theme_color: `#fff`,
         display: `standalone`,
-        icon: `assets/favicon.png`,
+        icon: `src/assets/favicon.png`,
       },
     },
   ],
