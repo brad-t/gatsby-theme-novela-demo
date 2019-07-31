@@ -37,7 +37,7 @@ module.exports = {
       options: {
         contentPosts: "content/posts",
         contentAuthors: "content/authors",
-        basePath: "/test",
+        basePath: "/",
       },
     },
     {
