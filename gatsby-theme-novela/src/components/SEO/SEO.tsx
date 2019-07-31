@@ -67,7 +67,8 @@ function SEO({
   const site = results.allSite.edges[0].node.siteMetadata;
   const twitter = site.social.find(option => option.name === "twitter") || {};
 
-  const fullURL = (path: string) => `${site.siteUrl}${path}`;
+  const fullURL = (path: string) =>
+    path ? `${site.siteUrl}${path}` : site.siteUrl;
 
   const metaTags = [
     { charset: "utf-8" },
@@ -82,11 +83,6 @@ function SEO({
     {
       name: "theme-color",
       content: "#fff",
-    },
-    {
-      href:
-        "https://fonts.googleapis.com/css?family=Merriweather:400,700&display=swap",
-      rel: "stylesheet",
     },
     {
       rel: "canonical",
@@ -129,6 +125,11 @@ function SEO({
       htmlAttributes={{ lang: "en" }}
       meta={metaTags}
     >
+      <link
+        href="https://fonts.googleapis.com/css?family=Merriweather:400,700&display=swap"
+        rel="stylesheet"
+      />
+
       {children}
     </Helmet>
   );
