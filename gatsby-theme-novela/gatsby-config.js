@@ -18,7 +18,8 @@ module.exports = {
   siteMetadata: {
     title: `Narative`,
     name: `Narative`,
-    siteUrl: `https://narative.co`,
+    siteUrl: `https://novela.netlify.com`,
+    description: `This is my description that will be used in the meta tags and important for search results`,
     hero: {
       heading: `Perspectives on technology, design and business from the team at Narative.`,
       maxWidth: 652,

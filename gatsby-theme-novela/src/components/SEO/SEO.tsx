@@ -30,13 +30,31 @@ interface HelmetProps {
   url?: string;
   canonical?: string;
   contentType?: string;
-  published?: string;
-  updated?: string;
   category?: string;
   tags?: string;
   twitter?: string;
   timeToRead?: string;
 }
+
+const seoQuery = graphql`
+  {
+    allSite {
+      edges {
+        node {
+          siteMetadata {
+            description
+            social {
+              name
+              url
+            }
+            siteUrl
+            title
+          }
+        }
+      }
+    }
+  }
+`;
 
 function getMetaTags({
   title,
@@ -45,14 +63,14 @@ function getMetaTags({
   image,
   contentType,
   published,
-  updated,
-  category,
   pathname,
-  tags,
-  twitter,
   timeToRead,
 }: HelmetProps) {
-  const fullURL = path => `https://narative.co${path}`;
+  const results = useStaticQuery(seoQuery);
+  const site = results.allSite.edges[0].node.siteMetadata;
+  const twitter = site.social.find(option => option.name === "twitter") || {};
+
+  const fullURL = path => `${site.siteUrl}${path}`;
 
   const metaTags = [
     { charset: "utf-8" },
@@ -70,38 +88,33 @@ function getMetaTags({
     },
     {
       rel: "canonical",
-      href: `https://www.narative.co/${pathname &&
-        pathname.replace(/^\/+/g, "")}`,
+      href: fullURL(pathname),
     },
     { itemprop: "name", content: title },
-    { itemprop: "description", content: description },
-    { itemprop: "image", content: image },
-    { name: "description", content: description },
+    { itemprop: "description", content: site.description },
+    { itemprop: "image", content: fullURL(image) },
+    { name: "description", content: site.description },
 
     { name: "twitter:card", content: "summary_large_image" },
-    { name: "twitter:site", content: "Narative" },
+    { name: "twitter:site", content: site.name },
     { name: "twitter:title", content: title },
-    { name: "twitter:description", content: description },
-    { name: "twitter:creator", content: twitter || "Narative" },
+    { name: "twitter:description", content: site.description },
+    { name: "twitter:creator", content: twitter.url },
     {
       name: "twitter:image",
-      content: image,
+      content: fullURL(image),
     },
 
     { property: "og:title", content: title },
     { property: "og:type", content: contentType },
     { property: "og:url", content: url },
-    { property: "og:image", content: image },
-    { property: "og:description", content: description },
-    { property: "og:site_name", content: "Narative" },
+    { property: "og:image", content: fullURL(image) },
+    { property: "og:description", content: site.description },
+    { property: "og:site_name", content: site.name },
   ];
 
   if (published)
     metaTags.push({ name: "article:published_time", content: published });
-  if (updated)
-    metaTags.push({ name: "article:modified_time", content: updated });
-  if (category) metaTags.push({ name: "article:section", content: category });
-  if (tags) metaTags.push({ name: "article:tag", content: tags });
 
   if (timeToRead) {
     metaTags.push({ name: "twitter:label1", value: "Reading time" });
