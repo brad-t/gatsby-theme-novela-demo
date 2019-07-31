@@ -1,11 +1,9 @@
 import React from "react";
 import styled from "@emotion/styled";
 import { graphql, useStaticQuery } from "gatsby";
-// import { Link } from "gatsby";
 
 import Section from "@components/Section";
 import SocialLinks from "@components/SocialLinks";
-// import Logo from "@components/Logo";
 
 import mediaqueries from "@styles/media";
 

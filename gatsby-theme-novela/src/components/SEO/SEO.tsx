@@ -38,18 +38,7 @@ interface HelmetProps {
   timeToRead?: string;
 }
 
-const seoURL = path => `https://narative.co${path}`;
-
-// Twitter requires https to prepend any paths.
-const addHttps = path => {
-  if (path.substring(0, 5) === "https") return path;
-  return `https:${path}`;
-};
-
-const seoDescription =
-  "Narative brings decades of design, marketing and engineering expertise directly to your team. We help you build the products you've always dreamed of, and the ones you're yet to dream up.";
-
-const getMetaTags = ({
+function getMetaTags({
   title,
   description,
   url,
@@ -58,10 +47,13 @@ const getMetaTags = ({
   published,
   updated,
   category,
+  pathname,
   tags,
   twitter,
   timeToRead,
-}: HelmetProps) => {
+}: HelmetProps) {
+  const fullURL = path => `https://narative.co${path}`;
+
   const metaTags = [
     { charset: "utf-8" },
     {
@@ -76,20 +68,26 @@ const getMetaTags = ({
       name: "theme-color",
       content: "#000",
     },
+    {
+      rel: "canonical",
+      href: `https://www.narative.co/${pathname &&
+        pathname.replace(/^\/+/g, "")}`,
+    },
     { itemprop: "name", content: title },
     { itemprop: "description", content: description },
-    { itemprop: "image", content: addHttps(image) },
+    { itemprop: "image", content: image },
     { name: "description", content: description },
+
     { name: "twitter:card", content: "summary_large_image" },
     { name: "twitter:site", content: "Narative" },
     { name: "twitter:title", content: title },
     { name: "twitter:description", content: description },
     { name: "twitter:creator", content: twitter || "Narative" },
-
     {
       name: "twitter:image",
-      content: addHttps(image),
+      content: image,
     },
+
     { property: "og:title", content: title },
     { property: "og:type", content: contentType },
     { property: "og:url", content: url },
@@ -111,51 +109,20 @@ const getMetaTags = ({
   }
 
   return metaTags;
-};
+}
 
-const SEO = ({
-  children,
-  title,
-  description = seoDescription,
-  pathname,
-  canonical,
-  image,
-  contentType,
-  published,
-  updated,
-  category,
-  tags,
-  twitter,
-  timeToRead,
-}: HelmetProps) => {
+function SEO(props: HelmetProps) {
+  const { children, title } = props;
+
   return (
     <Helmet
       htmlAttributes={{ lang: "en" }}
       title={title}
-      link={[
-        {
-          rel: "canonical",
-          href: `https://www.narative.co/${pathname &&
-            pathname.replace(/^\/+/g, "")}`,
-        },
-      ]}
-      meta={getMetaTags({
-        title,
-        description,
-        contentType,
-        url: seoURL(pathname),
-        image,
-        published,
-        updated,
-        category,
-        tags,
-        twitter,
-        timeToRead,
-      })}
+      meta={getMetaTags(props)}
     >
       {children}
     </Helmet>
   );
-};
+}
 
 export default SEO;

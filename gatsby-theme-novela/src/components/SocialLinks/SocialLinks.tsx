@@ -2,7 +2,7 @@ import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import styled from "@emotion/styled";
 
-import * as SocialIcons from "../../icons/social";
+import * as SocialIcons from "../../icons/";
 import mediaqueries from "@styles/media";
 
 const icons = {
