@@ -5,6 +5,7 @@ module.exports = ({ routerProps, prevRouterProps, getSavedScrollPosition }) => {
   if (routerProps.location) {
     console.log(routerProps);
   }
+
   if (routerProps.location.action === "POP") {
     window.scrollTo(...currentPosition);
   } else {

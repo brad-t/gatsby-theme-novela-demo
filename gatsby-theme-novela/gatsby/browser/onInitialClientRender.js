@@ -26,6 +26,8 @@ function handleAccessibilityFocus() {
 }
 
 module.exports = () => {
+  localStorage.removeItem("previousPath");
+
   setTimeout(() => {
     handleAccessibilityFocus();
   }, 1000);

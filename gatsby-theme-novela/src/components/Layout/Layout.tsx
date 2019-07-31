@@ -10,16 +10,7 @@ import theme from "../../gatsby-plugin-theme-ui";
 import colors from "../../gatsby-plugin-theme-ui/colors";
 
 interface LayoutProps {
-  background?: string;
-  nav: {
-    fixed?: boolean;
-    offset?: boolean;
-    theme?: string;
-  };
-  footer: {
-    visible?: boolean;
-    theme?: string;
-  };
+  children: React.ReactChild;
 }
 
 /**
