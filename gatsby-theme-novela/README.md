@@ -185,7 +185,7 @@ to render Markdown, Code, JSX, images and more within your post body.
         └── images
 ```
 
-From here, you can being populating `index.mx`
+From here, you can begin populating `index.mx`
 
 <div>
 <img src="https://raw.githubusercontent.com/narative/gatsby-theme-novela-demo/master/assets/gatsby-theme-novela-divider.jpg" alt="gatsby-novela-theme figma link" width="371px" />
@@ -212,7 +212,7 @@ The ones that are special for this theme are `hero.heading`, `hero.maxWidth`, an
 ```js
 module.exports = {
   /**
-   * siteMetadata Used throughout the theme to gnereate the right SEO links,
+   * siteMetadata Used throughout the theme to generate the right SEO links,
    * social links, and homepage hero
    **/
   siteMetadata: {
@@ -306,7 +306,7 @@ Here you are able to override the styles for colors, fonts, prism, components, a
 
 > Component Shadowing let’s you replace the theme’s original file, gatsby-theme-blog/src/components/bio.js, with your own to implement any changes you need.
 
-To learn more about Component Shadowing we recomend reading [Gatsby's blog post about it](https://www.gatsbyjs.org/blog/2019-04-29-component-shadowing/) and the [official documentation](https://www.gatsbyjs.org/docs/theme-api/#shadowing).
+To learn more about Component Shadowing we recommend reading [Gatsby's blog post about it](https://www.gatsbyjs.org/blog/2019-04-29-component-shadowing/) and the [official documentation](https://www.gatsbyjs.org/docs/theme-api/#shadowing).
 
 <div>
 <img src="https://raw.githubusercontent.com/narative/gatsby-theme-novela-demo/master/assets/gatsby-theme-novela-divider.jpg" alt="gatsby-novela-theme figma link" width="371px" />
@@ -314,11 +314,10 @@ To learn more about Component Shadowing we recomend reading [Gatsby's blog post 
 
 ## Future
 
-This project is early in development and we are intersted in creating a more extensible experience with
-even better features out of the box.
+This project is early in development and we are interested in creating an even more extensible experience, and increased out-of-box functionality, including:
 
-- Data sources such as Prismic, Sanity, Contentful, Netlify CMS, etc.
+- Data sources such as Prismic, Sanity, Contentful, Netlify CMS, and others
 - Built in search with Algolia or similar
 - Tags, categories, and more
 - More theme variations
-- Even more customizability
+- More customization options
