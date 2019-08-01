@@ -1,10 +1,17 @@
-![gatsby-novela-theme accessibility demonstration](https://raw.githubusercontent.com/narative/gatsby-theme-novela-demo/master/assets/gatsby-theme-novela-accessibility.gif?token=AB5DABSRTTUFQP433XMLQN25JNX72)
+<a href="https://gatsby-theme-novela-hero.netlify.com" />
+<img src="https://raw.githubusercontent.com/narative/gatsby-theme-novela-demo/master/assets/gatsby-theme-novela-hero.jpg" alt="gatsby-novela-theme hero image" />
 
-![gatsby-novela-theme light dark theme demonstration](https://raw.githubusercontent.com/narative/gatsby-theme-novela-demo/master/assets/gatsby-theme-novela-light-dark.gif?token=AB5DABWZBYZ3YWRA6TIO64K5JNYCQ)
+<a href="https://figma.com" />
+<img src="https://raw.githubusercontent.com/narative/gatsby-theme-novela-demo/master/assets/gatsby-theme-novela-figma-cta.jpg" alt="gatsby-novela-theme figma link" width="371px"  />
+<img src="https://raw.githubusercontent.com/narative/gatsby-theme-novela-demo/master/assets/gatsby-theme-novela-divider.jpg" alt="gatsby-novela-theme figma link" width="371px" />
 
-# Gatsby Theme Novela
+<br />
+<br />
+<br />
 
-WIP
+<img src="https://raw.githubusercontent.com/narative/gatsby-theme-novela-demo/master/assets/gatsby-theme-novela-accessibility.gif" alt="gatsby-novela-theme accessibility demonstration" />
+
+<img src="https://raw.githubusercontent.com/narative/gatsby-theme-novela-demo/master/assets/gatsby-theme-novela-light-dark.gif" alt="gatsby-novela-theme light dark theme demonstration" />
 
 ## Installation
 
@@ -202,6 +209,35 @@ module.exports = {
   ],
 };
 ```
+
+## Customizing Novela
+
+### Styles
+
+If you want to customize Novela it's possible thanks to how Gatsby themes work. To customize the styling
+you must create a folder, `gatsby-plugin-theme-ui` and apply your Theme UI overrides there.
+
+```
+  my-gatsby-site
+  └── src
+    └── gatsby-plugin-theme-ui
+      └── index.js
+```
+
+To preserve the default styles make sure you import the `theme` from `gatsby-theme-novela`.
+Here you are able to override the styles for colors, fonts, prism, components, and more.
+
+### Components
+
+[Component Shadowing](https://www.gatsbyjs.org/blog/2019-04-29-component-shadowing/) allows users to override a component in order to customize its rendering.
+
+> Gatsby Themes introduce a concept called Component Shadowing. This feature allows users to override a component in order to customize its rendering.
+
+> With other theming approaches it’s impossible to change aspects of a theme if a configuration option hasn’t been built in. Component Shadowing provides a powerful escape hatch to let users make quick, one-off changes that might not make sense to support in the theme itself.
+
+> Component Shadowing let’s you replace the theme’s original file, gatsby-theme-blog/src/components/bio.js, with your own to implement any changes you need.
+
+To learn more about Component Shadowing we recomend reading [Gatsby's blog post about it](https://www.gatsbyjs.org/blog/2019-04-29-component-shadowing/) and the [official documentation](https://www.gatsbyjs.org/docs/theme-api/#shadowing).
 
 ## Future
 
