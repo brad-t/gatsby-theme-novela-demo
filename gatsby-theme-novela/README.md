@@ -1,9 +1,14 @@
 <a href="https://gatsby-theme-novela-hero.netlify.com" />
 <img src="https://raw.githubusercontent.com/narative/gatsby-theme-novela-demo/master/assets/gatsby-theme-novela-hero.jpg" alt="gatsby-novela-theme hero image" />
 
+<div>
 <a href="https://figma.com" />
 <img src="https://raw.githubusercontent.com/narative/gatsby-theme-novela-demo/master/assets/gatsby-theme-novela-figma-cta.jpg" alt="gatsby-novela-theme figma link" width="371px"  />
+</div>
+
+<div>
 <img src="https://raw.githubusercontent.com/narative/gatsby-theme-novela-demo/master/assets/gatsby-theme-novela-divider.jpg" alt="gatsby-novela-theme figma link" width="371px" />
+</div>
 
 <br />
 <br />
