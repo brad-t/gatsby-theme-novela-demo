@@ -1,6 +1,6 @@
-![gatsby-novela-theme accessibility demonstration](https://raw.githubusercontent.com/narative/gatsby-theme-novela-demo/master/assets/gatsby-theme-novela-accessibility.gif)
+![gatsby-novela-theme accessibility demonstration](https://raw.githubusercontent.com/narative/gatsby-theme-novela-demo/master/assets/gatsby-theme-novela-accessibility.gif?token=AB5DABSRTTUFQP433XMLQN25JNX72)
 
-![gatsby-novela-theme light dark theme demonstration](https://raw.githubusercontent.com/narative/gatsby-theme-novela-demo/master/assets/gatsby-theme-novela-light-dark.gif)
+![gatsby-novela-theme light dark theme demonstration](https://raw.githubusercontent.com/narative/gatsby-theme-novela-demo/master/assets/gatsby-theme-novela-light-dark.gif?token=AB5DABWZBYZ3YWRA6TIO64K5JNYCQ)
 
 # Gatsby Theme Novela
 
