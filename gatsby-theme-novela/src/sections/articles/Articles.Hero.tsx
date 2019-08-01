@@ -199,7 +199,7 @@ const GridButton = styled.button<{ active: boolean }>`
   }
 
   &:hover {
-    background: rgba(0, 0, 0, 0.07);
+    background: ${p => p.theme.colors.hover};
   }
 
   &[data-a11y="true"]:focus::after {
