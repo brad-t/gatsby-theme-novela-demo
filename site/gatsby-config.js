@@ -5,7 +5,7 @@ module.exports = {
     siteUrl: `https://gatsby-theme-novela.netlify.com`,
     description: `This is my description that will be used in the meta tags and important for search results`,
     hero: {
-      heading: `Perspectives on technology, design and business from the team at Narative.`,
+      heading: `Welcome to Novela, the simplest way to start publishing with Gatsby.`,
       maxWidth: 652,
     },
     social: [
