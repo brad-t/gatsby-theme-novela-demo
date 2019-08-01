@@ -1,3 +1,7 @@
+![gatsby-novela-theme accessibility demonstration](https://raw.githubusercontent.com/narative/gatsby-theme-novela-demo/master/assets/gatsby-theme-novela-accessibility.gif)
+
+![gatsby-novela-theme light dark theme demonstration](https://raw.githubusercontent.com/narative/gatsby-theme-novela-demo/master/assets/gatsby-theme-novela-light-dark.gif)
+
 # Gatsby Theme Novela
 
 WIP
@@ -102,7 +106,7 @@ excerpt: This is a love story about Narative and Gatsby
 As you can see, Novela allows you to write posts in [MDX](https://mdxjs.com/). This gives you the ability
 to render Markdown, Code, JSX, images and more within your post body.
 
-### The recommended pattern for creating new posts
+### Recommended folder pattern for posts
 
 ```
   my-gatsby-site
