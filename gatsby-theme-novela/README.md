@@ -2,7 +2,7 @@
 <img src="https://raw.githubusercontent.com/narative/gatsby-theme-novela-demo/master/assets/gatsby-theme-novela-hero.jpg" alt="gatsby-novela-theme hero image" />
 
 <div>
-<a href="https://figma.com" />
+<a href="https://www.narative.co/design/open/novela" />
 <img src="https://raw.githubusercontent.com/narative/gatsby-theme-novela-demo/master/assets/gatsby-theme-novela-figma-cta.jpg" alt="gatsby-novela-theme figma link" width="371px"  />
 </div>
 
@@ -60,6 +60,10 @@ plugins: [
   },
 ];
 ```
+
+<div>
+<img src="https://raw.githubusercontent.com/narative/gatsby-theme-novela-demo/master/assets/gatsby-theme-novela-divider.jpg" alt="gatsby-novela-theme figma link" width="371px" />
+</div>
 
 ## Adding Authors & Posts
 
@@ -130,6 +134,10 @@ to render Markdown, Code, JSX, images and more within your post body.
 ```
 
 From here, you can being populating `index.mx`
+
+<div>
+<img src="https://raw.githubusercontent.com/narative/gatsby-theme-novela-demo/master/assets/gatsby-theme-novela-divider.jpg" alt="gatsby-novela-theme figma link" width="371px" />
+</div>
 
 ### Configuring siteMetadata
 
@@ -215,6 +223,10 @@ module.exports = {
 };
 ```
 
+<div>
+<img src="https://raw.githubusercontent.com/narative/gatsby-theme-novela-demo/master/assets/gatsby-theme-novela-divider.jpg" alt="gatsby-novela-theme figma link" width="371px" />
+</div>
+
 ## Customizing Novela
 
 ### Styles
@@ -243,6 +255,10 @@ Here you are able to override the styles for colors, fonts, prism, components, a
 > Component Shadowing let’s you replace the theme’s original file, gatsby-theme-blog/src/components/bio.js, with your own to implement any changes you need.
 
 To learn more about Component Shadowing we recomend reading [Gatsby's blog post about it](https://www.gatsbyjs.org/blog/2019-04-29-component-shadowing/) and the [official documentation](https://www.gatsbyjs.org/docs/theme-api/#shadowing).
+
+<div>
+<img src="https://raw.githubusercontent.com/narative/gatsby-theme-novela-demo/master/assets/gatsby-theme-novela-divider.jpg" alt="gatsby-novela-theme figma link" width="371px" />
+</div>
 
 ## Future
 
