@@ -32,7 +32,7 @@ function ArticlesGridRows({ articles }: { articles: IArticleNode[] }) {
               <Title dark>{article.title}</Title>
               <Excerpt>{article.excerpt}</Excerpt>
               <MetaData>
-                {article.date} · {article.timeToRead}min read
+                {article.date} · {article.timeToRead} min read
               </MetaData>
             </div>
           </GridRow>

@@ -1,9 +1,9 @@
-<a href="https://gatsby-theme-novela-hero.netlify.com" />
+<a href="https://gatsby-theme-novela-hero.netlify.com" target="_blank" />
 <img src="https://raw.githubusercontent.com/narative/gatsby-theme-novela-demo/master/assets/gatsby-theme-novela-hero.jpg" alt="gatsby-novela-theme hero image" />
 
 <div>
-<a href="https://www.narative.co/design/open/novela" />
-<img src="https://raw.githubusercontent.com/narative/gatsby-theme-novela-demo/master/assets/gatsby-theme-novela-figma-cta.jpg" alt="gatsby-novela-theme figma link" width="371px"  />
+<a href="https://www.narative.co/design/open/novela" target="_blank" />
+<img src="https://raw.githubusercontent.com/narative/gatsby-theme-novela-demo/master/assets/gatsby-theme-novela-figma-cta.jpg" alt="gatsby-novela-theme figma link" width="371px" />
 </div>
 
 <div>
@@ -18,6 +18,21 @@
 
 <img src="https://raw.githubusercontent.com/narative/gatsby-theme-novela-demo/master/assets/gatsby-theme-novela-light-dark.gif" alt="gatsby-novela-theme light dark theme demonstration" />
 
+# Novela — A Gatsby theme by Narative
+
+With minimal styling and maximum features — including multiple homepage layouts, built-in social sharing and dark mode — Novela makes it easy to start publishing beautiful articles and stories with Gatsby.
+
+Novela is built by the team at [Narative](https://www.narative.co), and built for everyone that loves the web.
+
+## Table of Contents
+
+- [Getting Started](#installation)
+  - [Authors & Posts](#adding-authors--posts)
+  - [Site Metadata](#configuring-sitemetadata)
+  - [Customization](#customizing-novela)
+
+## Why use Novela?
+
 ## Installation
 
 ```sh
@@ -25,7 +40,7 @@
   yarn add @narative/gatsby-theme-novela
 ```
 
-### Configuring Novela Theme Plugin
+## Configuring Novela Theme Plugin
 
 You can customize the path of the generated site or where you store your authors and posts.
 This can be done through the `options` key in the `gatsby-theme-novela` object.

@@ -25,8 +25,7 @@ const ArticleHero = ({
           </HeroAvatar>
           <strong>{author.name}</strong>
           <HideOnMobile>,&nbsp;</HideOnMobile> {article.date} ·{" "}
-          {article.timeToRead}
-          min read
+          {article.timeToRead} min read
         </HeroSubtitle>
       </Header>
       <Image id="ArticleImage__Hero">
