@@ -16,13 +16,16 @@ With minimal styling and maximum features — including multiple homepage layout
 
 Novela is built by the team at [Narative](https://www.narative.co), and built for everyone that loves the web.
 
-### Skip to:
+#### Skip to
 
-- [Why use Novela?](#why-use-novela)
 - [Getting Started](#installation)
 - [Authors & Posts](#adding-authors--posts)
 - [Site Metadata](#configuring-sitemetadata)
 - [Customization](#customizing-novela)
+
+<div>
+<img src="https://raw.githubusercontent.com/narative/gatsby-theme-novela-demo/master/assets/gatsby-theme-novela-divider.jpg" alt="gatsby-novela-theme figma link" width="371px" />
+</div>
 
 ## Why use Novela?
 
